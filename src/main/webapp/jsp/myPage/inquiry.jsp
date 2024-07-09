@@ -84,37 +84,34 @@
           </thead>
            <div class="nav1">
             <ol class="paging">
-				<c:set var="page" value="${requestScope.page}"/>
-				
-				<c:if test="${page.startPage < page.pagePerBlock }">
+				<c:if test="${page.startPage < page.pagePerBlock}">
 					<li class="disable">&lt;</li>
 				</c:if>
-			
-				<c:if test="${page.startPage >= page.pagePerBlock }">
-				
-				<li><a href="Controller?type=inquiry&cPage=${page.nowPage-page.pagePerBlock }">&lt;</a></li>
+				<c:if test="${page.startPage >= page.pagePerBlock}">
+					<li class=""><a
+						href="Controller?type=inquiry&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
 				</c:if>
-			
-				<c:forEach begin="${page.startPage }" end="${page.endPage }" varStatus="vs">
-				<c:if test="${vs.index eq page.nowPage }">
-				<li class="now">${vs.index}</li>
-			    </c:if> 
-			    <c:if test="${vs.index ne page.nowPage }">
-				<li><a href="Controller?type=inquiry&cPage=${vs.index}">${vs.index}</a></li>
-				</c:if>
+				<!-- <div class="nav"> -->
+				<c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
+					<c:if test="${i == page.nowPage}">
+						<li class="now">${i}</li>
+					</c:if>
+					<c:if test="${i != page.nowPage}">
+						<li class=" "><a
+							href="Controller?type=inquiry&cPage=${i}">${i}</a></li>
+					</c:if>
 				</c:forEach>
-			
-			
-				<c:if test="${page.endPage < page.totalPage }">
-					
-					<li><a href="Controller?type=inquiry&cPage=${page.nowPage+page.pagePerBlock}">&gt;</a></li>
-				</c:if>
-				
-				<c:if test="${page.endPage > page.totalPage }">	
-					<li class="disable">&gt;</li>
-				</c:if>	
 
-              </ol>
+
+				<c:if test="${page.endPage < page.totalPage}">
+					<li class=""><a
+						href="Controller?type=inquiry&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+				</c:if>
+				<c:if test="${page.endPage >= page.totalPage}">
+					<li class=" disable">&gt;</li>
+				</c:if>
+
+			</ol>
           </div>
           <tbody>
 			 <c:forEach items="${ivo}" var="vo" varStatus="vs"> 

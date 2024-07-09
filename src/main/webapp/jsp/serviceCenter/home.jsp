@@ -112,7 +112,7 @@
                   <div class="item-link-2"><div class="text-wrapper-15"><a href="${pageContext.request.contextPath}/Controller?type=faq">자주 묻는 질문</a></div></div>
                   <div class="link-13"><div class="text-wrapper-16"><a href="${pageContext.request.contextPath}/Controller?type=notice">공지사항</a></div></div>
                   <div class="item-link-3"><div class="text-wrapper-17"><a href="${pageContext.request.contextPath}/Controller?type=home"><%-- 고객센터 홈 --%></a></div></div>
-                  <div class="link-14"><div class="text-wrapper-18"><a href="${pageContext.request.contextPath}/jsp/serviceCenter/inquiry.jsp" id="my_7">1:1문의</a></div></div>
+                  <div class="link-14"><div class="text-wrapper-18"><a href="Controller?type=sinquiry" id="my_7">1:1문의</a></div></div>
                 </div>
               </div>
             </div>

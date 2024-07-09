@@ -144,12 +144,6 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous"></script>
 <script type="text/javascript">
-function del(){
-	console.log("하이")
-	let movieCd = $("input[name='movieCd']:checked").val();
-	$("#movieCD").val(movieCd);
-	$("#screenDelete").submit();
-}
     let date;
     let name, time;
 
@@ -330,7 +324,7 @@ function del(){
 
             if (dayDate.getDate() === currentDate) { // 오늘 날짜일 경우
                 $dayElement.addClass('selected');
-                const $dayNameElement = $('<span></span>').addClass('day-name').addClass("now").text('오늘');
+                const $dayNameElement = $('<span></span>').addClass('day-name').addClass("nows").text('오늘');
                 $dateElement.addClass('today').css('color', 'white'); // 오늘 날짜에는 하얀색 글자 적용
                 $dayElement.append($dayNameElement);
             } else {
@@ -391,6 +385,8 @@ function del(){
             event.preventDefault();
         }
     });
+    
+    
 
 </script>
 </body>

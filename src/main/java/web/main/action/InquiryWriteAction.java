@@ -1,6 +1,7 @@
 package web.main.action;
 
 import web.mybatis.dao.SinquiryDAO;
+import web.mybatis.vo.MemberVO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,14 +15,14 @@ public class InquiryWriteAction implements Action {
 
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		
-		Object uCodeObj = request.getSession().getAttribute("u_code"); 
-		
-		int u_code;
 
-		 if (uCodeObj != null) {
-		     u_code = (int)uCodeObj; // Integer로 형변환
-		     request.getSession().setAttribute("u_code", u_code);
+		Object obj = request.getSession().getAttribute("mvo");
+		MemberVO mvo = (MemberVO) obj;
+
+		 if (mvo != null) {
+			 request.getSession().setAttribute("u_code", mvo.getU_code());
+			 Object uCodeObj = request.getSession().getAttribute("u_code");
+			 int u_code = (int)uCodeObj; // Integer로 형변환
 		     int cnt = SinquiryDAO.add(u_code, title, content); 
 		     request.getSession().setAttribute("successMessage", "문의가 등록되었습니다.");
 		     return "jsp/serviceCenter/inquiry_success.jsp";
