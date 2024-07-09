@@ -159,8 +159,8 @@
 	</select>
 	<!-- 공지사항 넣기 -->
 	<insert id="insertNotice" parameterType="web.mybatis.vo.NoticeVO">
-	INSERT INTO notice(nt_ct_code,n_title,n_content,n_time,n_status)
-	VALUES(#{nt_ct_code},#{n_title},#{n_content},#{n_time},#{n_status}) 
+	INSERT INTO notice(nt_ct_code, n_title, n_content, n_time, n_status)
+	VALUES(#{nt_ct_code}, #{n_title}, #{n_content}, #{n_time}, #{n_status}) 
 	</insert>
 	<!-- 공지사항 삭제 -->
 	<delete id="deleteNotice" parameterType="web.mybatis.vo.NoticeVO">
