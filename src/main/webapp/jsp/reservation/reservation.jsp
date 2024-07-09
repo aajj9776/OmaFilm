@@ -341,7 +341,7 @@
             <div class="modal_frame"><div class="modal_text-wrapper">비회원 로그인</div></div>
           </div>
           <div class="form">
-            <button class="button"><div class="div" onclick="noReservation()">확인</div></button>
+            <button class="button"><div class="div">확인</div></button>
             <div class="form-2">
               <div class="row-2">
                 <div class="cell"><div class="label-2">인증번호</div></div>
@@ -424,7 +424,6 @@ function sendEmail() {
         alert("이메일을 입력해주세요.");
         return;
     }
-
     // jQuery AJAX를 사용하여 서버에 이메일을 보냅니다.
     $.ajax({
         type: "POST",

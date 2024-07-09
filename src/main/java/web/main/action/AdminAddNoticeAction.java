@@ -24,7 +24,7 @@ public class AdminAddNoticeAction implements Action{
 	            content == null || content.isEmpty()) {
         		System.out.println("값 없음");
 	            return "jsp/admin/adminAddNotice.jsp";
-	        }
+        }
         //만약에 해당 값이 하나도 없다면 그냥 바로 넘기기
         System.out.println("값 있음");
         String nt_ct_code = "1";	//일단 공지사항은 1로 고정=>향후 의논에 따라 변경 할 수 있음
@@ -41,6 +41,6 @@ public class AdminAddNoticeAction implements Action{
         dao.insertNotice(notice);
         System.out.println("공지등록성공");
         
-		return "jsp/admin/adminAddNotice.jsp";
+		return "jsp/admin/adminAddMovie.jsp";
 	}
 }

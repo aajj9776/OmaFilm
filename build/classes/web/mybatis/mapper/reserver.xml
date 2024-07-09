@@ -84,7 +84,7 @@
     
     <select id="selectReserverInfo" resultMap="map1" parameterType="Map">
     SELECT r.rsvr_code, r.non_email, r.non_name, r.rsvr_time, p.p_content
-    		, p_tt_price, ss.s_code, sc.t_name, sc.ss_time, rr.rs_count, rr.rs_num, r.non_name
+    		, p_tt_price, ss.s_code, sc.t_name, sc.ss_time, rr.rs_count, rr.rs_num
     		, m.movieNm, p.p_method, p.p_ex_price, p.p_tt_price, p.p_time, m.movieCd, m.m_file
    		FROM reserver r
     	INNER JOIN reservation rr
