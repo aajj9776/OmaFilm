@@ -9,6 +9,9 @@
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css"/>
+    <% ServletContext application2 = request.getServletContext();
+    String realPath = application2.getRealPath("/img/");//절대경로 생성
+    request.setAttribute("realPath",realPath);%>
 </head>
 <body>
 <jsp:include page="jsp/header/header.jsp"/>
@@ -30,7 +33,8 @@
 		                                    </div>
 		                                    <div class="div"><fmt:parseDate value="${ear.n_time}" pattern="yyyy-MM-dd HH:mm:ss" var="parsedDate"/>
     							<fmt:formatDate value="${parsedDate}" pattern="yyyy.MM.dd" />~소진시 까지</div>
-		                                    <div class="container-2" style="background-image: url('${ear.n_banner}'); background-size: cover; background-repeat: no-repeat; background-position: center;"></div>
+		                                    <div class="container-2" style="background-image: url('${pageContext.request.contextPath}/img/${ear.n_banner}'); background-size: cover; background-repeat: no-repeat; background-position: center;"></div>
+
 		                                </div>
 									</a>
 								</c:if>

@@ -159,8 +159,8 @@
 	</select>
 	<!-- 공지사항 넣기 -->
 	<insert id="insertNotice" parameterType="web.mybatis.vo.NoticeVO">
-	INSERT INTO notice(nt_ct_code,n_title,n_content,n_time,n_status)
-	VALUES(#{nt_ct_code},#{n_title},#{n_content},#{n_time},#{n_status}) 
+	INSERT INTO notice(nt_ct_code, n_title, n_content, n_time, n_status)
+	VALUES(#{nt_ct_code}, #{n_title}, #{n_content}, #{n_time}, #{n_status}) 
 	</insert>
 	<!-- 공지사항 삭제 -->
 	<delete id="deleteNotice" parameterType="web.mybatis.vo.NoticeVO">
@@ -226,7 +226,7 @@
    select *
    from notice
    <where>
-    (nt_ct_code = 3 OR nt_ct_code = 4)
+    (nt_ct_code = 2 OR nt_ct_code = 3)
         <if test="n_none != null and n_none != ''">
             n_none = #{n_none}
         </if>
@@ -245,17 +245,18 @@
 	select *
 	from notice
 	<where>
-			<if test="searchTerm != null and searchTerm != ''">
+        nt_ct_code = 2 or nt_ct_code = 3
+        <if test="searchTerm != null and searchTerm.trim() != ''">
             <choose>
                 <when test="searchCategory == 'n_title'">
-                    n_title LIKE CONCAT('%', #{searchTerm}, '%')
+                    AND n_title LIKE CONCAT('%', #{searchTerm}, '%')
                 </when>
                 <when test="searchCategory == 'n_content'">
-                    n_content LIKE CONCAT('%', #{searchTerm}, '%')
+                    AND n_content LIKE CONCAT('%', #{searchTerm}, '%')
                 </when>
             </choose>
         </if>
-	</where>
+    </where>
 	</select>
 
 	

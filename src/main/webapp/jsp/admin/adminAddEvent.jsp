@@ -36,8 +36,8 @@
                   <div class="data">
                     <div class="button">
                       <select name="eventType" id="eventType" class="container">
-                      <option value="3">이벤트</option>
-                      <option value="4">혜택</option>
+                      <option value="2">이벤트</option>
+                      <option value="3">혜택</option>
                     </select>
                     </div>
                    </div>
@@ -80,7 +80,7 @@
                   </div>
                 </div>
               <button type="submit" class="button-2"
-             onclick="return handleSubmit()" value="adminAddEvent"><div class="text-wrapper-6">등록</div></button>
+             onclick="handleSubmit()" value="adminAddEvent"><div class="text-wrapper-6">등록</div></button>
                  <button class="button-3" id="list-link"><div class="text-wrapper-7">목록</div></button>
               </div>
             </div>
