@@ -388,9 +388,9 @@ $('#pw1').keyup(function () {
 		$("#nTotalCount").val(totalCount);
 		$("#nCheckSeat").val(seats);
 
-		$("#non_name").val(name)
-		$("#non_email").val(email)
-		$("#non_pw").val(pw)
+		$("#non_name").val(nonName)
+		$("#non_email").val(nonEmail)
+		$("#non_pw").val(nonPw)
 		
 		if( name == "" ){
 			alert("이름을 입력해주세요");

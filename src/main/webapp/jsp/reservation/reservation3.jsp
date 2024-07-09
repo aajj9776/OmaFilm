@@ -373,7 +373,6 @@ $('#pw1').keyup(function () {
 	}
 	
 	function noReservation(){
-
 		
 		let adult = $("#adult").text();
 		let teen = $("#teen").text();
@@ -388,19 +387,19 @@ $('#pw1').keyup(function () {
 		$("#nTotalCount").val(totalCount);
 		$("#nCheckSeat").val(seats);
 
-		$("#non_name").val(name)
-		$("#non_email").val(email)
-		$("#non_pw").val(pw)
+		$("#non_name").val(nonName)
+		$("#non_email").val(nonEmail)
+		$("#non_pw").val(nonPw)
 		
-		if( name == "" ){
+		if( nonName == "" ){
 			alert("이름을 입력해주세요");
 			return
 		}
-		if( email == "" ){
+		if( nonEmail == "" ){
 			alert("이메일을 입력해주세요");
 			return
 		}
-		if( pw == "" ){
+		if( nonPw == "" ){
 			alert("이름을 입력해주세요");
 			return
 		}
