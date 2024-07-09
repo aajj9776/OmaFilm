@@ -38,13 +38,14 @@
         var birth_day = "<%=birth_day%>";
         var mobile = "<%=mobile%>";
 
-        console.log(id)
-        console.log(name)
-        console.log(email)
-        console.log(birth_year)
-        console.log(birth_month)
-        console.log(birth_day)
-        console.log(mobile)
+        console.log("id : " + id);
+        console.log("name : " + name);
+        console.log("email : " + email);
+        console.log("birth_year : " + birth_year);
+        console.log("birth_month : " + birth_month);
+        console.log("birth_day : " + birth_day);
+        console.log("mobile : " + mobile);
+
 
         //아이디 이름 이메일이 존재하고 널이 아닐떄만 뜨는 함수
         if (id && name && email && id != "null" && name != "null" && email != "null") {
