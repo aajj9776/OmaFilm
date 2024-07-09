@@ -20,7 +20,7 @@ public class EventDetailAction implements Action {
 		
 		request.setAttribute("evo", evo);
 		
-		return "/jsp/event/eventdetail.jsp";
+		return "jsp/event/eventdetail.jsp";
 
 	}
 

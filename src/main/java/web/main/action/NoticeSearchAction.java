@@ -19,6 +19,8 @@ public class NoticeSearchAction implements Action {
 		String cPage = request.getParameter("cPage");
 		String n_title = request.getParameter("n_title");
 		String type=request.getParameter("type");
+		request.getSession().setAttribute("pretype", type);
+		request.getSession().setAttribute("sn_title", n_title);
 		
 		if (n_title != null) {
 			n_title = n_title.replaceAll("\\s+", ""); // 공백 제거
@@ -53,7 +55,7 @@ public class NoticeSearchAction implements Action {
 		
 		
 		
-		return "/jsp/serviceCenter/notice.jsp";
+		return "jsp/serviceCenter/notice.jsp";
 	}
 
 
