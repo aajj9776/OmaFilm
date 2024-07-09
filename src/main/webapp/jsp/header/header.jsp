@@ -78,7 +78,7 @@
             </a>
             <a href="${pageContext.request.contextPath}/Controller?type=selectTime"><img class="nav_item_5"
                                                                                          src="${pageContext.request.contextPath}/img/header/link-1.png"/></a>
-            <a href="${pageContext.request.contextPath}/Controller?type=myHome"><img class="nav_item_6"
+            <a href="${pageContext.request.contextPath}/Controller?type=myHome" id="my_22"><img class="nav_item_6"
                                                                                      src="${pageContext.request.contextPath}/img/header/link-2.png"/></a>
 
             <a href="${pageContext.request.contextPath}/Controller?type=selectTime">

@@ -6,9 +6,8 @@
 <html> 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminMovieGlobals.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminMovieDbStyle.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminSelectTimeglobals.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminSelectTimeStyle.css" />
 </head>
 <body>

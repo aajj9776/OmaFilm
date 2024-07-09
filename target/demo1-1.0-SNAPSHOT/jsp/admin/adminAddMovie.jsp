@@ -6,7 +6,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminAddMovieGlobals.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminAddMovieStyle.css" />
   </head>
   <body>

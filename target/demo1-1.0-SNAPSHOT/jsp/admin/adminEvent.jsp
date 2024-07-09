@@ -6,8 +6,8 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<link rel="stylesheet" href="css/admin/adminEventStyle.css" />
-<link rel="stylesheet" href="css/admin/adminEventGlobals.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminEventStyle.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminEventGlobals.css" />
 </head>
 <body>
 	<div class="div-wrapper">
