@@ -11,11 +11,7 @@
     <div class="screen">
       <div class="container-wrapper">
         <div class="container">
-          <div class="overlap-group">
-              <img class="overlay" src="${pageContext.request.contextPath}/img/serviceCenter/directions/overlay.svg" />
              <jsp:include page="/jsp/header/header.jsp"/>
-            </div>
-          <jsp:include page="/jsp/footer/footer.jsp"/>
           <div class="heading">오시는 길</div>
           <p class="text-wrapper">주소 : 서울 강남구 테헤란로 132 한독약품빌딩 8층 (우)06235</p>
           <div id="map"></div>
@@ -29,7 +25,7 @@
                   <div class="item-link-2"><div class="text-wrapper-10"><a href="Controller?type=faq">자주 묻는 질문</a></div></div>
                   <div class="link-10"><div class="text-wrapper-11"><a href="Controller?type=notice">공지사항</a></div></div>
                   <div class="item-link-3"><div class="text-wrapper-12"><a href="Controller?type=directions"><%--오시는 길--%></a></div></div>
-                  <div class="link-11"><div class="text-wrapper-13"><a href="Controller?type=sinquiry">1:1문의</a></div></div>
+                  <div class="link-11"><div class="text-wrapper-13"><a href="${pageContext.request.contextPath}/jsp/serviceCenter/inquiry.jsp" id="my_12">1:1문의</a></div></div>
                 </div>
               </div>
             </div>
@@ -59,6 +55,7 @@
 		  // 마커 지도 위에 셋칭
 		  marker.setMap(map);
 		});
-	</script>    
+	</script>   
+	<jsp:include page="/jsp/footer/footer.jsp"/> 
   </body>
 </html>

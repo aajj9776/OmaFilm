@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html> 
 <head>
@@ -18,10 +19,10 @@
             <img class="element" src="img/adminMovie/1.png" />
             <div class="text-wrapper">관리자</div>
             <div class="list">
-              <div class="item-link"><div class="div">영화관리</div></div>
-              <div class="div-wrapper"><div class="text-wrapper-2">이벤트/혜택 관리</div></div>
-              <div class="item-link-2"><div class="text-wrapper-3">쿠폰관리</div></div>
-              <div class="item-link-2"><div class="text-wrapper-4">고객센터 관리</div></div>
+              <div class="item-link"><div class="div"><a href="Controller?type=adminMovieDb">영화관리</a></div></div>
+              <div class="div-wrapper"><div class="text-wrapper-2"><a href="Controller?type=adminEvent">이벤트/혜택 관리</a></div></div>
+              <div class="item-link-2"><div class="text-wrapper-3"><a href="Controller?type=adminCpHome">쿠폰관리</a></div></div>
+              <div class="item-link-2"><div class="text-wrapper-4"><a href="Controller?type=adminNotice">고객센터 관리</a></div></div>
             </div>
           </div>
           <div class="div-con-wrap">
@@ -30,9 +31,8 @@
               <div class="input">
                 <div class="container-2"><input type="text" id="search" name="search" class="text-wrapper-9" placeholder="영화제목을 입력해주세요"></div>
               </div>
-              <div class="button-2"></div>
             </div>
-            <div class="cell"><div class="text-wrapper-10">삭제</div></div>
+            
             <div class="cell-2"><div class="text-wrapper-11" onclick="dialog()">시간 추가</div></div>
        	 	<div id="myModal" class="modal">
        			<div class="modal-content">
@@ -45,7 +45,7 @@
               <div class="item-wrapper">
                 <div class="item">
                   <div class="link-12">
-                    <div class="text-wrapper-13">로그아웃</div>
+                    <div class="text-wrapper-13" id="logout"><a href="${pageContext.request.contextPath}/Controller?type=logout">로그아웃</a></div>
                     <div class="pseudo"></div>
                   </div>
                 </div>
@@ -57,42 +57,40 @@
             </div>
             <div class="heading">영화관리</div>
             
-                  <div class="nav1">
-                    <ol class="paging">
-
-                        <c:set var="page" value="${requestScope.page}"/>
-
-                        <c:if test="${page.startPage < page.pagePerBlock }">
-                            <li class="disable">&lt;</li>
-                        </c:if>
-
-                        <c:if test="${page.startPage >= page.pagePerBlock }">
-
-                            <li><a href="Controller?type=adminMovieDb&cPage=${page.nowPage-page.pagePerBlock }">&lt;</a></li>
-                        </c:if>
-
-                        <c:forEach begin="${page.startPage }" end="${page.endPage }" varStatus="vs">
-                            <c:if test="${vs.index eq page.nowPage }">
-                                <li class="now">${vs.index}</li>
-                            </c:if>
-                            <c:if test="${vs.index ne page.nowPage }">
-                                <li><a href="Controller?type=adminMovieDb&cPage=${vs.index}">${vs.index}</a></li>
-                            </c:if>
-                        </c:forEach>
+            	<div class="nav1">   <!-- 페이징 시작 -->
+				<div>
+					<ol class="paging">
+						<c:if test="${page.startPage < page.pagePerBlock}">
+							<li class="disable">&lt;</li>
+						</c:if>
+						<c:if test="${page.startPage >= page.pagePerBlock}">
+							<li class=""><a
+								href="Controller?type=adminMovieDbcPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
+						</c:if>
+						<!-- <div class="nav"> -->
+						<c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
+							<c:if test="${i == page.nowPage}">
+								<li class="now">${i}</li>
+							</c:if>
+							<c:if test="${i != page.nowPage}">
+								<li class=" "><a
+									href="Controller?type=adminMovieDb&cPage=${i}">${i}</a></li>
+							</c:if>
+						</c:forEach>
 
 
-                        <c:if test="${page.endPage < page.totalPage }">
+						<c:if test="${page.endPage < page.totalPage}">
+							<li class=""><a
+								href="Controller?type=adminMovieDb&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+						</c:if>
+						<c:if test="${page.endPage >= page.totalPage}">
+							<li class=" disable">&gt;</li>
+						</c:if>
 
-                            <li><a href="Controller?type=adminMovieDb&cPage=${page.nowPage+page.pagePerBlock}">&gt;</a></li>
-                        </c:if>
-
-                        <c:if test="${page.endPage >= page.totalPage }">
-                            <li class="disable">&gt;</li>
-                        </c:if>
-
-                    </ol>
-                </div>
-            
+					</ol>
+				</div>
+			</div>   <!-- 페이징 끝 -->
+            	
             <table class="movie-table">
                 <thead>
                 <tr>
@@ -103,12 +101,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="movie" items="${ar }" varStatus="num">
+                
+                <c:set var="len" value="${fn:length(ar)}" />
+	                <c:if test="${page.end<=len}">
+	                	<c:set var="end" value="${page.end}"/>
+	                </c:if>
+					<c:if test="${page.end>len}">
+						<c:set var="end" value="${len}" />
+					</c:if>
+						
+					<c:forEach var="i" begin="${page.begin}" end="${ end}" varStatus="status">
+					
                     <tr>
-                        <td><input type="checkbox" id="checkbox" name="movieCd" value="${movie.movieCd }"/></td>
-                        <td>${num.index + 1}</td>
-                        <td>${movie.movieNm}</td>
-                        <td>${movie.openDt}</td>
+                        <td><input type="checkbox" id="checkbox" name="movieCd" value="${ar[i-1].movieCd }"/></td>
+                        <td>${status.index}</td>
+                        <td>${ar[i-1].movieNm}</td>
+                        <td>${ar[i-1].openDt}</td>
                     </tr>
                 </c:forEach>
                 </tbody>
@@ -118,6 +126,10 @@
                 <input type="hidden" id="dateData" name="dateData" value="">
                 <input type="hidden" id="timeData" name="timeData" value="">
                 <input type="hidden" id="movieCd" name="movieCd" value="">
+            </form>
+            <form id="screenDelete" action="Controller?type=adminMovieDb" method="post">
+                <input type="hidden" id="movieCD_2" name="movieCd" value="">
+                <input type="hidden" id="delete" name="delete" value="delete">
             </form>
             
             <form id="searchDb" action="Controller?type=adminMovieDb" method="post">
@@ -132,7 +144,6 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous"></script>
 <script type="text/javascript">
-
     let date;
     let name, time;
 
@@ -141,7 +152,7 @@
     let checkMovie = null;
     let checkTime = null;
     let checkDate = null;
-
+    
 
     let $daysContainer = $('#days');
     let $monthContainer = $('#current-month');
@@ -154,7 +165,6 @@
     let daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
     let monthNames = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
 	
-    
     
     function search(){
     	let search = $("#search").val()
@@ -176,14 +186,17 @@
     $(function(){
 
         $("#sb").click(function(){
-            let movieCd = $("input[name='movieCd']:checked").val();
+            movieCd = $("input[name='movieCd']:checked").val();
             $("#nameData").val(name)
             $("#dateData").val(date)
             $("#timeData").val(time)
-
-
             $("#movieCd").val(movieCd)
-            $("#screenAdd").submit()
+            
+            if( movieCd != null && date != null && name != null && time != null){
+	            $("#screenAdd").submit()
+            } else {
+            	alert("다 선택해주세요")
+            }
 
         })
 
@@ -307,7 +320,7 @@
 
             if (dayDate.getDate() === currentDate) { // 오늘 날짜일 경우
                 $dayElement.addClass('selected');
-                const $dayNameElement = $('<span></span>').addClass('day-name').addClass("now").text('오늘');
+                const $dayNameElement = $('<span></span>').addClass('day-name').addClass("nows").text('오늘');
                 $dateElement.addClass('today').css('color', 'white'); // 오늘 날짜에는 하얀색 글자 적용
                 $dayElement.append($dayNameElement);
             } else {
@@ -360,7 +373,16 @@
         });
     })
 
-
+	//아이디가 로그아웃을 클릭했을때 로그아웃할거냐고 경고창
+    document.querySelector('#logout').addEventListener('click', function(event) {
+        var confirmLogout = confirm("로그아웃하시겠습니까?");
+        if (!confirmLogout) {
+            // 사용자가 취소를 클릭하면 이벤트를 중단합니다.
+            event.preventDefault();
+        }
+    });
+    
+    
 
 </script>
 </body>
