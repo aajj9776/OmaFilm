@@ -40,7 +40,8 @@
                         <c:forEach var="vo" items="${list }">
                             <div class="li">
                                 <div class="round">
-                                    <div class="img"></div>
+                                    <a href="Controller?type=moviedetail&movieCd=${vo.mvo.movieCd}">
+                                    <div class="img" style="background-image: url('${vo.mvo.m_file}'); background-size: cover; background-repeat: no-repeat; background-position: center;"></div></a>
                                     <div class="div">
                                     </div>
                                     <p class="p">

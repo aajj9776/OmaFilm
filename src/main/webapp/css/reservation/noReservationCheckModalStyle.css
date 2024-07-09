@@ -159,14 +159,14 @@
   width: 420px;
   height: 54px;
   top: -1px;
-  left: 0;
+  left: 10px;
   color: #000000;
   font-size: 20px;
   position: absolute;
   font-family: "Inter", Helvetica;
   font-weight: 400;
   letter-spacing: 0;
-  line-height: normal;
+  line-height: 54px;
 }
 
 .modal .frame-3 {
