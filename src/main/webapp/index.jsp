@@ -34,7 +34,6 @@
 		                                    <div class="div"><fmt:parseDate value="${ear.n_time}" pattern="yyyy-MM-dd HH:mm:ss" var="parsedDate"/>
     							<fmt:formatDate value="${parsedDate}" pattern="yyyy.MM.dd" />~소진시 까지</div>
 		                                    <div class="container-2" style="background-image: url('${pageContext.request.contextPath}/img/${ear.n_banner}'); background-size: cover; background-repeat: no-repeat; background-position: center;"></div>
-
 		                                </div>
 									</a>
 								</c:if>
@@ -83,7 +82,7 @@
 								<c:forEach var="bar" items="${bar }" varStatus="vs">
 								<c:if test="${vs.index < 4}">
                                 <a href="Controller?type=benefitdetail&n_idx=${bar.n_idx}">
-                                    <div class="link-7" style="background-image: url('${bar.n_banner}'); background-size: cover; background-repeat: no-repeat; background-position: center;"></div>
+                                    <div class="link-7" style="background-image: url('${pageContext.request.contextPath}/img/${bar.n_banner}'); background-size: cover; background-repeat: no-repeat; background-position: center;"></div>
                                 </a>
                                 </c:if>
 								</c:forEach>

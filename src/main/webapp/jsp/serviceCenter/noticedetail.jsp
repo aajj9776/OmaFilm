@@ -60,7 +60,7 @@
                   </div>
                 </div>
               </div>
-              <button class="button"><div class="text-wrapper-16"><a href="Controller?type=notice&cPage=${requestScope.page.nowPage}">목록</a></div></button>
+              <button class="button"><div class="text-wrapper-16"><a href="Controller?type=${pretype}&cPage=${requestScope.page.nowPage}&n_title=${sn_title}">목록</a></div></button>
             </div>
           </div>
         </div>

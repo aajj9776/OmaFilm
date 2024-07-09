@@ -9,7 +9,7 @@ public class DirectionsAction implements Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
-		return "/jsp/serviceCenter/directions.jsp";
+		return "jsp/serviceCenter/directions.jsp";
 	}
 
 }
