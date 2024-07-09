@@ -113,7 +113,7 @@
 					<c:forEach var="i" begin="${page.begin}" end="${ end}" varStatus="status">
 					
                     <tr>
-                        <td><input type="checkbox" id="checkbox" name="movieCd" value="${ar[i-1].movieCd }"/></td>
+                        <td><input type="radio" id="checkbox" name="movieCd" value="${ar[i-1].movieCd }"/></td>
                         <td>${status.index}</td>
                         <td>${ar[i-1].movieNm}</td>
                         <td>${ar[i-1].openDt}</td>
@@ -181,7 +181,11 @@ function del(){
     
     //모달창 열기
     function dialog() {
-        $("#myModal").css("display", "block");
+    	if ($('input[type="radio"]').is(':checked')) {
+            $("#myModal").css("display", "block");
+        } else {
+            alert("영화를 선택해주세요.");
+        }
     }
 
     // 모달창 닫기
@@ -191,15 +195,18 @@ function del(){
 
     $(function(){
 
-        $("#sb").click(function(){
+    	$("#sb").click(function(){
             movieCd = $("input[name='movieCd']:checked").val();
             $("#nameData").val(name)
             $("#dateData").val(date)
             $("#timeData").val(time)
-
-
             $("#movieCd").val(movieCd)
-            $("#screenAdd").submit()
+            
+            if( movieCd != null && date != null && name != null && time != null){
+	            $("#screenAdd").submit()
+            } else {
+            	alert("다 선택해주세요")
+            }
 
         })
 

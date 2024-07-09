@@ -45,7 +45,7 @@
 						</c:if>
 						<c:if test="${page.startPage >= page.pagePerBlock}">
 							<li class=""><a
-								href="Controller?type=adminCpHome&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
+								href="Controller?type=adminInquiry&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
 						</c:if>
 						<!-- <div class="nav"> -->
 						<c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
@@ -54,14 +54,14 @@
 							</c:if>
 							<c:if test="${i != page.nowPage}">
 								<li class=" "><a
-									href="Controller?type=adminCpHome&cPage=${i}">${i}</a></li>
+									href="Controller?type=adminInquiry&cPage=${i}">${i}</a></li>
 							</c:if>
 						</c:forEach>
 
 
 						<c:if test="${page.endPage < page.totalPage}">
 							<li class=""><a
-								href="Controller?type=adminCpHome&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+								href="Controller?type=adminInquiry&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
 						</c:if>
 						<c:if test="${page.endPage >= page.totalPage}">
 							<li class=" disable">&gt;</li>
