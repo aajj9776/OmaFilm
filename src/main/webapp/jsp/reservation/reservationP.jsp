@@ -218,7 +218,6 @@ function sendEmail() {
         alert("이메일을 입력해주세요.");
         return;
     }
-
     // jQuery AJAX를 사용하여 서버에 이메일을 보냅니다.
     $.ajax({
         type: "POST",
@@ -311,6 +310,10 @@ $('#pw1').keyup(function () {
 	let totalCount;
 	let totalPrice;
 	
+	let nonName = $("#nonName").val()
+	let nonEmail = $("#email").val()
+	let nonPw = $("#nonPw").val()
+	
 	function hoverEvent() {
 	    $('.rectangle').not('[style*="background-color: black"]').hover(
 	        function() {
@@ -326,9 +329,7 @@ $('#pw1').keyup(function () {
 	}
 	
 	function noReservation(){
-		let name = $("#name").val()
-		let email = $("#email").val()
-		let pw = $("#pw").val()
+
 		
 		let adult = $("#adult").text();
 		let teen = $("#teen").text();
@@ -346,6 +347,23 @@ $('#pw1').keyup(function () {
 		$("#non_name").val(name)
 		$("#non_email").val(email)
 		$("#non_pw").val(pw)
+		
+		if( name == "" ){
+			alert("이름을 입력해주세요");
+			return
+		}
+		if( email == "" ){
+			alert("이메일을 입력해주세요");
+			return
+		}
+		if( pw == "" ){
+			alert("이름을 입력해주세요");
+			return
+		}
+	 	if(sessionStorage.getItem("emailVerified") !== "true") {
+            alert("이메일 인증을 완료해주세요.");
+            return;
+        }
 		
 		$("#nonReserver").submit()
 	}
@@ -497,9 +515,7 @@ $('#pw1').keyup(function () {
 
 	function checkClick(num){
 		$(".text-wrapper-9").off("click");
-
 		if( num != null){
-
 			alert("최대"+(num-1) +"까지 선택할 수 있습니당")
 			location.reload()
 	   }
@@ -566,11 +582,12 @@ $(function(){
 	  
 	  // 페이지 로드 시 모달 표시
 	  modal.css("display", "none")
-	  
-	  // 닫기 버튼 클릭 시 모달 숨기기
-	  $(".div").click(function() {
-	    modal.hide();
-	  });
+	
+	  if( nonName != "" && nonEmail != "" && nonPw != ""){
+		  $(".div").click(function() {
+		    modal.hide();
+	  	});
+	  }
 	  
 	  // 모달 외부 클릭 시 모달 숨기기
 	  $(window).click(function(event) {
