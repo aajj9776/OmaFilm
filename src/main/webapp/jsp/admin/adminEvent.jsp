@@ -65,10 +65,10 @@
 									<div class="overlap-group-3">
 										<div class="data">
 										<c:choose>
-										    <c:when test="${eventList[i-1].nt_ct_code == 3}">
+										    <c:when test="${eventList[i-1].nt_ct_code == 2}">
 										        <div class="text-wrapper-6">이벤트</div>
 										    </c:when>
-										    <c:when test="${eventList[i-1].nt_ct_code == 4}">
+										    <c:when test="${eventList[i-1].nt_ct_code == 3}">
 										        <div class="text-wrapper-6">혜택</div>
 										    </c:when>
 										 </c:choose>
@@ -126,20 +126,20 @@
 				</div>
 				
 				<form id="searchForm" method="post" action="Controller?type=adminSearchEvent">
-				<div class="button">
-						<select id="searchCategory" name="searchCategory" class="text-wrapper-12">
-							<option value="n_title">제목</option>
-							<option value="n_content">내용</option>
-						</select>
-				</div>
-				<div class="border">
-					<div class="input">
-						<div class="container-2">
-							<input type="text" name="searchTerm" placeholder="검색어를 입력해 주세요." class="text-wrapper-13" />
-						</div>
+					<div class="button">
+							<select id="searchCategory" name="searchCategory" class="text-wrapper-12">
+								<option value="n_title">제목</option>
+								<option value="n_content">내용</option>
+							</select>
 					</div>
-					<button type="button" onclick="executeSearch()" class="button-2">검색</button>
-				</div>
+					<div class="border">
+						<div class="input">
+							<div class="container-2">
+								<input type="text" name="searchTerm" placeholder="검색어를 입력해 주세요." class="text-wrapper-13" />
+							</div>
+						</div>
+						<button type="button" onclick="executeSearch()" class="button-2">검색</button>
+					</div>
 				</form>
 				
 				

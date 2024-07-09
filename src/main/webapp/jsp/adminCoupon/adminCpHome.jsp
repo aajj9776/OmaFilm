@@ -40,6 +40,7 @@
 					</tr>
 				</thead>
 				<tbody>
+				    <c:if test="${not empty cpItemArr}">
 					<c:set var="len" value="${fn:length(cpItemArr)}" />
 	                <c:if test="${page.end<=len}">
 	                	<c:set var="end" value="${page.end}"/>
@@ -58,6 +59,7 @@
 		                    <td class="data-5">${cpItemArr[i-1].ci_time.split(" ")[0] }</td>
 	                	</tr>
 	                </c:forEach>
+	                </c:if>
 				</tbody>
 			</table>
             

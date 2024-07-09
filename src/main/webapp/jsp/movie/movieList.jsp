@@ -95,7 +95,6 @@
 							</c:if>
 						</c:forEach>
 
-
 						<c:if test="${page.endPage < page.totalPage}">
 							<li class=""><a
 								href="Controller?type=movielist&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>

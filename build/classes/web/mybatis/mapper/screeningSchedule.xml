@@ -33,6 +33,7 @@
         <where>
             AND t_name = #{t_name}
             AND ss_time = #{ss_time}
+            AND movieCd = #{movieCd}
         </where>
     </select>
 

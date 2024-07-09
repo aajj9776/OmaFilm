@@ -39,7 +39,6 @@ public class AdminMovieDbAction implements Action{
 
 		if( movieCd != null && delete == null && date != null && time != null ) {
 			int res = AdminDAO.insertScreen(sc);
-			return "jsp/admin/adminMovieDB.jsp";
 		}
 		
 		//rvo 페이징 처리
