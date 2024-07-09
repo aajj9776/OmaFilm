@@ -34,47 +34,41 @@
         <table class="table">
           <thead>
             <tr>
-              <th class="cell n_idx"><div class="text-wrapper-10">번호</div></th>
-              <th class="cell-2 title"><div class="text-wrapper-11">제목</div></th>
-              <th class="cell-3 n_time"><div class="text-wrapper-12">등록일</div></th>
+              <th class="cell n_idx" style="width: 15%;"><div class="text-wrapper-10">번호</div></th>
+              <th class="cell-2 title" style="width: 65%;"><div class="text-wrapper-11">제목</div></th>
+              <th class="cell-3 n_time" style="width: 20%;"><div class="text-wrapper-12">등록일</div></th>
             </tr>
           </thead>
           
           <div class="nav1">
             <ol class="paging">
-               
-         
-            <c:set var="page" value="${requestScope.page}"/>
-            
-            <c:if test="${page.startPage < page.pagePerBlock }">
-               <li class="disable">&lt;</li>
-            </c:if>
-         
-            <c:if test="${page.startPage >= page.pagePerBlock }">
-            
-            <li><a href="Controller?type=${requestScope.type}&cPage=${page.nowPage-page.pagePerBlock }">&lt;</a></li>
-            </c:if>
-         
-            <c:forEach begin="${page.startPage }" end="${page.endPage }" varStatus="vs">
-            <c:if test="${vs.index eq page.nowPage }">
-            <li class="now">${vs.index}</li>
-             </c:if> 
-             <c:if test="${vs.index ne page.nowPage }">
-            <li><a href="Controller?type=${requestScope.type}&cPage=${vs.index}&n_title=${n_title}">${vs.index}</a></li>
-            </c:if>
-            </c:forEach>
-         
-         
-            <c:if test="${page.endPage < page.totalPage }">
-               
-               <li><a href="Controller?type=${requestScope.type}&cPage=${page.startPage+page.pagePerBlock}">&gt;</a></li>
-            </c:if>
-            
-            <c:if test="${page.endPage > page.totalPage }">   
-               <li class="disable">&gt;</li>
-            </c:if>   
+				<c:if test="${page.startPage < page.pagePerBlock}">
+					<li class="disable">&lt;</li>
+				</c:if>
+				<c:if test="${page.startPage >= page.pagePerBlock}">
+					<li class=""><a
+						href="Controller?type=${requestScope.type}&cPage=${page.nowPage-page.pagePerBlock }">&lt;</a></li>
+				</c:if>
+				<!-- <div class="nav"> -->
+				<c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
+					<c:if test="${i == page.nowPage}">
+						<li class="now">${i}</li>
+					</c:if>
+					<c:if test="${i != page.nowPage}">
+						<li class=" "><a
+							href="Controller?type=${requestScope.type}&cPage=${i}&n_title=${n_title}">${i}</a></li>
+					</c:if>
+				</c:forEach>
 
-              </ol>
+				<c:if test="${page.endPage < page.totalPage}">
+					<li class=""><a
+						href="Controller?type=${requestScope.type}&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+				</c:if>
+				<c:if test="${page.endPage >= page.totalPage}">
+					<li class=" disable">&gt;</li>
+				</c:if>
+
+			</ol>
           </div>
           
           <tbody>         

@@ -251,6 +251,7 @@
       <div class="pay-button"><div class="pay-text">결제하기</div></div>
     </div>
   </div>
+<jsp:include page="/jsp/footer/footer.jsp"/>
 </div>
 
 <form action="" method="post">
@@ -263,7 +264,6 @@
   <!-- 최종 금액 -->
   <input type="hidden" id="FinalPrice" name="hiddenFinalPrice" value="<%=finalPrice%>">
 </form>
-<jsp:include page="/jsp/footer/footer.jsp"/>
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
