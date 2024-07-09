@@ -24,10 +24,10 @@
             String id = (String) session.getAttribute("social_id");
             String name = (String) session.getAttribute("social_name");
             String email = (String) session.getAttribute("social_email");
-            String birth_year = (String) request.getAttribute("birth_year");
-            String birth_month = (String) request.getAttribute("birth_month");
-            String birth_day = (String) request.getAttribute("birth_day");
-            String mobile = (String) request.getAttribute("mobile");
+            String birth_year = (String) session.getAttribute("birth_year");
+            String birth_month = (String) session.getAttribute("birth_month");
+            String birth_day = (String) session.getAttribute("birth_day");
+            String mobile = (String) session.getAttribute("mobile");
         %>
 
         var id= "<%=id%>";
@@ -37,6 +37,15 @@
         var birth_month = "<%=birth_month%>";
         var birth_day = "<%=birth_day%>";
         var mobile = "<%=mobile%>";
+
+        console.log("id : " + id);
+        console.log("name : " + name);
+        console.log("email : " + email);
+        console.log("birth_year : " + birth_year);
+        console.log("birth_month : " + birth_month);
+        console.log("birth_day : " + birth_day);
+        console.log("mobile : " + mobile);
+
 
         //아이디 이름 이메일이 존재하고 널이 아닐떄만 뜨는 함수
         if (id && name && email && id != "null" && name != "null" && email != "null") {
@@ -421,12 +430,13 @@
         var email_1 = $('#email_1').val();
         var email_2 = $('#email_2').val();
         var email_3 = $('#email_3').val();
-        var u_social = "0";
+        var u_social = 1;
+
         //session에 name과 id 토큰 이메일이 있을 때 u_social을 1로 바꿔준다.
         <%
             if (session.getAttribute("social_id") != null && session.getAttribute("social_name") != null && session.getAttribute("social_email") != null) {
         %>
-        u_social = "1";
+        u_social = "0";
         <%
             }
         %>

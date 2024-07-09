@@ -22,7 +22,6 @@ public class KakaoLoginAction implements Action{
         String id = request.getParameter("id");
         String token = request.getParameter("token");
 
-
         int cnt = LoginDAO.emailCheck(email);
         String result;
         
@@ -34,7 +33,6 @@ public class KakaoLoginAction implements Action{
             request.getSession().setAttribute("social_name", name);
             request.getSession().setAttribute("social_id", id);
             request.getSession().setAttribute("token", token);
-
             result = "0";
         }else {
             //이제 이것이 소셜 로그인이 맞는지 아니면 그냥 로그인인지 확인해야함
