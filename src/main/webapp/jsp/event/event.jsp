@@ -41,16 +41,11 @@
                 </div>
               </div>
             </div>
-<<<<<<< HEAD
-             <jsp:include page="/jsp/header/header.jsp"/>
-            <jsp:include page="/jsp/footer/footer.jsp"/>
-=======
             <jsp:include page="/jsp/header/header.jsp"/>
->>>>>>> de098d57607d524e5a7719055510e3006fe53f26
+            <jsp:include page="/jsp/footer/footer.jsp"/>
           </div>
         </div>
       </div>
     </div>
-            <jsp:include page="/jsp/footer/footer.jsp"/>
   </body>
 </html>

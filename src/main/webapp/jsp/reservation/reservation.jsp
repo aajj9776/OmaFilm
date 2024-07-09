@@ -2,7 +2,7 @@
 <%@page import="web.mybatis.vo.SelectSeatVO"%>
 <%@page import="web.mybatis.vo.ScreeningScheduleVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %> 
+         pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
@@ -344,9 +344,6 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous"></script>
 <script type="text/javascript">
-
-timer = null;
-
 function sendEmail() {
     var email = $('#email').val();
 
@@ -359,30 +356,36 @@ function sendEmail() {
     // jQuery AJAX를 사용하여 서버에 이메일을 보냅니다.
     $.ajax({
         type: "POST",
-        url: "${pageContext.request.contextPath}/Controller?type=send_2",
+        url: "${pageContext.request.contextPath}/Controller?type=send",
         data: {email: email},
-        success: function () {
-            alert("이메일이 성공적으로 전송되었습니다.");
-            time = 180;
-            timer = setInterval(function () {
-                var minutes = Math.floor(time / 60);
-                var seconds = time % 60;
-                $("#timer").text(minutes + ":" + (seconds < 10 ? "0" : "") + seconds);
-                if (time <= 0) {
-                    clearInterval(timer);
-                    alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
-                    $(".input-3").prop("readonly", true);
-                    $(".background-border").css("background-color", "#f2f2f2");
-                    $(".input-3").val("");
-                    $(".input-3").css("background-color", "#f2f2f2");
-                    $(".text-wrapper-9").css("display", "none");
-                }
-                time--;
-            }, 1000);
+        success: function (data) {
+            data = data.trim();
+            if (data === "0") {
+                alert("이메일이 성공적으로 전송되었습니다.");
+                var time = 180;
+                timer = setInterval(function () {
+                    var minutes = Math.floor(time / 60);
+                    var seconds = time % 60;
+                    $("#timer").text(minutes + ":" + (seconds < 10 ? "0" : "") + seconds);
+                    if (time <= 0) {
+                        clearInterval(timer);
+                        alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
+                        $(".input-3").prop("readonly", true);
+                        $(".background-border").css("background-color", "#f2f2f2");
+                        $(".input-3").val("");
+                        $(".input-3").css("background-color", "#f2f2f2");
+                        $(".text-wrapper-9").css("display", "none");
+                    }
+                    time--;
+                }, 1000);
 
-            setTimeout(function () {
-                alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
-            }, 3 * 60 * 1000);
+                setTimeout(function () {
+                    alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
+                }, 3 * 60 * 1000);
+            }else if (data === "1") {
+                alert("가입된 이메일입니다.");
+                location.href = "${pageContext.request.contextPath}/jsp/login/login_1.jsp";
+            }
         }
     });
 }
@@ -527,6 +530,7 @@ $('#pw1').keyup(function () {
         
     });
     
+    console.log()
 	console.log(text)
 	console.log(movieName)
 	console.log(time)
@@ -658,15 +662,15 @@ $('#pw1').keyup(function () {
 
 	//결제하기로 넘기기
 	$(".pay-button").click(function(){
-		let result = confirm("선택하신 상영관은 "+text+" 영화제목은 "+ movieName +"날짜"+date +" 예매 시간 "+time +" 선택좌석은 "+seats+" 입니다 예매하시겠습니까?")
+		let result = confirm("선택하신 상영관은 "+text+" 영화제목은 "+ movieName +"날짜"+date +" 예매 시간 "+time +" 선택좌석은 "+seats+" 입니다 예매하시겠습니까?     (비회원 예매시 취소버튼 클릭!)")
 		if( result ){
-			if(login){
+			paymentData()
+		} else {
+			if( login){
 				paymentData()
 			} else{
 				modal.css("display", "block")
 			}
-		} else {
-			
 		}
 	})
 

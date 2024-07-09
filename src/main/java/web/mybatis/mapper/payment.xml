@@ -38,5 +38,4 @@
         from payment
         where p_code = ${p_code}
     </select>
-    
 </mapper>

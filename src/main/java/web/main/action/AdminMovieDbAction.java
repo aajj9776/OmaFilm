@@ -41,11 +41,10 @@ public class AdminMovieDbAction implements Action{
 		request.setAttribute("ar", ar);
 
 		String movieCd = request.getParameter("movieCd");
-		System.out.println("d11d" + movieCd);
 		String name = request.getParameter("nameData");
 		String date = request.getParameter("dateData");
 		String time = request.getParameter("timeData");
-		String delete = request.getParameter("delete");
+
 		ScreeningScheduleVO sc = new ScreeningScheduleVO();
 		StringBuffer sb = new StringBuffer();
 		sb.append(date);
@@ -57,16 +56,8 @@ public class AdminMovieDbAction implements Action{
 		sc.setT_name(name);
 		sc.setSs_time(sb.toString());
 
-		if( movieCd != null && delete == null) {
+		if( movieCd != null) {
 			int res = AdminDAO.insertScreen(sc);
-			return "jsp/admin/adminMovieAPI.jsp";
-		}
-		
-		
-		System.out.println("ddd"+ delete);
-		if( delete != null) {
-			int res = AdminDAO.deleteScreen(movieCd);
-			return "jsp/admin/adminMovieDB.jsp";
 		}
 
 		return "jsp/admin/adminMovieDB.jsp";
