@@ -5,7 +5,7 @@
 <c:forEach var="vo" items="${list }">
 <div class="item-link-7 movie">
   <div class="overlap-group">
-    <div class="strong-3"><div class="text-wrapper-12 name">${vo.mvo.movieNm }</div></div>
+    <div class="strong-3"><div class="text-wrapper-12 name" data-movieCd="${vo.mvo.movieCd }">${vo.mvo.movieNm }</div></div>
     <c:if test="${vo.mvo.watchGradeNm == '전체관람가' }">
 	    <img class="image-background" src="img/reservation/image-background.svg" />
     </c:if>
