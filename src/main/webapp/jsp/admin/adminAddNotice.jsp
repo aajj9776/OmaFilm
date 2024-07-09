@@ -25,7 +25,7 @@
               </div>
             </div>
             <div class="heading">공지사항 등록</div>
-            <form action="Controller?type=adminAddEvent" method="post">
+            <form action="Controller?type=adminAddNotice" method="post">
             
             <div class="frame-2">
             <button type="submit" class="text-wrapper-2"

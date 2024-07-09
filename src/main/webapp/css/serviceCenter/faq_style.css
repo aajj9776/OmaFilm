@@ -1206,8 +1206,8 @@ ol.paging li a:hover {
 
 .nav1 {
     position: relative;
-    top: 1000px;
-    LEFT: 160px;
+    top: 800px;
+    LEFT: 145px;
 }
 /* 기본 스타일 (클릭 전) */
 .overlap-group-2 .image {

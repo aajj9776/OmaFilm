@@ -4,8 +4,14 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  position: relative;
+  position: absolute;
+ top: 150px;
 }
+
+.selectseat .footer {
+  bottom: -250px;
+}
+
 
 .selectseat .overlap-wrapper {
   background-color: #ffffff;

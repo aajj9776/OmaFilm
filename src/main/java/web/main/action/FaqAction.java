@@ -45,7 +45,7 @@ public class FaqAction implements Action {
 		request.setAttribute("cnt", cnt);
 		
 		
-		return "/jsp/serviceCenter/faq.jsp";
+		return "jsp/serviceCenter/faq.jsp";
 	}
 
 }

@@ -67,7 +67,7 @@
 
 						<c:if test="${page.endPage < page.totalPage}">
 							<li class=""><a
-								href="Controller?type=faq&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+								href="Controller?type=faq&cPage=${page.nowPage + page.pagePerBlock}">&gt;</a></li>
 						</c:if>
 						<c:if test="${page.endPage >= page.totalPage}">
 							<li class=" disable">&gt;</li>

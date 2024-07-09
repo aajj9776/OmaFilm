@@ -45,7 +45,7 @@ public class MovieListAction implements Action {
 		request.setAttribute("type", type);
 
 		
-		return "/jsp/movie/movieList.jsp";
+		return "jsp/movie/movieList.jsp";
 	}
 
 }
