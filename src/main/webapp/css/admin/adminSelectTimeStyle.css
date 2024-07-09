@@ -849,7 +849,8 @@
   border-right-style: solid;
   border-left-width: 1px;
   border-left-style: solid;
-  border-color: #666666;
+  border-color: #dddddd;
+  border-bottom-width: 1px;
 }
 
 .screen .text-wrapper-18 {
@@ -1007,26 +1008,31 @@
 .day {
   width: 30px;
   text-align: center;
+  /* left: 1px; */
+  position: relative;
+  left: 1px;
 }
 
 .date {
   display: block;
   font-size: 1.2em;
   margin-bottom: 5px;
-}
+}/* 
 .now{
   position: absolute;
-  left: 504px;
-}
+  left: 285px;
+} */
 .day-name {
   font-size: 0.8em;
   color: gray;
   position: absolute;
   top: 14px;
+  left: 3px;
 }
 .date {
   position: absolute;
   top: 47px;
+  height: auto;
 }
 .selected .date {
   background-color: black;
