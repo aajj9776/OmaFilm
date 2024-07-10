@@ -941,6 +941,41 @@
   height: 40px;
   left: 2px;
 } 
+.div-wrapper .row-6 {
+  top: 204px;
+  position: absolute;
+  width: 1300px;
+  height: 40px;
+  left: 2px;
+} 
+.div-wrapper .row-7 {
+  top: 244px;
+  position: absolute;
+  width: 1300px;
+  height: 40px;
+  left: 2px;
+} 
+.div-wrapper .row-8 {
+  top: 284px;
+  position: absolute;
+  width: 1300px;
+  height: 40px;
+  left: 2px;
+} 
+.div-wrapper .row-9 {
+  top: 324px;
+  position: absolute;
+  width: 1300px;
+  height: 40px;
+  left: 2px;
+} 
+.div-wrapper .row-10 {
+  top: 364px;
+  position: absolute;
+  width: 1300px;
+  height: 40px;
+  left: 2px;
+} 
 
 .div-wrapper .div-sidebar {
   display: flex;
@@ -1115,7 +1150,3 @@ ol.paging {
 	    font-weight:bold;
 	}
 
-a {
-    text-decoration: none;
-    color: #ffffff;
-}
