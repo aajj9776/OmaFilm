@@ -114,7 +114,7 @@
 		SELECT ss_code FROM screening_schedule sc
         INNER JOIN movie_list m 
  		ON sc.movieCd = m.movieCd
-		WHERE DATE(ss_time) = #{date}
+		AND DATE(ss_time) = #{date}
 		AND movieNm = #{movieName}
 		AND t_name = #{guan}
 	</select>

@@ -20,7 +20,7 @@
             <div class="rectangle-2"></div>
           </div>
           <div class="element" style="background-image: none;">  
-          <img src="${pageContext.request.contextPath}/img/${bvo.n_img}" style="width: 100%; height: auto;"> </div>
+          <img src="${pageContext.request.contextPath}/img/${bvo.n_img}" style="width: 90%; height: auto;"> </div>
             </div>
         </div>
       </div>
