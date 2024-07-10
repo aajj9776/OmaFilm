@@ -141,7 +141,7 @@
          url:'${pageContext.request.contextPath}/Controller?type=selectTime', 
          type:'post',     
          data:{
-        	 text : '안녕하세요'
+            text : '안녕하세요'
          },    
          success: function(res) {  
              $(".showMovie").html(res);
@@ -151,29 +151,11 @@
          // 영화 가져오기
          if (movieCd != null) {
              let selectMovie = $(`[data-movieCd='${param.movieCd}']`);
-             if (selectMovie.length > 0) {
                  movieName = selectMovie.text();
                  selectMovie.css('background-color', '#C0C0C0');
-                 selectedMovieElement = selectMovie; // 초기 선택된 영화 요소 설정
-             }
+                 
          }
 
-         $(".name").click(function() {
-             if (selectedMovieElement) {
-                 // 이전에 선택된 영화의 배경색을 원래대로 되돌리기
-                 selectedMovieElement.css('background-color', '');
-             }
-             
-             // 새로 선택된 영화 요소의 배경색 변경
-             movieName = $(this).text();
-             $(this).css('background-color', '#C0C0C0');
-             
-             // 새로 선택된 영화 요소를 추적
-             selectedMovieElement = $(this);
-             
-             console.log(movieName);
-             check(this, '.movie', '#C0C0C0', 2); // 영화 선택 시 배경색 변경
-         });
          },    error: function(err) {        
             
          }
@@ -355,52 +337,52 @@ $(function() {
    }
    
    function calendar() {
-	    let $daysContainer = $('#days');
-	    let $monthContainer = $('#current-month');
-	    
-	    // 기존 날짜 지우기
-	    $daysContainer.empty();
-	    
-	    let today = new Date();
-	    let currentMonth = today.getMonth();
-	    let currentDate = today.getDate();
-	    
-	    let daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
-	    let monthNames = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
+       let $daysContainer = $('#days');
+       let $monthContainer = $('#current-month');
+       
+       // 기존 날짜 지우기
+       $daysContainer.empty();
+       
+       let today = new Date();
+       let currentMonth = today.getMonth();
+       let currentDate = today.getDate();
+       
+       let daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
+       let monthNames = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
 
-	    $monthContainer.text(`${monthNames[currentMonth]}`);
+       $monthContainer.text(`${monthNames[currentMonth]}`);
 
-	    // 오늘 날짜가 두 번째에 오도록 7일 표시
-	    for (let i = -1; i < 6; i++) {
-	        let dayDate = new Date(today);
-	        dayDate.setDate(currentDate + i);
+       // 오늘 날짜가 두 번째에 오도록 7일 표시
+       for (let i = -1; i < 6; i++) {
+           let dayDate = new Date(today);
+           dayDate.setDate(currentDate + i);
 
-	        let $dayElement = $('<div></div>').addClass('day');
-	        let $dateElement = $('<span></span>').addClass('date').text(dayDate.getDate());
-	        let $dayNameElement = $('<span></span>').addClass('day-name').text(daysOfWeek[dayDate.getDay()]);
+           let $dayElement = $('<div></div>').addClass('day');
+           let $dateElement = $('<span></span>').addClass('date').text(dayDate.getDate());
+           let $dayNameElement = $('<span></span>').addClass('day-name').text(daysOfWeek[dayDate.getDay()]);
 
-	        if (i === 0) { // 오늘 날짜 (두 번째 위치)
-	            $dayElement.addClass('selected');
-	            $dayNameElement.addClass("now").text('오늘');
-	            $dateElement.addClass('today').css('color', 'white');
-	        } else {
-	            if (dayDate.getDay() === 0) { // 일요일
-	                $dateElement.css('color', 'red');
-	                $dayNameElement.css('color', 'red');
-	            } else if (dayDate.getDay() === 6) { // 토요일
-	                $dateElement.css('color', 'blue');
-	                $dayNameElement.css('color', 'blue');
-	            }
-	        }
+           if (i === 0) { // 오늘 날짜 (두 번째 위치)
+               $dayElement.addClass('selected');
+               $dayNameElement.addClass("now").text('오늘');
+               $dateElement.addClass('today').css('color', 'white');
+           } else {
+               if (dayDate.getDay() === 0) { // 일요일
+                   $dateElement.css('color', 'red');
+                   $dayNameElement.css('color', 'red');
+               } else if (dayDate.getDay() === 6) { // 토요일
+                   $dateElement.css('color', 'blue');
+                   $dayNameElement.css('color', 'blue');
+               }
+           }
 
-	        $dayElement.append($dayNameElement, $dateElement);
-	        $daysContainer.append($dayElement);
-	    }
+           $dayElement.append($dayNameElement, $dateElement);
+           $daysContainer.append($dayElement);
+       }
 
-	    $daysContainer.on('click', '.date', function() {
-	        check(this, 'date', '#C0C0C0', 4);
-	    });
-	}
+       $daysContainer.on('click', '.date', function() {
+           check(this, 'date', '#C0C0C0', 4);
+       });
+   }
 
 </script>
 </body>

@@ -251,6 +251,21 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
+
+	$("#id").on("keyup", function () {
+	    $(this).val($(this).val().replace(/[^a-z0-9]/g, ""));
+	});
+	
+	//이메일 입력칸에 한글 특수문자 들어가면 지워지는 함수
+    $("#email_1").on("keyup", function () {
+        $(this).val($(this).val().replace(/[^a-z0-9@._-]/g, ""));
+    });
+	
+  //이름입력칸에 숫자및 특수문자 들어가면 지워지는 함수(영어는 가능)
+    $("#name").on("keyup", function () {
+        $(this).val($(this).val().replace(/[^a-zA-Z가-힣]/g, ""));
+    });
+
     // 서브밋 함수를 통해 이메일을 합쳐서 SendAction으로 보내준다.
     function submit() {
         var email_1 = $('#email_1').val();
@@ -277,7 +292,6 @@
                 data = data.trim();
                 if (data === "0") {
                     alert("이메일이 성공적으로 전송되었습니다.");
-
                     setTimeout(function () {
                         alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
                     }, 3 * 60 * 1000);
@@ -421,12 +435,12 @@
         var email_1 = $('#email_1').val();
         var email_2 = $('#email_2').val();
         var email_3 = $('#email_3').val();
-        var u_social = "0";
+        var u_social = "1";
         //session에 name과 id 토큰 이메일이 있을 때 u_social을 1로 바꿔준다.
         <%
             if (session.getAttribute("social_id") != null && session.getAttribute("social_name") != null && session.getAttribute("social_email") != null) {
         %>
-        u_social = "1";
+        u_social = "0";
         <%
             }
         %>
