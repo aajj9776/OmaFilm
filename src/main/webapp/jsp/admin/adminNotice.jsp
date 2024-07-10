@@ -46,6 +46,7 @@
 								</div>
 							</div>
 							<div class="body">
+							<c:if test="${not empty noticeList}">
 								<c:set var="len" value="${fn:length(noticeList)}" />
 					                <c:if test="${page.end<=len}">
 					                	<c:set var="end" value="${page.end}"/>
@@ -80,6 +81,7 @@
 									</div>
 								</div>
 							</c:forEach>
+							</c:if>
 						</div>
 					</div>
 					<!-- Paging을 이용해서 해야 한다+11개이상 목록이 있을땐 10개 까지만 출력 그 후 페이징을 통해 분할 -->

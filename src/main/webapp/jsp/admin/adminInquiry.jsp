@@ -112,7 +112,7 @@
               </div>
               <div class="body">
               <!-- row 뒤 숫자에 신경쓸 필요 없음 -->
-              
+              <c:if test="${not empty inquiryList}">
               <c:set var="len" value="${fn:length(inquiryList)}" />
 	                <c:if test="${page.end<=len}">
 	                	<c:set var="end" value="${page.end}"/>
@@ -154,6 +154,7 @@
                     </div>
 
                      </c:forEach>
+                     </c:if>
                   </div>
               </div>
             </div>

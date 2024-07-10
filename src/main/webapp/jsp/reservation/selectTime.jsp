@@ -114,6 +114,7 @@
             <input type="hidden" id="text" name="text" value="">
             <input type="hidden" id="time" name="time" value="">
             <input type="hidden" id="date" name="date" value="">
+            <input type="hidden" id="movieCd" name="movieCd" value="${param.movieCd }">
          </form>
             </div>
 
@@ -128,11 +129,13 @@
 <script type="text/javascript">
    let date;
    let text, movieName, time;
+   let movieCd = '${param.movieCd}'
    let checkClick = null;
    let checkGuan = null;
    let checkMovie = null;
    let checkTime = null;
    let checkDate = null;
+   
    function selectMovie(){
       $.ajax({    
          url:'${pageContext.request.contextPath}/Controller?type=selectTime', 
@@ -143,6 +146,13 @@
          success: function(res) {  
             $(".showMovie").html(res);
 	       	//영화 가져오기
+	       	if( movieCd != null ){
+                let selectMovie = $(`[data-movieCd='${param.movieCd}']`);
+                if (selectMovie.length > 0) {
+                   movieName = selectMovie.text();
+                   selectMovie.css('background-color', '#C0C0C0');
+                }
+	       	}
 	         $(".name").click(function(){
 	            movieName = $(this).text()
 	            console.log(movieName)

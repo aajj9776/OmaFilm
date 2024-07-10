@@ -26,5 +26,9 @@
 		SELECT count(*) FROM selected_seat
 		WHERE ss_code = #{ss_code}
 	</select>
-    
+
+	<delete id="deleteSeat" parameterType="Map">
+	delete from selected_seat
+	where rs_num = #{rs_num} and p_code = #{p_code}
+    </delete>
 </mapper>

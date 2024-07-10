@@ -101,7 +101,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                
+                <c:if test="${not empty ar}">
                 <c:set var="len" value="${fn:length(ar)}" />
 	                <c:if test="${page.end<=len}">
 	                	<c:set var="end" value="${page.end}"/>
@@ -119,6 +119,7 @@
                         <td>${ar[i-1].openDt}</td>
                     </tr>
                 </c:forEach>
+                </c:if>
                 </tbody>
             </table>
             <form id="screenAdd" action="Controller?type=adminMovieDb" method="post">

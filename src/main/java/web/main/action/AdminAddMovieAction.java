@@ -153,10 +153,10 @@ public class AdminAddMovieAction implements Action {
             System.out.println("파일이름" + fileData);
             int res = AdminDAO.insertMovieList(movie);
             if (res > 0) {
-               viewPath = "/jsp/admin/adminMovieDB.jsp";
+               viewPath = "Controller?type=adminMovieApi";
                return viewPath;
             } else {
-               viewPath = "/jsp/admin/adminMovieApi.jsp";
+               viewPath = "Controller?type=adminMovieApi";
                return viewPath;
             }
 

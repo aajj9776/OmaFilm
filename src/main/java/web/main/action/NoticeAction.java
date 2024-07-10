@@ -17,7 +17,8 @@ public class NoticeAction implements Action {
 				Paging page = new Paging(5, 3);
 				
 				String cPage = request.getParameter("cPage");
-				String type=request.getParameter("type");
+				String type = request.getParameter("type");
+				request.getSession().setAttribute("pretype", type);
 				
 				//전체페이지 수를 구하기
 				page.setTotalRecode(NoticeDAO.getCount());
@@ -47,7 +48,7 @@ public class NoticeAction implements Action {
 				request.setAttribute("type", type);
 				
 				
-				return "/jsp/serviceCenter/notice.jsp";
+				return "jsp/serviceCenter/notice.jsp";
 			}
 
 }

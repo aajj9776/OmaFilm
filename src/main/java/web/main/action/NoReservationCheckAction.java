@@ -33,7 +33,10 @@ public class NoReservationCheckAction implements Action{
 		System.out.println(map);
 		
 		int res = ReservationDAO.loginNoReserver(map);
-					
+		String rsvr_code = ReservationDAO.getReserver(map);
+		request.setAttribute("rsvr_code", rsvr_code);
+		System.out.println(rsvr_code);
+		
 		if( name != null && email != null && password != null && birth != null) {
 			if(res > 0) {
 				request.setAttribute("res", res);
@@ -51,6 +54,7 @@ public class NoReservationCheckAction implements Action{
 		    Map<String, String> userInfo = (Map<String, String>) session.getAttribute("info");
 		    ReserverVO[] list = ReservationDAO.selectReserver(userInfo); 
 		    ReserverVO[] cancel_list = ReservationDAO.getNonMemCancelList(userInfo); 
+		    System.out.println("lenght: " +cancel_list.length);
 		    
 		    request.setAttribute("list", list);
 		    request.setAttribute("cancel_list", cancel_list);
