@@ -6,8 +6,9 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminNoticeStyle.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
+<link rel="stylesheet" href="css/admin/adminNoticeStyle.css" />
+
+<link rel="stylesheet" href="css/admin/adminNoticeGlobals.css" />
 </head>
 <body>
 	<div class="div-wrapper">
@@ -151,8 +152,8 @@
 						<div class="text-wrapper-16">자주 묻는 질문</div>
 					</div>
 					<a href="Controller?type=adminNotice" class="view">
-						<div class="text-wrapper-18">공지사항</div>
-					</a>
+						<div class="text-wrapper-18">공지사항</a>
+					</div>
 				</div>
 				<div class="heading">고객센터 관리</div>
 			</div>

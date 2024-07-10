@@ -186,7 +186,7 @@
                     $(".background-border").css("background-color", "#ffffff");
                     $(".text-wrapper-9").css("display", "block");
                 } else if (data === "0") {
-                    alert("정보가 올바르지 않습니다 \n입력하신 정보를 다시 확인해주세요");
+                    alert("올바르지 않은 이메일입니다.");
                     $(".input-2").val("");
                     $(".input-2").focus();
                 }

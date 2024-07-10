@@ -174,6 +174,7 @@
       <div class="seat-background"><div class="select-seat-text">결제완료</div></div>
     </div>
   </div>
+<jsp:include page="/jsp/footer/footer.jsp"/>
 </div>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
@@ -183,7 +184,7 @@ $(function(){
 
     $(".pay-key").click(function() {
         if(mvo == null || mvo == 'null'){
-        	location.href = "Controller?type=noReservationCheck";
+        	location.href = "Controller?type=nlogin";
         }else{
             location.href = "Controller?type=myReservation";
         }
@@ -195,6 +196,5 @@ $(function(){
 	
 });
 </script>
-<jsp:include page="/jsp/footer/footer.jsp"/>
 </body>
 </html>

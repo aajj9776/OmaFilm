@@ -1,9 +1,7 @@
 package web.main.action;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import web.main.util.Paging;
 import web.mybatis.dao.ReservationDAO;
 import web.mybatis.vo.ReserverVO;
+import web.mybatis.vo.ScreeningScheduleVO;
 
 public class NoReservationCheckAction implements Action{
 
@@ -50,10 +49,18 @@ public class NoReservationCheckAction implements Action{
 			HttpSession session = request.getSession();
 		    Map<String, String> userInfo = (Map<String, String>) session.getAttribute("info");
 		    ReserverVO[] list = ReservationDAO.selectReserver(userInfo); 
-		    ReserverVO[] cancel_list = ReservationDAO.getNonMemCancelList(userInfo); 
+		    ReserverVO[] cancel_list = ReservationDAO.getNonMemCancelList(userInfo);
+
+			for (ReserverVO rvo : list) {
+				ScreeningScheduleVO ssvo = rvo.getSsvo();
+				String ss_time = ssvo.getSs_time();
+				System.out.println(ss_time);
+			}
+
 		    
 		    request.setAttribute("list", list);
 		    request.setAttribute("cancel_list", cancel_list);
+
 		    int cnt = ReservationDAO.selectCnt(userInfo);
 		    System.out.println(cnt);
 			request.setAttribute("cnt", cnt);

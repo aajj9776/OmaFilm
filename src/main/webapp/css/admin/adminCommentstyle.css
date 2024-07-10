@@ -39,6 +39,7 @@
   height: 23px;
   top: 6px;
   left: 0;
+  background-image: url(./img/span-name.png);
   background-size: cover;
   background-position: 50% 50%;
 }

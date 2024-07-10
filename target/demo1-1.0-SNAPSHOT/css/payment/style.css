@@ -4,6 +4,9 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  height: auto;
+  position: relative;
+  top: 150px;
 }
 
 .payment .overlap-wrapper {
@@ -1307,4 +1310,8 @@
 <!---->
 .selected {
   background-color: #007bff;
+}
+
+.payment .footer{
+ bottom: -250px;
 }

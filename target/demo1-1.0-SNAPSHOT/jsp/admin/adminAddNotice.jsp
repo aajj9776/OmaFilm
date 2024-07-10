@@ -4,8 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminAddNoticeStyle.css" />
+    <link rel="stylesheet" href="css/admin/adminAddNoticeGlobals.css" />
+    <link rel="stylesheet" href="css/admin/adminAddNoticeStyle.css" />
   </head>
   <body>
     <div class="div-wrapper">
@@ -25,7 +25,7 @@
               </div>
             </div>
             <div class="heading">공지사항 등록</div>
-            <form action="Controller?type=adminAddEvent" method="post">
+            <form action="Controller?type=adminAddNotice" method="post">
             
             <div class="frame-2">
             <button type="submit" class="text-wrapper-2"

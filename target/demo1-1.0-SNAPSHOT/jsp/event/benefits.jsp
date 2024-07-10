@@ -26,7 +26,7 @@
                   <div class="item-link">
                   <a href="Controller?type=benefitdetail&n_idx=${bar.n_idx}">
                     <div class="background">
-                    <div class="div" style="background-image: url('${bar.n_banner}'); background-size: cover; background-repeat: no-repeat; background-position: center;"></div>
+                    <div class="div" style="background-image: url('${pageContext.request.contextPath}/img/${bar.n_banner}'); background-size: cover; background-repeat: no-repeat; background-position: center;"></div>
                     </div>
                     <div class="div-wrapper"><p class="p">${bar.n_title }</p></div>
                     </a>
