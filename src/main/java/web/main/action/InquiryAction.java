@@ -25,7 +25,6 @@ public class InquiryAction implements Action{
 			 	int u_code = mvo.getU_code();
 			    Paging page = new Paging(5, 3);
 				String cPage = request.getParameter("cPage");
-				String inquiryTitle = request.getParameter("inquiryTitle");
 				
 				//전체페이지 수를 구하기
 				page.setTotalRecode(inquiryDAO.getCountIq(u_code));

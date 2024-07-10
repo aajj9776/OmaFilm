@@ -24,7 +24,7 @@ public class MovieDetailAction implements Action{
 	        
 	        Paging page = new Paging(6, 3);
 
-	        // 영화 상세정보 가져오기 
+	        // 영화 상세정보 가져오기
 	        String movieCd = request.getParameter("movieCd");
 	        String cPage = request.getParameter("cPage");
 	        System.out.println(cPage);

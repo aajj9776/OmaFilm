@@ -42,7 +42,7 @@ public class MyHomeAction implements Action {
 				request.setAttribute("ivo", ivo);
 				
 				//나의 예매내역
-				ReservationVO[] rvo = MyReservationDAO.getAllList(mvo.getU_code()); 
+				ReservationVO[] rvo = MyHomeDAO.MyHomeGetList(mvo.getU_code()); 
 				request.setAttribute("rvo", rvo);
 				 
 		        return "/jsp/myPage/myhome.jsp";
@@ -53,5 +53,5 @@ public class MyHomeAction implements Action {
 		
 	}	
 		
-}
+	}
 	

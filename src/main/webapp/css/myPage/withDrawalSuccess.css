@@ -4,12 +4,12 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
-  position: relative;
+  position: absolute;
   background-color: #ffffff;
 }
  
 .screen .container {
-  position: relative;
+  position: absolute;
   align-self: stretch;
   width: 100%;
   height: 1720px;
@@ -20,7 +20,7 @@
   width: 1920px;
   height: 220px;
   top: 1500px;
-  left: 0;
+  left: 944px;
   object-fit: cover;
 }
 
@@ -342,4 +342,5 @@
   white-space: nowrap;
   border-radius: 10px;
   background-color: #222222;
+  cursor: pointer;
 }

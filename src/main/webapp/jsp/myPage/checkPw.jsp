@@ -4,6 +4,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <script type="text/javascript">
+        window.onload = function() {
+            var check = '<%= request.getAttribute("check") %>';
+            if (check === "1") {
+                alert("비밀번호가 일치하지 않습니다. 다시 시도해주세요.");
+            }
+        };
+    </script>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/myPage/checkPw.css" />
@@ -41,7 +49,7 @@
         <div class="frame-5"><div class="text-wrapper-16">비밀번호</div></div>
       </div>
       <div class="frame-6"><button type="submit" class="okbtn">확인</button></div></form>
-      <div class="frame-7"><button type="button" class="delbtn" onclick="Controller?type=myHome">취소</button></div>
+      <div class="frame-7"><a href="${pageContext.request.contextPath}/Controller?type=myHome"><button type="button" class="delbtn">취소</button></a></div>
     </div>
     <jsp:include page="/jsp/footer/footer.jsp"/>
   </body>

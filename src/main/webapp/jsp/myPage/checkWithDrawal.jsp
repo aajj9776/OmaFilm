@@ -33,7 +33,7 @@
         <button type="button" class="text-wrapper-14">탈퇴</button>
         </a>
         </div>
-        <div class="frame-3"><button type="button" class="text-wrapper-15">취소</button></div>
+        <div class="frame-3"><a href="${pageContext.request.contextPath}/Controller?type=myHome"><button type="button" class="text-wrapper-15">취소</button></a></div>
         <div class="overlap-2">
           <p class="div-2">
             <span class="span">아이디 재사용 및 복구 불가 안내<br /></span>
