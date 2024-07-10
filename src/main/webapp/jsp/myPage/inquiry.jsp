@@ -57,7 +57,7 @@
           </div>
           <div class="heading">나의 문의 내역</div>
           <jsp:include page="/jsp/header/header.jsp"/>
-          <div class="link-9"><a href="${pageContext.request.contextPath}/Controller?type=sinquiry"><button type="button" class="btn-9">1:1 문의하기</button></a></div>
+          <div class="link-9"><a href="Controller?type=sinquiry"><button type="button" class="btn-9">1:1 문의하기</button></a></div>
           <p class="element">
             <span class="span">전체 </span>
             <span class="text-wrapper-15">${cnt}</span>

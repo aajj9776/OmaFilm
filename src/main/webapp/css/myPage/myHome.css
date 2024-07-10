@@ -303,7 +303,7 @@
 .screen .item-link {
   width: 252px;
   height: 39px;
-  top: 151px;
+  top: 189px;
   background-color: #3d4d55;
   border: 1px solid;
   border-color: #d8d9db;
@@ -357,7 +357,7 @@
   position: absolute;
   width: 252px;
   height: 39px;
-  top: 113px;
+  top: 151px;
   left: 0;
   background-color: #3d4d55;
   border: 1px solid;
@@ -384,7 +384,7 @@
   position: absolute;
   width: 252px;
   height: 39px;
-  top: 75px;
+  top: 113px;
   left: 0;
   background-color: #3d4d55;
   border: 1px solid;
@@ -906,5 +906,30 @@
 .more-btn a{
   color: #444444;
   text-decoration: none;
+}
+
+.screen .link-add {
+  position: absolute;
+  width: 252px;
+  height: 39px;
+  top: 75px;
+  left: -1px;
+  background-color: #3d4d55;
+  border: 1px solid;
+  border-color: #d8d9db;
+}
+.screen .text-wrapper-add {
+  width: 106px;
+  height: 20px;
+  top: 9px;
+  left: 12px;
+  color: #b58863;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 19.5px;
+  position: absolute;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  white-space: nowrap;
 }
  

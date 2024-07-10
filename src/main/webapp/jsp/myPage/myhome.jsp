@@ -27,8 +27,9 @@
               <div class="link-6"><div class="text-wrapper-8">마이페이지</div></div>
               <div class="list">
                 <div class="overlap-group">
-                  <div class="item-link"><div class="text-wrapper-9"><a href="Controller?type=personInfor">개인 정보 수정</a></div></div>
+                  <div class="item-link"><div class="text-wrapper-9"><a href="Controller?type=checkPw">개인 정보 수정</a></div></div>
                   <div class="item-link-2"><div class="text-wrapper-10"><a href="Controller?type=myReservation">나의 예매 내역 조회</a></div></div>
+                  <div class="link-add"><div class="text-wrapper-add"><a href="Controller?type=myCancelReservation">나의 예매 취소 내역 조회</a></div></div>
                   <div class="link-7"><div class="text-wrapper-11"><a href="Controller?type=inquiry">나의 문의 내역</a></div></div>
                   <div class="item-link-3"><div class="text-wrapper-13"><a href="Controller?type=myHome">마이페이지 홈</a></div></div>
                   <div class="link-8"><div class="text-wrapper-12"><a href="Controller?type=myCoupon">나의 쿠폰 조회</a></div></div>

@@ -289,8 +289,8 @@
   position: absolute;
   width: 252px;
   height: 39px;
-  top: 188px;
-  left: 0;
+  top: 187px;
+  left: -1px;
   background-color: #3d4d55;
   border: 1px solid;
   border-color: #d8d9db;
@@ -312,12 +312,12 @@
 }
 
 .screen .item-link-2 {
-  top: 0;
+  top: -1px;
   background-color: #3d4d55;
   position: absolute;
   width: 252px;
   height: 39px;
-  left: 0;
+  left: -1px;
   border: 1px solid;
   border-color: #d8d9db;
 }
@@ -341,8 +341,8 @@
   position: absolute;
   width: 252px;
   height: 37px;
-  top: 152px;
-  left: 0;
+  top: 151px;
+  left: -1px;
   background-color: #3d4d55;
   border: 1px solid;
   border-color: #d8d9db;
@@ -367,8 +367,8 @@
   position: absolute;
   width: 252px;
   height: 39px;
-  top: 76px;
-  left: 0;
+  top: 75px;
+  left: -1px;
   background-color: #3d4d55;
   border: 1px solid;
   border-color: #d8d9db;
@@ -391,16 +391,16 @@
 
 .screen .item-link-3 {
 	background-image: url("../../img/myPage/myhome/mypagelist.svg");
-  background-size: cover;
-  background-position: 50% 50%;
-  top: 38px;
-  position: absolute;
-  width: 252px;
-  height: 39px;
-  left: 0;
-  border: 1px solid;
-  border-color: #d8d9db;
-  background-color: #3d4d55;
+	background-size: cover;
+	background-position: 50% 50%;
+	top: 37px;
+	position: absolute;
+	width: 252px;
+	height: 39px;
+	left: -1px;
+	border: 1px solid;
+	border-color: #d8d9db;
+	background-color: #3d4d55;
 }
 
 .screen .text-wrapper-13 {
@@ -424,8 +424,8 @@
   position: absolute;
   width: 252px;
   height: 39px;
-  top: 114px;
-  left: 0;
+  top: 113px;
+  left: -1px;
   background-color: #3d4d55;
   border: 1px solid;
   border-color: #d8d9db;
