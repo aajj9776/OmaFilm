@@ -67,7 +67,7 @@
             
           </div>
           <div class="paragraph-background">
-            <button type="button" class="link" onclick="window.location.href='${pageContext.request.contextPath}/Controller?type=selectTime'"><div class="text-wrapper-9">예매하기</div></button>
+            <button type="button" class="link" onclick="window.location.href='${pageContext.request.contextPath}/Controller?type=selectTime&movieCd=${param.movieCd }'"><div class="text-wrapper-9">예매하기</div></button>
           </div>
           <div class="element-jpg"><img src="${mvo.m_file }" width="316px"></div>
         </div>

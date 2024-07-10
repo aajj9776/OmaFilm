@@ -29,26 +29,26 @@
 	<select id="searchCouponItem" parameterType="Map" resultType="web.mybatis.vo.CouponItemVO">
     SELECT *
     FROM coupon_item
-    <where>
-        ci_status = 0
-        <if test="searchValue != null"> 
-	        <if test="searchType == 'ci_code'"> 
-	            AND ci_code = #{searchValue}
-	        </if>
-	        <if test="searchType == 'ci_content'">  
-	        	AND ci_content LIKE CONCAT('%', #{searchValue}, '%') 
-	        </if>
-	        <if test="searchType == 'ci_discount'">
-	            AND ci_discount LIKE CONCAT('%', #{searchValue}, '%') 
-	        </if>
-	        <if test="searchType == 'ci_regi_time'">
-	            AND cp_date LIKE CONCAT('%', #{searchValue}, '%') 
-	        </if>
-	        <if test="searchType == 'ci_time'">
-	            AND ci_time LIKE CONCAT('%', #{searchValue}, '%') 
-	        </if>
-	    </if>
-    </where>
-</select>
+	    <where>
+	        ci_status = 0
+	        <if test="searchValue != null"> 
+		        <if test="searchType == 'ci_code'"> 
+		            AND ci_code = #{searchValue}
+		        </if>
+		        <if test="searchType == 'ci_content'">  
+		        	AND ci_content LIKE CONCAT('%', #{searchValue}, '%') 
+		        </if>
+		        <if test="searchType == 'ci_discount'">
+		            AND ci_discount LIKE CONCAT('%', #{searchValue}, '%') 
+		        </if>
+		        <if test="searchType == 'ci_regi_time'">
+		        AND ci_regi_time LIKE CONCAT('%', #{searchValue}, '%') 
+            	</if>
+		        <if test="searchType == 'ci_time'">
+		            AND ci_time LIKE CONCAT('%', #{searchValue}, '%') 
+		        </if>
+		    </if>
+	    </where>
+	</select>
 
 </mapper>

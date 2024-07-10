@@ -167,6 +167,7 @@ public class AdminDAO {
         }
         return result;
     }
+	
 
 	//1대1 문의
 	public static List<InquiryVO> getInquiryList(String iq_none){

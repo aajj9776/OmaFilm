@@ -9,6 +9,9 @@
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css"/>
+    <% ServletContext application2 = request.getServletContext();
+    String realPath = application2.getRealPath("/img/");//절대경로 생성
+    request.setAttribute("realPath",realPath);%>
 </head>
 <body>
 <jsp:include page="jsp/header/header.jsp"/>

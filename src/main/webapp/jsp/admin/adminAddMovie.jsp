@@ -6,7 +6,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminAddMovieGlobals.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminAddMovieStyle.css" />
   </head>
   <body>
@@ -298,7 +298,9 @@ $(function() {
        $("#add").submit(); // form을 submit하는 코드입니다.
    });
 
-    
+    $(".button-3").click(function() {
+        location.href = "Controller?type=adminMovieApi";
+    });
 });
    
 
