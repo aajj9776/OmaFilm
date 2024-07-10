@@ -177,37 +177,23 @@ let checkEmail;
         var email_2 = $('#email_2').val();
         var email_3 = $('#email_3').val();
         var email = email_1 + '@' + email_2;
-        checkEmail = confirm("이메일을 변경하시겠습니까?");
-        if (checkEmail) {
-            //유효성 검사
-            if(email_1 == "" || email_2 == "") {
-                alert("이메일을 입력해주세요.");
-            } else {
-            	 // jQuery AJAX를 사용하여 서버에 이메일을 보냅니다.
-                $.ajax({
-                    type: "POST",
-                    url: "${pageContext.request.contextPath}/Controller?type=send_2",
-                    data: { email: email },
-                    success: function(data) {
-                          alert("이메일이 성공적으로 전송되었습니다.");
-                          setTimeout(function () {
-                              alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
-                          }, 3 * 60 * 1000);
-                     }
-                 });
-            	 
-                //유효성 검사
-                if(check_num == "") {
-                    alert("인증번호를 입력해주세요.");
-                    return;
-                }
+	        
+	        $.ajax({
+	                type: "POST",
+	                url: "${pageContext.request.contextPath}/Controller?type=send_2",
+	                data: { email: email },
+	                success: function(data) {
+	                      alert("이메일이 성공적으로 전송되었습니다.");
+	                      setTimeout(function () {
+	                          alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
+	                      }, 3 * 60 * 1000);
+	                 }
+	             });
+	            	 
+            if(check_num == "") {
+                alert("인증번호를 입력해주세요.");
+                return;
             }
-        	
-        } else {
-            // 사용자가 "취소"를 클릭한 경우 실행될 코드
-            console.log("사용자가 취소를 클릭했습니다.");
-        }
-        
         
         
         if(email_2 == '직접입력') {
@@ -265,17 +251,19 @@ let checkEmail;
         });
     });
 
-    //비밀번호 확인
-    $('#pw_check').keyup(function() {
-        var pw = $('#pw').val();
-        var pw_check = $('#pw_check').val();
-        if(pw == pw_check) {
-            $('.text-wrapper-35').text('일치함').css('color', 'blue').show();
-        } else {
-            $('.text-wrapper-35').text('일치하지 않음').css('color', 'red').show();
+    $(document).ready(function() {
+        function checkPasswordMatch() {
+            var pw = $('#pw').val();
+            var pw_check = $('#pw_check').val();
+            if (pw === pw_check) {
+                $('.text-wrapper-35').text('일치함').css('color', 'blue').show();
+            } else {
+                $('.text-wrapper-35').text('일치하지 않음').css('color', 'red').show();
+            }
         }
+        $('#pw, #pw_check').keyup(checkPasswordMatch);
     });
-
+    
     function address(){
         new daum.Postcode({
             oncomplete: function(data) {
@@ -366,19 +354,18 @@ let checkEmail;
             return;
         }
 	
-        if( checkEmail ){
-	        if(email_1 == "" || email_2 == "") {
-    	        alert("이메일을 입력해주세요.");
-        	    return;
-        	}
-	        if(sessionStorage.getItem("emailVerified") !== "true") {
-	            alert("이메일 인증을 완료해주세요.");
-	            return;
-	        }
-	        if(addr_1 == "" || addr_2 == "" || addr_num == "") {
-	            alert("주소를 입력해주세요.");
-	            return;
-	        }
+        if(email_1 == "" || email_2 == "") {
+   	        alert("이메일을 입력해주세요.");
+       	    return;
+       	}
+        if(sessionStorage.getItem("emailVerified") !== "true") {
+            alert("이메일 인증을 완료해주세요.");
+            return;
+        }
+        if(addr_1 == "" || addr_2 == "" || addr_num == "") {
+            alert("주소를 입력해주세요.");
+            return;
+        }
 
         if(!$('#agree').is(':checked') && !$('#disagree').is(':checked')) {
             alert("이메일 수신 여부를 체크해주세요.");
@@ -414,7 +401,6 @@ let checkEmail;
                 }
             }
         });
-     }
  }
 		    function confirmCancel() {
 		        if (confirm("취소하시면 변경사항은 수정되지 않습니다.\n계속 진행하시겠습니까?")) {

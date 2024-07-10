@@ -14,7 +14,7 @@
 
 .div-wrapper .overlap {
   position: relative;
-  height: 1286px;
+    height: 1286px;
 }
 
 .div-wrapper .div-con-wrap {
@@ -22,7 +22,7 @@
   width: 1694px;
   height: 1282px;
   top: 0;
-  left: 209px;
+  left: 180px;
 }
 
 .div-wrapper .frame {
@@ -914,7 +914,6 @@
   padding: 13px 0px 1082px;
   position: absolute;
   top: 0;
-  left: 0;
   background-color: #3d4d55;
 }
 
@@ -1115,8 +1114,3 @@ ol.paging {
 	    color:white;
 	    font-weight:bold;
 	}
-
-a {
-    text-decoration: none;
-    color: #ffffff;
-}

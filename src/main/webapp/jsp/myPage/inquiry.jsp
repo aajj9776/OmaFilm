@@ -57,7 +57,7 @@
           </div>
           <div class="heading">나의 문의 내역</div>
           <jsp:include page="/jsp/header/header.jsp"/>
-          <div class="link-9"><a href="Controller?type=sinquiry"><button type="button" class="btn-9">1:1 문의하기</button></a></div>
+          <div class="link-9"><a href="${pageContext.request.contextPath}/Controller?type=sinquiry"><button type="button" class="btn-9">1:1 문의하기</button></a></div>
           <p class="element">
             <span class="span">전체 </span>
             <span class="text-wrapper-15">${cnt}</span>
@@ -118,7 +118,7 @@
             <tr>
               <td class="data"><div class="text-wrapper-33">${requestScope.page.totalRecode - ((requestScope.page.nowPage -1) * requestScope.page.numPerPage + vs.index)}</div></td> 
               <td class="link-wrapper"><a href="Controller?type=inquiryView&iq_idx=${vo.iq_idx}&iq_title=${vo.iq_title}&cPage=${requestScope.page.nowPage}">${vo.iq_title }</a></td>
-              <td class="data-2"><div class="text-wrapper-34">${vo.iq_time }</div></td>
+              <td class="data-2"><div class="text-wrapper-34">${vo.iq_time.split(" ")[0] }</div></td>
             </tr> 
             </c:forEach>   
           </tbody>
