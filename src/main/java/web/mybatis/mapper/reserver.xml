@@ -43,6 +43,16 @@
         ORDER BY rsvr_time DESC
     </select>
     
+ 
+    <!-- 마이페이지 예매내역 -->
+     <select id="getMyhomeList" parameterType="int" resultType="web.mybatis.vo.ReserverVO">
+        select *
+        from reserver
+        where u_code = ${u_code}
+        ORDER BY rsvr_time DESC
+        LIMIT 5
+    </select>
+    
     <select id="selectNoReserver" parameterType="Map" resultType="int">
        SELECT count(*) FROM reserver
       <where>
