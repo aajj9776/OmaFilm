@@ -179,11 +179,20 @@ public class MyReservationDAO {
 	public static void cancelReservation(String rs_num, String p_code) {
 		SqlSession ss = FactoryService.getFactory().openSession();
 
-		int cnt = ss.update("payment.cancelPayment",p_code);
+		int cnt = ss.update("payment.cancelPayment", p_code);
 		if(cnt>0) {
 			int cnt2 = ss.update("reservation.cancelReservation", rs_num);
-			if(cnt2>0)
-				ss.commit();
+			if(cnt2>0) {
+				Map<String, String> map = new HashMap<String, String>();
+				map.put("rs_num", rs_num);
+				map.put("p_code", p_code);
+				int cnt3 = ss.delete("selectSeat.deleteSeat", map);
+				if(cnt3>0)
+					ss.commit();
+				else
+					ss.rollback();
+			}
+				
 			else
 				ss.rollback();
 		}
@@ -208,5 +217,18 @@ public class MyReservationDAO {
 		ss.close();
 		
 		return p_code;
+	}
+	
+	public static ReservationVO[] nonMemCancelList(String rsrv_code) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		ReservationVO[] cancel_list = null;
+		
+		List<ReservationVO> list = ss.selectList("reservation.nonMemCancelList", rsrv_code);
+		cancel_list = new ReservationVO[list.size()];
+		list.toArray(cancel_list);
+
+		ss.close();
+		return cancel_list;
 	}
 }

@@ -45,6 +45,13 @@ public class ReservationDAO {
 		ss.close();
 		return res;
 	}
+	
+	public static String getReserver(Map<String, String> map) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		String rsvr_code = ss.selectOne("reserver.getReserver", map);
+		ss.close();
+		return rsvr_code;
+	}
 
 	public static ReserverVO[] selectReserver(Map<String, String> userInfo) {
 		SqlSession ss = FactoryService.getFactory().openSession();
@@ -93,7 +100,7 @@ public class ReservationDAO {
 	
 	public static  ReserverVO[] getNonMemCancelList(Map<String, String> userInfo) {
 		SqlSession ss = FactoryService.getFactory().openSession();
-		List<ReserverVO> reserver = ss.selectList("reserver.getNonMemCancelList",userInfo);
+		List<ReserverVO> reserver = ss.selectList("reserver.getNonMemCancelList", userInfo);
 		ReserverVO[] ar = null;
 		if( reserver != null && reserver.size() > 0) {
 			ar = new ReserverVO[reserver.size()];

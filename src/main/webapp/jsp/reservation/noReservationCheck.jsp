@@ -131,7 +131,7 @@
                         </th>
                         </thead>
                         <tbody class="tbody-2">
-                        
+                        <c:if test="${not empty cancel_list}">
                         <c:set var="len" value="${fn:length(cancel_list)}" />
                       <c:if test="${page.end<=len}">
                          <c:set var="end" value="${page.end}"/>
@@ -143,29 +143,29 @@
                   <c:if test="${page.begin<0}">
                      <c:set var="begin" value="1" />
                   </c:if>
-
-                        <c:forEach items="${cancel_list}" var="item">
+						<c:forEach var="i" begin="${page.begin}" end="${ end}" varStatus="status">
                             <tr class="tbody-2_tr">
                                 <td class="data-1">
-                                    <div class="text-wrapper-20">${item.rvo.rs_cancel_time}</div>
+                                    <div class="text-wrapper-20">${cancel_list[i-1].rvo.rs_cancel_time}</div>
                                 </td>
                                 <td class="data-2">
-                                    <div class="text-wrapper-21">${item.rvo.rs_num}</div>
+                                    <div class="text-wrapper-21">${cancel_list[i-1].rvo.rs_num}</div>
                                 </td>
                                 <td class="data-3">
-                                    <div class="text-wrapper-22">${item.mvo.movieNm}</div>
+                                    <div class="text-wrapper-22">${cancel_list[i-1].mvo.movieNm}</div>
                                 </td>
                                 <td class="data-4">
-                                    <div class="text-wrapper-23">${item.ssvo.t_name}</div>
+                                    <div class="text-wrapper-23">${cancel_list[i-1].ssvo.t_name}</div>
                                 </td>
                                 <td class="data-5">
-                                    <div class="text-wrapper-24">${item.ssvo.ss_time.split(" ")[0]}</div>
+                                    <div class="text-wrapper-24">${cancel_list[i-1].ssvo.ss_time.split(" ")[0]}</div>
                                 </td>
                                 <td class="data-6">
-                                    <div class="text-wrapper-25">${item.pvo.p_tt_price}</div>
+                                    <div class="text-wrapper-25">${cancel_list[i-1].pvo.p_tt_price}</div>
                                 </td>
                             </tr>
                         </c:forEach>
+                        </c:if>
                         </tbody>
                     </table>
                     <div class="nav">
@@ -176,7 +176,7 @@
                         </c:if>
                         <c:if test="${page.startPage >= page.pagePerBlock}">
                            <li class=""><a
-                              href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
+                              href="Controller?type=nonMemCancelList&rsvr_code=${rsrvr_code }&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
                         </c:if>
                         <!-- <div class="nav"> -->
                         <c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
@@ -185,14 +185,14 @@
                            </c:if>
                            <c:if test="${i != page.nowPage}">
                               <li class=" "><a
-                                 href="Controller?type=myReservation&cPage=${i}">${i}</a></li>
+                                 href="Controller?type=nonMemCancelList&rsvr_code=${rsrvr_code }&cPage=${i}">${i}</a></li>
                            </c:if>
                         </c:forEach>
 
 
                         <c:if test="${page.endPage < page.totalPage}">
                            <li class=""><a
-                              href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+                              href="Controller?type=nonMemCancelList&rsvr_code=${rsrvr_code }&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
                         </c:if>
                         <c:if test="${page.endPage >= page.totalPage}">
                            <li class=" disable">&gt;</li>

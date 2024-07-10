@@ -77,6 +77,7 @@
                 </div>
                 
                 <div class="tbody">
+                <c:if test="${not empty rvo}">
                 <c:set var="len" value="${fn:length(rvo)}" />
                 <c:if test="${page.end<=len}">
                 	<c:set var="end" value="${page.end}"/>
@@ -141,6 +142,7 @@
 							</div>
 						</div>
 					</c:forEach>
+					</c:if>
                 </div>
               </div>
             </div>

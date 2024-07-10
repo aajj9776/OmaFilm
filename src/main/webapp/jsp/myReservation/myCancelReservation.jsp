@@ -85,44 +85,47 @@
 									<div class="text-wrapper-22">환불 금액</div>
 								</div>
 							</div>
-<div class="tbody-2">
-	<c:set var="len" value="${fn:length(rvo_cancel)}" />
-    <c:if test="${page.end<=len}">
-         <c:set var="end" value="${page.end}"/>
-    </c:if>
-	<c:if test="${page.end>len}">
-		<c:set var="end" value="${len}" />
-	</c:if>
+							<div class="tbody-2">
 
-<c:forEach var="i" begin="${page.begin}" end="${ end}" varStatus="status">
-<div class="tr-${status.index + 11}">
-<div class="data-7">
-	<div class="text-wrapper-27">${rvo_cancel[i-1].rs_time.split(" ")[0]}</div>
-</div>
-<div class="data-8">
-	<div class="text-wrapper-27">${rvo_cancel[i-1].rs_num}</div>
-</div>
-<c:if test="${item.ssvo != null}">
-	<div class="data-9">
-		<div class="text-wrapper-26">${rvo_cancel[i-1].ssvo.t_name}</div>
-	</div>
-	<div class="data-10">
-		<div class="text-wrapper-27">${rvo_cancel[i-1].ssvo.ss_time.split(" ")[0]}</div>
-	</div>
-	<div class="data-11">
-		<div class="text-wrapper-28">${rvo_cancel[i-1].ssvo.mvo.movieNm }</div>
-	</div>
-</c:if>
-<c:if test="${rvo_cancel[i-1].pvo != null}">
-	<div class="data-12">
-		<div class="text-wrapper-27">${rvo_cancel[i-1].pvo.p_tt_price}</div>
-	</div>
-</c:if>
-</div>
-</c:forEach>
+								<c:if test="${rvo_cancel != null}">
+									<c:set var="len" value="${fn:length(rvo_cancel)}" />
+									<c:if test="${page.end<=len}">
+										<c:set var="end" value="${page.end}" />
+									</c:if>
+									<c:if test="${page.end>len}">
+										<c:set var="end" value="${len}" />
+									</c:if>
 
+									<c:forEach var="i" begin="${page.begin}" end="${ end}"
+										varStatus="status">
+										<div class="tr-${status.count}">
+											<div class="data-7">
+												<div class="text-wrapper-27">${rvo_cancel[i-1].rs_time.split(" ")[0]}</div>
+											</div>
+											<div class="data-8">
+												<div class="text-wrapper-27">${rvo_cancel[i-1].rs_num}</div>
+											</div>
+											<c:if test="${rvo_cancel[i-1].ssvo != null}">
+												<div class="data-9">
+													<div class="text-wrapper-26">${rvo_cancel[i-1].ssvo.t_name}</div>
+												</div>
+												<div class="data-10">
+													<div class="text-wrapper-27">${rvo_cancel[i-1].ssvo.ss_time.split(" ")[0]}</div>
+												</div>
+												<div class="data-11">
+													<div class="text-wrapper-28">${rvo_cancel[i-1].ssvo.mvo.movieNm }</div>
+												</div>
+											</c:if>
+											<c:if test="${rvo_cancel[i-1].pvo != null}">
+												<div class="data-12">
+													<div class="text-wrapper-27">${rvo_cancel[i-1].pvo.p_tt_price}</div>
+												</div>
+											</c:if>
+										</div>
+									</c:forEach>
 
-</div>
+								</c:if>
+							</div>
 							<!-- tbody 끝 -->
 
 							<div class="nav">
@@ -133,7 +136,7 @@
 								</c:if>
 								<c:if test="${page.startPage >= page.pagePerBlock}">
 									<li class=""><a
-										href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
+										href="Controller?type=myCancelReservation&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
 								</c:if>
 								<!-- <div class="nav"> -->
 								<c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
@@ -142,14 +145,14 @@
 									</c:if>
 									<c:if test="${i != page.nowPage}">
 										<li class=" "><a
-											href="Controller?type=myReservation&cPage=${i}">${i}</a></li>
+											href="Controller?type=myCancelReservation&cPage=${i}">${i}</a></li>
 									</c:if>
 								</c:forEach>
 
 
 								<c:if test="${page.endPage < page.totalPage}">
 									<li class=""><a
-										href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+										href="Controller?type=myCancelReservation&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
 								</c:if>
 								<c:if test="${page.endPage >= page.totalPage}">
 									<li class=" disable">&gt;</li>
