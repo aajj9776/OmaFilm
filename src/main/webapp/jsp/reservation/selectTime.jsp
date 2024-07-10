@@ -144,20 +144,36 @@
         	 text : '안녕하세요'
          },    
          success: function(res) {  
-            $(".showMovie").html(res);
-	       	//영화 가져오기
-	       	if( movieCd != null ){
-                let selectMovie = $(`[data-movieCd='${param.movieCd}']`);
-                if (selectMovie.length > 0) {
-                   movieName = selectMovie.text();
-                   selectMovie.css('background-color', '#C0C0C0');
-                }
-	       	}
-	         $(".name").click(function(){
-	            movieName = $(this).text()
-	            console.log(movieName)
-	             check(this, '.movie', '#C0C0C0',2); // 영화 선택 시 배경색 변경
-	         })
+             $(".showMovie").html(res);
+         
+         let selectedMovieElement = null; // 선택된 영화 요소를 추적할 변수 추가
+
+         // 영화 가져오기
+         if (movieCd != null) {
+             let selectMovie = $(`[data-movieCd='${param.movieCd}']`);
+             if (selectMovie.length > 0) {
+                 movieName = selectMovie.text();
+                 selectMovie.css('background-color', '#C0C0C0');
+                 selectedMovieElement = selectMovie; // 초기 선택된 영화 요소 설정
+             }
+         }
+
+         $(".name").click(function() {
+             if (selectedMovieElement) {
+                 // 이전에 선택된 영화의 배경색을 원래대로 되돌리기
+                 selectedMovieElement.css('background-color', '');
+             }
+             
+             // 새로 선택된 영화 요소의 배경색 변경
+             movieName = $(this).text();
+             $(this).css('background-color', '#C0C0C0');
+             
+             // 새로 선택된 영화 요소를 추적
+             selectedMovieElement = $(this);
+             
+             console.log(movieName);
+             check(this, '.movie', '#C0C0C0', 2); // 영화 선택 시 배경색 변경
+         });
          },    error: function(err) {        
             
          }
