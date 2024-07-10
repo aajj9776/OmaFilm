@@ -10,45 +10,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be61c100-0641-46c0-9619-2a4c06c436b3" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/build/classes/web/mybatis/mapper/couponItem.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/web/mybatis/mapper/couponItem.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/web/mybatis/mapper/member.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/web/mybatis/mapper/member.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/web/mybatis/mapper/notice.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/web/mybatis/mapper/notice.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/main/action/NonMemCancelListAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/web/mybatis/mapper/reservation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/web/mybatis/mapper/reservation.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/web/mybatis/mapper/reserver.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/web/mybatis/mapper/reserver.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/web/mybatis/mapper/review.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/web/mybatis/mapper/review.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/web/mybatis/mapper/screeningSchedule.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/web/mybatis/mapper/screeningSchedule.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/main/action/AdminAddFrequentlyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/main/action/AdminAddFrequentlyAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/main/action/AdminAddMovieAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/main/action/AdminAddMovieAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/main/action/AdminAddNoticeAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/main/action/AdminAddNoticeAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/main/action/AdminMovieDbAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/main/action/AdminMovieDbAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/main/action/ReservationAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/main/action/ReservationAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/mybatis/dao/AdminDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/mybatis/dao/AdminDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/mybatis/mapper/couponItem.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/mybatis/mapper/couponItem.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/mybatis/mapper/notice.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/mybatis/mapper/notice.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/web/mybatis/mapper/selectSeat.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/web/mybatis/mapper/selectSeat.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/main/action/PayCancelNonMemAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/main/action/PayCancelNonMemAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/mybatis/dao/MyReservationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/mybatis/dao/MyReservationDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/mybatis/dao/ReservationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/mybatis/dao/ReservationDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/web/mybatis/mapper/reservation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/mybatis/mapper/reservation.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/mybatis/mapper/screeningSchedule.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/mybatis/mapper/screeningSchedule.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/mybatis/mapper/reserver.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/mybatis/mapper/reserver.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/mybatis/mapper/selectSeat.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/mybatis/mapper/selectSeat.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/action.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/action.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin/adminInquiryStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/admin/adminInquiryStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/admin/adminAddEvent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/adminAddEvent.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/admin/adminAddFrequently.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/adminAddFrequently.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/admin/adminAddMovie.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/adminAddMovie.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/admin/adminEvent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/adminEvent.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/admin/adminFrequently.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/adminFrequently.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/admin/adminInquiry.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/adminInquiry.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/admin/adminMovieAPI.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/adminMovieAPI.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/admin/adminMovieDB.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/adminMovieDB.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/admin/menu/menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/menu/menu.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/adminCoupon/adminCpHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/adminCoupon/adminCpHome.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/movie/movieDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/movie/movieDetail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/movie/movieList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/movie/movieList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/reservation/noReservation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/reservation/noReservation.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/admin/adminNotice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/adminNotice.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/myPage/myhome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/myPage/myhome.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/myReservation/myCancelReservation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/myReservation/myCancelReservation.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/myReservation/myReservation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/myReservation/myReservation.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/reservation/noReservationCheck.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/reservation/noReservationCheck.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/reservation/reservation1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/reservation/reservation1.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/reservation/reservation2.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/reservation/reservation2.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/reservation/reservation3.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/reservation/reservation3.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/reservation/reservationP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/reservation/reservationP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/reservation/selectTime.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/reservation/selectTime.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/reservation/selectTimeText.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/reservation/selectTimeText.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +206,7 @@
       <workItem from="1720549092048" duration="428000" />
       <workItem from="1720549528506" duration="9589000" />
       <workItem from="1720560858295" duration="395000" />
-      <workItem from="1720568483615" duration="3187000" />
+      <workItem from="1720568483615" duration="3663000" />
     </task>
     <servers />
   </component>
