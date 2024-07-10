@@ -21,7 +21,7 @@
               <div class="list">
                 <div class="item">
                   <div class="link">
-                    <div class="div" id="logout"><a href="${pageContext.request.contextPath}/Controller?type=logout">로그아웃</a></div>
+                    <div class="div">로그아웃</div>
                     <div class="pseudo"></div>
                   </div>
                 </div>
@@ -30,13 +30,13 @@
             
             
             <select id="select" class="button-2">
-			  <option value="u_code">회원 코드</option>
-			  <option value="u_id">아이디</option>
-			  <option value="u_name">이름</option>
-			  <option value="u_birth">생년월일</option>
-			  <option value="u_email">이메일</option>
-			</select>
-			
+           <option value="u_code">회원 코드</option>
+           <option value="u_id">아이디</option>
+           <option value="u_name">이름</option>
+           <option value="u_birth">생년월일</option>
+           <option value="u_email">이메일</option>
+         </select>
+         
             <div class="heading">쿠폰 적용 회원</div>
             <div class="horizontal-border">
               <div class="table">
@@ -51,34 +51,34 @@
                   <div class="cell-6"><input type="checkbox" id="all-check" class="text-wrapper-7"/></div>
                 </div>
                 <div class="body">
-                	<c:set var="len" value="${fn:length(memlist)}" />
-	                <c:if test="${page.end<=len}">
-	                	<c:set var="end" value="${page.end}"/>
-	                </c:if>
-					<c:if test="${page.end>len}">
-						<c:set var="end" value="${len}" />
-					</c:if>
-                	
-                	<c:forEach var="i" begin="${page.begin}" end="${ end}" varStatus="status">
-	                    <div class="row-${status.count}">
-	                    	<c:set var="u_code" value="${String.valueOf(memlist[i-1].u_code) }" />
-	                    	<c:if test="${ucodelist.contains(u_code)}">
-	                    		<div class="rectangle-wrapper"><input type="checkbox" name="ck-box" value="${memlist[i-1].u_code }" class="rectangle" disabled checked/></div>
-	                    	</c:if>
-	                    	<c:if test="${!ucodelist.contains(u_code)}">
-	                    		<div class="rectangle-wrapper"><input type="checkbox" name="ck-box" value="${memlist[i-1].u_code }" class="rectangle"/></div>
-	                    	</c:if>
-	                        <div class="data"><div class="text-wrapper-8">${memlist[i-1].u_code }</div></div>
-	                        <c:if test="${ memlist[i-1].u_social == 1}">
-	                        	<div class="data-3"><div class="text-wrapper-9">${memlist[i-1].u_id }</div></div>
-	                        </c:if>
-	                        <c:if test="${ memlist[i-1].u_social == 0}">
-	                        	<div class="data-3"><div class="text-wrapper-9">소셜 로그인</div></div>
-	                        </c:if>
-		                    <div class="data-2"><div class="text-wrapper-8">${memlist[i-1].u_name }</div></div>
-		                    <div class="data-4"><div class="text-wrapper-10">${memlist[i-1].u_birth }</div></div>
-		                    <div class="data-5"><div class="text-wrapper-11">${memlist[i-1].u_email }</div></div>
-		                </div>
+                   <c:set var="len" value="${fn:length(memlist)}" />
+                   <c:if test="${page.end<=len}">
+                      <c:set var="end" value="${page.end}"/>
+                   </c:if>
+               <c:if test="${page.end>len}">
+                  <c:set var="end" value="${len}" />
+               </c:if>
+                   
+                   <c:forEach var="i" begin="${page.begin}" end="${ end}" varStatus="status">
+                       <div class="row-${status.count}">
+                          <c:set var="u_code" value="${String.valueOf(memlist[i-1].u_code) }" />
+                          <c:if test="${ucodelist.contains(u_code)}">
+                             <div class="rectangle-wrapper"><input type="checkbox" name="ck-box" value="${memlist[i-1].u_code }" class="rectangle" disabled checked/></div>
+                          </c:if>
+                          <c:if test="${!ucodelist.contains(u_code)}">
+                             <div class="rectangle-wrapper"><input type="checkbox" name="ck-box" value="${memlist[i-1].u_code }" class="rectangle"/></div>
+                          </c:if>
+                           <div class="data"><div class="text-wrapper-8">${memlist[i-1].u_code }</div></div>
+                           <c:if test="${ memlist[i-1].u_social == 1}">
+                              <div class="data-3"><div class="text-wrapper-9">${memlist[i-1].u_id }</div></div>
+                           </c:if>
+                           <c:if test="${ memlist[i-1].u_social == 0}">
+                              <div class="data-3"><div class="text-wrapper-9">소셜 로그인</div></div>
+                           </c:if>
+                          <div class="data-2"><div class="text-wrapper-8">${memlist[i-1].u_name }</div></div>
+                          <div class="data-4"><div class="text-wrapper-10">${memlist[i-1].u_birth }</div></div>
+                          <div class="data-5"><div class="text-wrapper-11">${memlist[i-1].u_email }</div></div>
+                      </div>
                     </c:forEach>
                 </div>
               </div>
@@ -88,39 +88,39 @@
             
             
              <div class="nav">   <!-- 페이징 시작 -->
-				<div>
-					<ol class="paging">
-						<c:if test="${page.startPage < page.pagePerBlock}">
-							<li class="disable">&lt;</li>
-						</c:if>
-						<c:if test="${page.startPage >= page.pagePerBlock}">
-							<li class=""><a
-								href="Controller?type=adminCpMember&ci_code=${param.ci_code}&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
-						</c:if>
-						<!-- <div class="nav"> -->
-						<c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
-							<c:if test="${i == page.nowPage}">
-								<li class="now">${i}</li>
-							</c:if>
-							<c:if test="${i != page.nowPage}">
-								<li class=" "><a
-									href="Controller?type=adminCpMember&ci_code=${param.ci_code}&cPage=${i}">${i}</a></li>
-							</c:if>
-						</c:forEach>
+            <div>
+               <ol class="paging">
+                  <c:if test="${page.startPage < page.pagePerBlock}">
+                     <li class="disable">&lt;</li>
+                  </c:if>
+                  <c:if test="${page.startPage >= page.pagePerBlock}">
+                     <li class=""><a
+                        href="Controller?type=adminCpMember&ci_code=${param.ci_code}&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
+                  </c:if>
+                  <!-- <div class="nav"> -->
+                  <c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
+                     <c:if test="${i == page.nowPage}">
+                        <li class="now">${i}</li>
+                     </c:if>
+                     <c:if test="${i != page.nowPage}">
+                        <li class=" "><a
+                           href="Controller?type=adminCpMember&ci_code=${param.ci_code}&cPage=${i}">${i}</a></li>
+                     </c:if>
+                  </c:forEach>
 
 
-						<c:if test="${page.endPage < page.totalPage}">
-							<li class=""><a
-								href="Controller?type=adminCpMember&ci_code=${param.ci_code}&ci_&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
-						</c:if>
-						<c:if test="${page.endPage >= page.totalPage}">
-							<li class=" disable">&gt;</li>
-						</c:if>
+                  <c:if test="${page.endPage < page.totalPage}">
+                     <li class=""><a
+                        href="Controller?type=adminCpMember&ci_code=${param.ci_code}&ci_&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+                  </c:if>
+                  <c:if test="${page.endPage >= page.totalPage}">
+                     <li class=" disable">&gt;</li>
+                  </c:if>
 
-					</ol>
-				</div>
-			</div>   <!-- 페이징 끝 -->
-			
+               </ol>
+            </div>
+         </div>   <!-- 페이징 끝 -->
+         
             <!-- <div class="nav">
               <div class="strong"><div class="text-wrapper-2">1</div></div>
               <div class="link-2"><div class="text-wrapper-3">2</div></div>
@@ -158,79 +158,58 @@
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-	  <script>
-	  $(function(){
-		  $(".button-3").click(function(){ //검색 버튼 클릭
-		  		var value = $(".input").val().trim();
-		  	    var searchType = $("#select").val();
-		  	    console.log("검색어:", value);
-		  	    console.log("검색타입:", searchType);
-		  	  	location.href="Controller?type=adminCpMember&searchValue="+value+"&searchType="+searchType+"&ci_code=${param.ci_code}";
-		  	});
-		  
-		  
-			//tbody에 있는 모든 checkbox들 검색
-			$('#all-check').click(function() {
-				if ($('#all-check').is(':checked')) {
-					$('input[type=checkbox]').prop('checked', true);
-				} else {
-					$('input[type=checkbox]').prop('checked', false);
-				}
-			});
-			
-			
-			//체크된 정보를 가져와서 
-			$('.frame-2').click(function() {
-				var checked = $('input[name=ck-box]:checked:not(:disabled)');
-			    var u_code = [];
-			    checked.each(function(i) {
-			        u_code.push($(this).val());
-			    });
-				    
-			    var form = document.createElement('form');
-			    
-			    for (var i = 0; i < u_code.length; i++) {
-			        var objs = document.createElement('input');
-			        objs.setAttribute('type', 'hidden');
-			        objs.setAttribute('name', 'insertU_code[]');
-			        objs.setAttribute('value', u_code[i]);
-			        form.appendChild(objs);
-			    }
+     <script>
+     $(function(){
+        $(".button-3").click(function(){ //검색 버튼 클릭
+              var value = $(".input").val().trim();
+               var searchType = $("#select").val();
+               console.log("검색어:", value);
+               console.log("검색타입:", searchType);
+                location.href="Controller?type=adminCpMember&searchValue="+value+"&searchType="+searchType+"&ci_code=${param.ci_code}";
+           });
+        
+        
+         //tbody에 있는 모든 checkbox들 검색
+         $('#all-check').click(function() {
+            if ($('#all-check').is(':checked')) {
+               $('input[type=checkbox]').prop('checked', true);
+            } else {
+               $('input[type=checkbox]').prop('checked', false);
+            }
+         });
+         
+         
+         //체크된 정보를 가져와서 
+         $('.frame-2').click(function() {
+            var checked = $('input[name=ck-box]:checked:not(:disabled)');
+             var u_code = [];
+             checked.each(function(i) {
+                 u_code.push($(this).val());
+             });
+                
+             var form = document.createElement('form');
+             
+             for (var i = 0; i < u_code.length; i++) {
+                 var objs = document.createElement('input');
+                 objs.setAttribute('type', 'hidden');
+                 objs.setAttribute('name', 'insertU_code[]');
+                 objs.setAttribute('value', u_code[i]);
+                 form.appendChild(objs);
+             }
 
-			    objs = document.createElement('input');
-			   	objs.setAttribute('type', 'hidden');
-			    objs.setAttribute('name', 'ci_code');
-			    objs.setAttribute('value', ${param.ci_code});
-			    form.appendChild(objs);
-			    
-			    form.setAttribute('method', 'post');
-				form.setAttribute('action', 'Controller?type=adminCpMember');
-				document.body.appendChild(form);
-				form.submit();
+             objs = document.createElement('input');
+               objs.setAttribute('type', 'hidden');
+             objs.setAttribute('name', 'ci_code');
+             objs.setAttribute('value', ${param.ci_code});
+             form.appendChild(objs);
+             
+             form.setAttribute('method', 'post');
+            form.setAttribute('action', 'Controller?type=adminCpMember');
+            document.body.appendChild(form);
+            form.submit();
 
-			});
-		});
-	  
-	  $(function() {
-	        let audiAcc = ${count};
-
-	        $('.movie-link').each(function() {
-	            let path = $(this).attr('href');
-	            if (path) { // href 값이 존재하는 경우에만 처리
-	                path += "&audiAcc=" + audiAcc; // audiAcc 값을 추가
-	                $(this).attr('href', path); // 수정된 URL을 href 속성에 설정
-	            }
-	        });
-	    });
-	    
-	  //아이디가 로그아웃을 클릭했을때 로그아웃할거냐고 경고창
-	    document.querySelector('#logout').addEventListener('click', function(event) {
-	        var confirmLogout = confirm("로그아웃하시겠습니까?");
-	        if (!confirmLogout) {
-	            // 사용자가 취소를 클릭하면 이벤트를 중단합니다.
-	            event.preventDefault();
-	        }
-	    });
-	</script>
+         });
+      });
+   </script>
   </body>
 </html>
