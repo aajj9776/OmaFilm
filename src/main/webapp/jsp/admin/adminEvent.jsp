@@ -45,48 +45,51 @@
 								</div>
 							</div>
 							<div class="body">
-								<c:set var="len" value="${fn:length(eventList)}" />
-	                <c:if test="${page.end<=len}">
-	                	<c:set var="end" value="${page.end}"/>
-	                </c:if>
-					<c:if test="${page.end>len}">
-						<c:set var="end" value="${len}" />
-					</c:if>
-						
-					<c:forEach var="i" begin="${page.begin}" end="${ end}" varStatus="status">
-									<c:choose>
-										<c:when test="${status.index == 0}">
-											<div class="row">
-										</c:when>
-										<c:otherwise>
-											<div class="row-${status.count}">
-										</c:otherwise>
-									</c:choose>
-									<div class="overlap-group-3">
-										<div class="data">
+								<c:if test="${not empty eventList}">
+									<c:set var="len" value="${fn:length(eventList)}" />
+									<c:if test="${page.end<=len}">
+										<c:set var="end" value="${page.end}" />
+									</c:if>
+									<c:if test="${page.end>len}">
+										<c:set var="end" value="${len}" />
+									</c:if>
+
+									<c:forEach var="i" begin="${page.begin}" end="${ end}"
+										varStatus="status">
 										<c:choose>
-										    <c:when test="${eventList[i-1].nt_ct_code == 3}">
-										        <div class="text-wrapper-6">이벤트</div>
-										    </c:when>
-										    <c:when test="${eventList[i-1].nt_ct_code == 4}">
-										        <div class="text-wrapper-6">혜택</div>
-										    </c:when>
-										 </c:choose>
+											<c:when test="${status.index == 0}">
+												<div class="row">
+											</c:when>
+											<c:otherwise>
+												<div class="row-${status.count}">
+											</c:otherwise>
+										</c:choose>
+										<div class="overlap-group-3">
+											<div class="data">
+												<c:choose>
+													<c:when test="${eventList[i-1].nt_ct_code == 2}">
+														<div class="text-wrapper-6">이벤트</div>
+													</c:when>
+													<c:when test="${eventList[i-1].nt_ct_code == 3}">
+														<div class="text-wrapper-6">혜택</div>
+													</c:when>
+												</c:choose>
+											</div>
+											<div class="data-2">
+												<div class="text-wrapper-7">${eventList[i-1].n_title}</div>
+											</div>
 										</div>
-										<div class="data-2">
-											<div class="text-wrapper-7">${eventList[i-1].n_title}</div>
+										<div class="rectangle-wrapper">
+											<input type="checkbox" class="rectangle" name="deleteIds"
+												value="${eventList[i-1].n_idx}" />
 										</div>
-									</div>
-									<div class="rectangle-wrapper">
-										<input type="checkbox" class="rectangle" name="deleteIds"
-											value="${eventList[i-1].n_idx}" />
-									</div>
-									<div class="data-3">
-										<div class="text-wrapper-8">${eventList[i-1].n_time}</div>
-									</div>
+										<div class="data-3">
+											<div class="text-wrapper-8">${eventList[i-1].n_time}</div>
+										</div>
+										</div>
+									</c:forEach>
+								</c:if>
 							</div>
-							</c:forEach>
-						</div>
 					</div>
 					
 					<div class="frame-2">   <!-- 페이징 시작 -->
@@ -126,20 +129,20 @@
 				</div>
 				
 				<form id="searchForm" method="post" action="Controller?type=adminSearchEvent">
-				<div class="button">
-						<select id="searchCategory" name="searchCategory" class="text-wrapper-12">
-							<option value="n_title">제목</option>
-							<option value="n_content">내용</option>
-						</select>
-				</div>
-				<div class="border">
-					<div class="input">
-						<div class="container-2">
-							<input type="text" name="searchTerm" placeholder="검색어를 입력해 주세요." class="text-wrapper-13" />
-						</div>
+					<div class="button">
+							<select id="searchCategory" name="searchCategory" class="text-wrapper-12">
+								<option value="n_title">제목</option>
+								<option value="n_content">내용</option>
+							</select>
 					</div>
-					<button type="button" onclick="executeSearch()" class="button-2">검색</button>
-				</div>
+					<div class="border">
+						<div class="input">
+							<div class="container-2">
+								<input type="text" name="searchTerm" placeholder="검색어를 입력해 주세요." class="text-wrapper-13" />
+							</div>
+						</div>
+						<button type="button" onclick="executeSearch()" class="button-2">검색</button>
+					</div>
 				</form>
 				
 				

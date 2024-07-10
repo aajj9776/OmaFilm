@@ -38,7 +38,7 @@ public class PayCancelNonMemAction implements Action {
             e.printStackTrace();
         }
         
-		return "Controller?type=noReservationCheck&res=1";
+		return "Controller?type=NonMemCancelListAction";
 	}
 	
 	//merchant_uid 주면 됨

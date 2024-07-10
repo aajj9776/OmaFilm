@@ -53,6 +53,16 @@
 		</where>
     </select>
     
+    <select id="getReserver" parameterType="Map" resultType="String">
+    	SELECT rsvr_code FROM reserver
+		<where>
+			non_name = #{name}
+			AND non_email = #{email}
+			AND non_pw = #{password}
+			AND u_code IS NULL
+		</where>
+    </select>
+
     <resultMap type="web.mybatis.vo.ReserverVO" id="map1">
 		<result property="non_name" column="non_name" />
 		<result property="rsvr_time" column="rsvr_time" />

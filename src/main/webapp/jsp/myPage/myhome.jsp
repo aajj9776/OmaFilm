@@ -67,7 +67,7 @@
 			  </div>
 				  <table>  
 				    <tbody>
-				    
+				    <c:if test="${not empty rvo}">
 					<c:set var="end" value="${fn:length(rvo) > 6 ? 6 : fn:length(rvo)}" />
 					
 					<c:forEach var="item" items="${rvo}" begin="0" end="${end - 1}" varStatus="status">
@@ -77,6 +77,7 @@
 					    <td><div class="text-wrapper-17">${item.rs_time.split(" ")[0]}</div></td>
 					  </tr>
 					</c:forEach>
+					</c:if>
 				    </tbody>
 				  </table> 
 			</div> 
@@ -90,6 +91,7 @@
 			    </div>
 				    <table>
 				        <tbody>
+				        	<c:if test="${not empty ivo}">
 				        	<c:set var="end" value="${fn:length(ivo) > 6 ? 6 : fn:length(ivo)}" />
 
 							<c:forEach var="vo" items="${ivo}" begin="0" end="${end - 1}" varStatus="num">
@@ -99,6 +101,7 @@
 							    <td><div class="text-wrapper-25">${vo.iq_time }</div></td>
 							  </tr>
 							</c:forEach>
+							</c:if>
 				        </tbody>
 				    </table>
 				</div>

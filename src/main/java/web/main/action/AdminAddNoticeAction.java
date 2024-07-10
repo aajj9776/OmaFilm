@@ -20,11 +20,10 @@ public class AdminAddNoticeAction implements Action{
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         //여기서 값을 받아서 넣을 계획입니다
         String n_time = dateFormat.format(new Date());
-        if (title == null || title.isEmpty() ||
-	            content == null || content.isEmpty()) {
+        if (title == null || title.isEmpty() || content == null || content.isEmpty()) {
         		System.out.println("값 없음");
 	            return "jsp/admin/adminAddNotice.jsp";
-	        }
+        }
         //만약에 해당 값이 하나도 없다면 그냥 바로 넘기기
         System.out.println("값 있음");
         String nt_ct_code = "1";	//일단 공지사항은 1로 고정=>향후 의논에 따라 변경 할 수 있음
@@ -41,6 +40,6 @@ public class AdminAddNoticeAction implements Action{
         dao.insertNotice(notice);
         System.out.println("공지등록성공");
         
-		return "jsp/admin/adminAddNotice.jsp";
+		return "jsp/admin/adminAddMovie.jsp";
 	}
 }

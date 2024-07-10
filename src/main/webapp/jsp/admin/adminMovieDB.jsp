@@ -101,7 +101,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                
+                <c:if test="${not empty ar}">
                 <c:set var="len" value="${fn:length(ar)}" />
 	                <c:if test="${page.end<=len}">
 	                	<c:set var="end" value="${page.end}"/>
@@ -113,12 +113,13 @@
 					<c:forEach var="i" begin="${page.begin}" end="${ end}" varStatus="status">
 					
                     <tr>
-                        <td><input type="checkbox" id="checkbox" name="movieCd" value="${ar[i-1].movieCd }"/></td>
+                        <td><input type="radio" id="checkbox" name="movieCd" value="${ar[i-1].movieCd }"/></td>
                         <td>${status.index}</td>
                         <td>${ar[i-1].movieNm}</td>
                         <td>${ar[i-1].openDt}</td>
                     </tr>
                 </c:forEach>
+                </c:if>
                 </tbody>
             </table>
             <form id="screenAdd" action="Controller?type=adminMovieDb" method="post">
@@ -175,7 +176,11 @@
     
     //모달창 열기
     function dialog() {
-        $("#myModal").css("display", "block");
+    	if ($('input[type="radio"]').is(':checked')) {
+            $("#myModal").css("display", "block");
+        } else {
+            alert("영화를 선택해주세요.");
+        }
     }
 
     // 모달창 닫기
@@ -185,7 +190,7 @@
 
     $(function(){
 
-        $("#sb").click(function(){
+    	$("#sb").click(function(){
             movieCd = $("input[name='movieCd']:checked").val();
             $("#nameData").val(name)
             $("#dateData").val(date)

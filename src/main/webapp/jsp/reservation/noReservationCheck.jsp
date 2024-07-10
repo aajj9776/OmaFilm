@@ -39,7 +39,8 @@
                         <c:forEach var="vo" items="${list }">
                             <div class="li">
                                 <div class="round">
-                                    <div class="img"></div>
+                                    <a href="Controller?type=moviedetail&movieCd=${vo.mvo.movieCd}">
+                                    <div class="img" style="background-image: url('${vo.mvo.m_file}'); background-size: cover; background-repeat: no-repeat; background-position: center;"></div></a>
                                     <div class="div">
                                     </div>
                                     <p class="p">
@@ -129,20 +130,19 @@
                         </th>
                         </thead>
                         <tbody class="tbody-2">
-
+                        <c:if test="${not empty cancel_list}">
                         <c:set var="len" value="${fn:length(cancel_list)}" />
-                        <c:if test="${page.end<=len}">
-                            <c:set var="end" value="${page.end}"/>
-                        </c:if>
-                        <c:if test="${page.end>len}">
-                            <c:set var="end" value="${len}" />
-                        </c:if>
-
-                        <c:if test="${page.begin<0}">
-                            <c:set var="begin" value="1" />
-                        </c:if>
-
-                        <c:forEach items="${cancel_list}" var="item">
+                      <c:if test="${page.end<=len}">
+                         <c:set var="end" value="${page.end}"/>
+                      </c:if>
+                  <c:if test="${page.end>len}">
+                     <c:set var="end" value="${len}" />
+                  </c:if>
+                  
+                  <c:if test="${page.begin<0}">
+                     <c:set var="begin" value="1" />
+                  </c:if>
+						<c:forEach var="i" begin="${page.begin}" end="${ end}" varStatus="status">
                             <tr class="tbody-2_tr">
                                 <td class="data-1">
                                     <div class="text-wrapper-20">${item.rvo.rs_cancel_time}</div>
@@ -164,46 +164,47 @@
                                 </td>
                             </tr>
                         </c:forEach>
+                        </c:if>
                         </tbody>
                     </table>
                     <div class="nav">
-                        <div>
-                            <ol class="paging">
-                                <c:if test="${page.startPage < page.pagePerBlock}">
-                                    <li class="disable">&lt;</li>
-                                </c:if>
-                                <c:if test="${page.startPage >= page.pagePerBlock}">
-                                    <li class=""><a
-                                            href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
-                                </c:if>
-                                <!-- <div class="nav"> -->
-                                <c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
-                                    <c:if test="${i == page.nowPage}">
-                                        <li class="now">${i}</li>
-                                    </c:if>
-                                    <c:if test="${i != page.nowPage}">
-                                        <li class=" "><a
-                                                href="Controller?type=myReservation&cPage=${i}">${i}</a></li>
-                                    </c:if>
-                                </c:forEach>
+                  <div>
+                     <ol class="paging">
+                        <c:if test="${page.startPage < page.pagePerBlock}">
+                           <li class="disable">&lt;</li>
+                        </c:if>
+                        <c:if test="${page.startPage >= page.pagePerBlock}">
+                           <li class=""><a
+                              href="Controller?type=nonMemCancelList&rsvr_code=${rsrvr_code }&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
+                        </c:if>
+                        <!-- <div class="nav"> -->
+                        <c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
+                           <c:if test="${i == page.nowPage}">
+                              <li class="now">${i}</li>
+                           </c:if>
+                           <c:if test="${i != page.nowPage}">
+                              <li class=" "><a
+                                 href="Controller?type=nonMemCancelList&rsvr_code=${rsrvr_code }&cPage=${i}">${i}</a></li>
+                           </c:if>
+                        </c:forEach>
 
 
-                                <c:if test="${page.endPage < page.totalPage}">
-                                    <li class=""><a
-                                            href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
-                                </c:if>
-                                <c:if test="${page.endPage >= page.totalPage}">
-                                    <li class=" disable">&gt;</li>
-                                </c:if>
+                        <c:if test="${page.endPage < page.totalPage}">
+                           <li class=""><a
+                              href="Controller?type=nonMemCancelList&rsvr_code=${rsrvr_code }&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+                        </c:if>
+                        <c:if test="${page.endPage >= page.totalPage}">
+                           <li class=" disable">&gt;</li>
+                        </c:if>
 
-                            </ol>
-                        </div>
-                    </div>
+                     </ol>
+                  </div>
                 </div>
             </div>
-            <jsp:include page="/jsp/footer/footer.jsp"/>
         </div>
+            <jsp:include page="/jsp/footer/footer.jsp"/>
     </div>
+</div>
 </div>
 <%@ include file="/jsp/reservation/noReservationCheckModal.jsp" %> <!-- 모달창 -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -303,69 +304,6 @@
             $(".nav").remove();
         }
     });
-
-    $(function () {
-        $(".label-2").click(function () {
-            $(".label-3").find("input").prop("checked", false);
-        });
-        $(".label-3").click(function () {
-            $(".label-2").find("input").prop("checked", false);
-        });
-    });
-
-    //아이디가 before인 라디오 버튼을 클릭했을 때 상영시간 전 나의 예매내역을 보여준다
-    //아이디가 after인 라디오 버튼을 클릭했을 때 상영시간 후 나의 예매내역을 보여준다
-
-    $(function () {
-        $(".button").click(function () {
-            if ($("#before").prop("checked")) {
-                location.href = "Controller?type=myReservation";
-            } else if ($("#after").prop("checked")) {
-                location.href = "Controller?type=myReservation&after=after";
-            }
-        });
-    });
-
-    var listJson = '${StringEscapeUtils.escapeEcmaScript(list)}';
-    var list = JSON.parse(listJson);
-
-    $(function() {
-        $(".button").click(function() {
-            var type = $("#before").prop("checked") ? "before" : "after";
-
-            $.ajax({
-                url: "Controller=" + type,
-                type: "GET",
-                data: { list: list },
-                dataType: "json",
-                success: function(response) {
-                    // 리스트 업데이트 로직
-                    // 예를 들어, response에는 업데이트할 리스트 데이터가 포함되어 있습니다.
-                    // 여기서는 response 데이터를 사용하여 리스트를 동적으로 생성하고 업데이트합니다.
-                    updateList(response);
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error occurred: " + error);
-                }
-            });
-        });
-    });
-
-    function updateList(data) {
-        // 리스트를 업데이트하는 로직을 구현합니다.
-        // 예를 들어, .bokdlist 내부를 비우고 새로운 리스트 아이템을 추가하는 방식으로 구현할 수 있습니다.
-        $(".bokdlist").empty(); // 기존 리스트를 비웁니다.
-        data.forEach(function(item) {
-
-        }
-    }
-
-
-
-
-
-
-
 
 
 
