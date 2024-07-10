@@ -2,6 +2,7 @@ package web.mybatis.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import web.mybatis.service.FactoryService;
+import web.mybatis.vo.InquiryVO;
 import web.mybatis.vo.NoticeVO;
 
 import java.util.HashMap;
@@ -41,7 +42,9 @@ public class FaqDAO {
 		if(list != null && list.size() > 0) {
 			far = new NoticeVO[list.size()];
 			list.toArray(far); //list가 가지는 모든 요소들을 ar 배열에 복사
-		}
+		} else {
+	        far = new NoticeVO[0]; // 빈 배열 생성
+	    }
 		
 		ss.close();
 		return far;

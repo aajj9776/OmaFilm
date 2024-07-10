@@ -21,7 +21,7 @@
 						<div class="list">
 							<div class="item">
 								<div class="link">
-									<div class="div">로그아웃</div>
+									<div class="div" id="logout"><a href="${pageContext.request.contextPath}/Controller?type=logout">로그아웃</a></div>
 									<div class="pseudo"></div>
 								</div>
 							</div>
@@ -46,6 +46,7 @@
 								</div>
 							</div>
 							<div class="body">
+							<c:if test="${not empty noticeList}">
 								<c:set var="len" value="${fn:length(noticeList)}" />
 					                <c:if test="${page.end<=len}">
 					                	<c:set var="end" value="${page.end}"/>
@@ -80,6 +81,7 @@
 									</div>
 								</div>
 							</c:forEach>
+							</c:if>
 						</div>
 					</div>
 					<!-- Paging을 이용해서 해야 한다+11개이상 목록이 있을땐 10개 까지만 출력 그 후 페이징을 통해 분할 -->
@@ -170,6 +172,9 @@
 				</div>
 			</div>
 		</div>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>	
 	<script>
 function deleteNotices() {
   var checkboxes = document.querySelectorAll('input[name="deleteIds"]:checked');
@@ -204,6 +209,27 @@ function deleteNotices() {
 function executeSearch() {
     document.getElementById("searchForm").submit();
 }
+
+$(function() {
+    let audiAcc = ${count};
+
+    $('.movie-link').each(function() {
+        let path = $(this).attr('href');
+        if (path) { // href 값이 존재하는 경우에만 처리
+            path += "&audiAcc=" + audiAcc; // audiAcc 값을 추가
+            $(this).attr('href', path); // 수정된 URL을 href 속성에 설정
+        }
+    });
+});
+
+//아이디가 로그아웃을 클릭했을때 로그아웃할거냐고 경고창
+document.querySelector('#logout').addEventListener('click', function(event) {
+    var confirmLogout = confirm("로그아웃하시겠습니까?");
+    if (!confirmLogout) {
+        // 사용자가 취소를 클릭하면 이벤트를 중단합니다.
+        event.preventDefault();
+    }
+});
 </script>
 </body>
 </html>

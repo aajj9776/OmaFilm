@@ -55,7 +55,7 @@
               <div class="item-wrapper">
                 <div class="item">
                   <div class="link-12">
-                    <div class="text-wrapper-13">로그아웃</div>
+                    <div class="text-wrapper-13" id="logout"><a href="${pageContext.request.contextPath}/Controller?type=logout">로그아웃</a></div>
                     <div class="pseudo"></div>
                   </div>
                 </div>
@@ -109,6 +109,27 @@ $(function() {
             $(this).attr('href', path); // 수정된 URL을 href 속성에 설정
         }
     });
+});
+
+$(function() {
+    let audiAcc = ${count};
+
+    $('.movie-link').each(function() {
+        let path = $(this).attr('href');
+        if (path) { // href 값이 존재하는 경우에만 처리
+            path += "&audiAcc=" + audiAcc; // audiAcc 값을 추가
+            $(this).attr('href', path); // 수정된 URL을 href 속성에 설정
+        }
+    });
+});
+
+//아이디가 로그아웃을 클릭했을때 로그아웃할거냐고 경고창
+document.querySelector('#logout').addEventListener('click', function(event) {
+    var confirmLogout = confirm("로그아웃하시겠습니까?");
+    if (!confirmLogout) {
+        // 사용자가 취소를 클릭하면 이벤트를 중단합니다.
+        event.preventDefault();
+    }
 });
 </script>
   </body>

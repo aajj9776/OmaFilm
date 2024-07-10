@@ -336,17 +336,6 @@ $("#checkButton").on("click", function () {
     });
 });
 
-//비밀번호 확인
-$('#pw1').keyup(function () {
-    var pw = $('#pw').val();
-    var pw_check = $('#pw1').val();
-    if (pw == pw_check) {
-        $('.checkPw').text('일치함').css('color', 'blue').show();
-    } else {
-        $('.checkPw').text('일치하지 않음').css('color', 'red').show();
-    }
-});
-
 	let text = '<%= request.getParameter("text") %>';
 	let movieName = '<%= request.getParameter("movieName") %>';
 	let time = '<%= request.getParameter("time") %>';
@@ -356,9 +345,9 @@ $('#pw1').keyup(function () {
 	let totalCount;
 	let totalPrice;
 	
-	let nonName = $("#nonName").val()
-	let nonEmail = $("#email").val()
-	let nonPw = $("#nonPw").val()
+	let nonName;
+	let nonEmail;
+	let nonPw;
 	
 	function hoverEvent() {
 	    $('.rectangle').not('[style*="background-color: black"]').hover(
@@ -373,10 +362,24 @@ $('#pw1').keyup(function () {
 	        }
 	    );
 	}
+	  $('#pw1').keyup(function() {
+	      let nonPw = $("#nonPw").val();
+	      let pw_check = $('#pw1').val();
+	      console.log( " 1" + nonPw)
+	      console.log(" 2" + pw_check)
+	      if (nonPw === pw_check) {
+	          $('.checkPw').text('일치함').css('color', 'blue').show();
+	      } else {
+	          $('.checkPw').text('일치하지 않음').css('color', 'red').show();
+	      }
+	  });
 	
 	function noReservation(){
+		let birth = $("#birth").val();
+		nonName = $("#nonName").val();
+		nonEmail = $("#email").val();
+		nonPw = $("#nonPw").val();
 		
-		let adult = $("#adult").text();
 		let teen = $("#teen").text();
 		let old = $("#old").text();
 
@@ -395,20 +398,29 @@ $('#pw1').keyup(function () {
 		
 		if( nonName == "" ){
 			alert("이름을 입력해주세요");
+			modal.css("display", "block");
+			return
+		}
+		if( birth == "" ){
+			alert("생년월일을 입력해주세요");
+			modal.css("display", "block");
 			return
 		}
 		if( nonEmail == "" ){
 			alert("이메일을 입력해주세요");
-			return
-		}
-		if( nonPw == "" ){
-			alert("이름을 입력해주세요");
+			modal.css("display", "block");
 			return
 		}
 	 	if(sessionStorage.getItem("emailVerified") !== "true") {
             alert("이메일 인증을 완료해주세요.");
+            modal.css("display", "block");
             return;
         }
+		if( nonPw == "" ){
+			alert("비밀번호를 입력해주세요");
+			modal.css("display", "block");
+			return
+		}
 		
 		$("#nonReserver").submit()
 	}
@@ -581,6 +593,7 @@ $('#pw1').keyup(function () {
         seats = seatArray.join(","); // 좌석 배열을 쉼표로 구분된 문자열로 변환
         console.log("Selected seats: " + seats); // 선택된 좌석 확인용 로그
     }
+    
 
 
 	//결제하기로 넘기기
@@ -634,12 +647,14 @@ $(function(){
 	  	});
 	  }
 	  
-	  // 모달 외부 클릭 시 모달 숨기기
-	  $(window).click(function(event) {
-	    if ($(event.target).is(modal)) {
-	      modal.hide();
-	    }
-	  });
+	// 모달 외부 클릭 시 모달 숨기기
+  $(window).click(function(event) {
+      if ($(event.target).is(modal)) {
+          modal.css("display", "none");
+      }
+  });
+	
+
 });
 </script>
 </body>

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/myPage/myHome.css" />
   </head>
   <body>
-    <div class="screen">
+    <div class="screen"> 
       <div class="container-wrapper">
         <div class="container">
         <div>

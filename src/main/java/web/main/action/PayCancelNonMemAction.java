@@ -19,10 +19,10 @@ import web.mybatis.dao.MyReservationDAO;
 
 public class PayCancelNonMemAction implements Action {
 
-	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String rs_num = request.getParameter("rs_num");
-		System.out.println("rs_num : " + rs_num);
+   @Override
+   public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+      String rs_num = request.getParameter("rs_num");
+      System.out.println("rs_num : " + rs_num);
         String p_code =  MyReservationDAO.getPcode(rs_num); 
         System.out.println("p_code : " + p_code);
         MyReservationDAO.cancelReservation(rs_num, p_code);
@@ -38,10 +38,10 @@ public class PayCancelNonMemAction implements Action {
             e.printStackTrace();
         }
         
-		return "Controller?type=noReservationCheck&res=1";
-	}
-	
-	//merchant_uid 주면 됨
+      return "Controller?type=noReservationCheck&res=1";
+   }
+   
+   //merchant_uid 주면 됨
     public String getToken(String apiKey, String secretKey) throws IOException {
         URL url = new URL("https://api.iamport.kr/users/getToken");
         HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();

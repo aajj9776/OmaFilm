@@ -14,25 +14,8 @@
 <jsp:include page="/jsp/header/header.jsp"/>
 <div class="screen">
     <div class="overlap-wrapper">
-        <div class="list-search">
-            <div class="overlap-2">
-                <div class="container-2">
-                    <div class="label">구분</div>
-                    <div class="label-2">
-                        <div class="text-wrapper-5">예매내역</div>
-                    </div>
-                    <div class="label-3">
-                        <div class="text-wrapper-5">지난내역</div>
-                    </div>
-                </div>
-                <button class="button">
-                    <div class="text-wrapper-6">조회</div>
-                </button>
-            </div>
-        </div>
         <div class="overlap">
             <div class="container">
-
                 <div class="content">
                     <div class="tit">예매/취소내역</div>
                     <div class="bokdlist">
@@ -40,8 +23,7 @@
                         <c:forEach var="vo" items="${list }">
                             <div class="li">
                                 <div class="round">
-                                    <a href="Controller?type=moviedetail&movieCd=${vo.mvo.movieCd}">
-                                    <div class="img" style="background-image: url('${vo.mvo.m_file}'); background-size: cover; background-repeat: no-repeat; background-position: center;"></div></a>
+                                    <div class="img" style="background-image: url('${vo.mvo.m_file}'); background-size: cover; background-repeat: no-repeat; background-position: center;"></div>
                                     <div class="div">
                                     </div>
                                     <p class="p">
@@ -52,7 +34,7 @@
                                         <tbody class="tbody">
                                         <tr class="tr">
                                             <th class="th">관람일시</th>
-                                            <td class="td">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${vo.rsvr_time }</td>
+                                            <td class="td">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${vo.ssvo.ss_time }</td>
 
                                         </tr>
                                         <tr class="tr-2">
@@ -131,18 +113,18 @@
                         </th>
                         </thead>
                         <tbody class="tbody-2">
-                        
+
                         <c:set var="len" value="${fn:length(cancel_list)}" />
-                      <c:if test="${page.end<=len}">
-                         <c:set var="end" value="${page.end}"/>
-                      </c:if>
-                  <c:if test="${page.end>len}">
-                     <c:set var="end" value="${len}" />
-                  </c:if>
-                  
-                  <c:if test="${page.begin<0}">
-                     <c:set var="begin" value="1" />
-                  </c:if>
+                        <c:if test="${page.end<=len}">
+                            <c:set var="end" value="${page.end}"/>
+                        </c:if>
+                        <c:if test="${page.end>len}">
+                            <c:set var="end" value="${len}" />
+                        </c:if>
+
+                        <c:if test="${page.begin<0}">
+                            <c:set var="begin" value="1" />
+                        </c:if>
 
                         <c:forEach items="${cancel_list}" var="item">
                             <tr class="tbody-2_tr">
@@ -169,43 +151,43 @@
                         </tbody>
                     </table>
                     <div class="nav">
-                  <div>
-                     <ol class="paging">
-                        <c:if test="${page.startPage < page.pagePerBlock}">
-                           <li class="disable">&lt;</li>
-                        </c:if>
-                        <c:if test="${page.startPage >= page.pagePerBlock}">
-                           <li class=""><a
-                              href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
-                        </c:if>
-                        <!-- <div class="nav"> -->
-                        <c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
-                           <c:if test="${i == page.nowPage}">
-                              <li class="now">${i}</li>
-                           </c:if>
-                           <c:if test="${i != page.nowPage}">
-                              <li class=" "><a
-                                 href="Controller?type=myReservation&cPage=${i}">${i}</a></li>
-                           </c:if>
-                        </c:forEach>
+                        <div>
+                            <ol class="paging">
+                                <c:if test="${page.startPage < page.pagePerBlock}">
+                                    <li class="disable">&lt;</li>
+                                </c:if>
+                                <c:if test="${page.startPage >= page.pagePerBlock}">
+                                    <li class=""><a
+                                            href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
+                                </c:if>
+                                <!-- <div class="nav"> -->
+                                <c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
+                                    <c:if test="${i == page.nowPage}">
+                                        <li class="now">${i}</li>
+                                    </c:if>
+                                    <c:if test="${i != page.nowPage}">
+                                        <li class=" "><a
+                                                href="Controller?type=myReservation&cPage=${i}">${i}</a></li>
+                                    </c:if>
+                                </c:forEach>
 
 
-                        <c:if test="${page.endPage < page.totalPage}">
-                           <li class=""><a
-                              href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
-                        </c:if>
-                        <c:if test="${page.endPage >= page.totalPage}">
-                           <li class=" disable">&gt;</li>
-                        </c:if>
+                                <c:if test="${page.endPage < page.totalPage}">
+                                    <li class=""><a
+                                            href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+                                </c:if>
+                                <c:if test="${page.endPage >= page.totalPage}">
+                                    <li class=" disable">&gt;</li>
+                                </c:if>
 
-                     </ol>
-                  </div>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
             <jsp:include page="/jsp/footer/footer.jsp"/>
+        </div>
     </div>
-</div>
 </div>
 <%@ include file="/jsp/reservation/noReservationCheckModal.jsp" %> <!-- 모달창 -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -251,28 +233,28 @@
             modal.css("display", "block");
         });
 
-        
+
         //예매취소버튼
         $(".div-wrapper").click(function () {
-           var confirmCancel = confirm("예매를 취소하시겠습니까?");
-           
-           if (confirmCancel) {
-              var rs_num = $(this).find("input[name=rs_num]").val();
-              
-              var form = document.createElement('form');
-              var objs;
-              
-              objs = document.createElement('input');
-               objs.setAttribute('type', 'hidden');
-               objs.setAttribute('name', 'rs_num');
-               objs.setAttribute('value', rs_num);
-               form.appendChild(objs);
-               
-              form.setAttribute('method', 'post');
-               form.setAttribute('action', 'Controller?type=payCancelNonMem');
-               document.body.appendChild(form);
-               form.submit();
-           }
+            var confirmCancel = confirm("예매를 취소하시겠습니까?");
+
+            if (confirmCancel) {
+                var rs_num = $(this).find("input[name=rs_num]").val();
+
+                var form = document.createElement('form');
+                var objs;
+
+                objs = document.createElement('input');
+                objs.setAttribute('type', 'hidden');
+                objs.setAttribute('name', 'rs_num');
+                objs.setAttribute('value', rs_num);
+                form.appendChild(objs);
+
+                form.setAttribute('method', 'post');
+                form.setAttribute('action', 'Controller?type=payCancelNonMem');
+                document.body.appendChild(form);
+                form.submit();
+            }
 
         });
     });
@@ -306,8 +288,7 @@
         }
     });
 
-
-
+   
 </script>
 </body>
 </html>

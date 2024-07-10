@@ -1072,10 +1072,6 @@
   white-space: nowrap;
 }
 
-a {
-    text-decoration: none;
-    color: #ffffff;
-}
 
 ol.paging {
     list-style:none;
