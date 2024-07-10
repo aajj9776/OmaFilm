@@ -131,10 +131,11 @@
        INNER JOIN movie_list m 
        ON m.movieCd = sc.movieCd
        <where>
-           non_name = #{name}
+           AND non_name = #{name}
            AND non_email = #{email}
            AND non_pw = #{password}
            AND u_code IS NULL
+           AND rs_cancel_time IS NULL
            AND rs_status = 0
        </where>
    </select>
