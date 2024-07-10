@@ -74,16 +74,19 @@
     	</association>
     	<association property="ssvo" javaType="web.mybatis.vo.ScreeningScheduleVO">
 			<result property="t_name" column="t_name" />
+			<result property="ss_time" column="ss_time" />
     	</association>
     	<association property="mvo" javaType="web.mybatis.vo.MovieListVO">
 			<result property="movieNm" column="movieNm" />
+			<result property="movieCd" column="movieCd" />
+			<result property="m_file" column="m_file" />
     	</association>
     </resultMap>
     
     <select id="selectReserverInfo" resultMap="map1" parameterType="Map">
     SELECT r.rsvr_code, r.non_email, r.non_name, r.rsvr_time, p.p_content
     		, p_tt_price, ss.s_code, sc.t_name, sc.ss_time, rr.rs_count, rr.rs_num, r.non_name
-    		, m.movieNm, p.p_method, p.p_ex_price, p.p_tt_price, p.p_time
+    		, m.movieNm, p.p_method, p.p_ex_price, p.p_tt_price, p.p_time, m.movieCd, m.m_file
    		FROM reserver r
     	INNER JOIN reservation rr
     	ON r.rsvr_code = rr.rsvr_code

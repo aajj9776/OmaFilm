@@ -14,26 +14,25 @@
 <jsp:include page="/jsp/header/header.jsp"/>
 <div class="screen">
     <div class="overlap-wrapper">
-        <div class="list-search">
-            <div class="overlap-2">
-                <div class="container-2">
-                    <div class="label">구분</div>
-                    <div class="label-2">
-                        <div class="text-wrapper-5">예매내역</div>
-                    </div>
-                    <div class="label-3">
-                        <div class="text-wrapper-5">지난내역</div>
-                    </div>
-                </div>
-                <button class="button">
-                    <div class="text-wrapper-6">조회</div>
-                </button>
-            </div>
-        </div>
         <div class="overlap">
             <div class="container">
-
                 <div class="content">
+                    <div class="list-search">
+                        <div class="overlap-2">
+                            <div class="container-2">
+                                <div class="label">구분</div>
+                                <label class="label-2">
+                                    <input type="radio" id="before" class="text-wrapper-5"/>예매내역
+                                </label>
+                                <label class="label-3">
+                                    <input type="radio" id="after" class="text-wrapper-5"/>지난내역
+                                </label>
+                            </div>
+                            <button class="button">
+                                조회
+                            </button>
+                        </div>
+                    </div>
                     <div class="tit">예매/취소내역</div>
                     <div class="bokdlist">
                         <div class="p-2">총 ${cnt }건</div>
@@ -51,7 +50,7 @@
                                         <tbody class="tbody">
                                         <tr class="tr">
                                             <th class="th">관람일시</th>
-                                            <td class="td">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${vo.rsvr_time }</td>
+                                            <td class="td">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${vo.ssvo.ss_time }</td>
 
                                         </tr>
                                         <tr class="tr-2">
@@ -130,18 +129,18 @@
                         </th>
                         </thead>
                         <tbody class="tbody-2">
-                        
+
                         <c:set var="len" value="${fn:length(cancel_list)}" />
-                      <c:if test="${page.end<=len}">
-                         <c:set var="end" value="${page.end}"/>
-                      </c:if>
-                  <c:if test="${page.end>len}">
-                     <c:set var="end" value="${len}" />
-                  </c:if>
-                  
-                  <c:if test="${page.begin<0}">
-                     <c:set var="begin" value="1" />
-                  </c:if>
+                        <c:if test="${page.end<=len}">
+                            <c:set var="end" value="${page.end}"/>
+                        </c:if>
+                        <c:if test="${page.end>len}">
+                            <c:set var="end" value="${len}" />
+                        </c:if>
+
+                        <c:if test="${page.begin<0}">
+                            <c:set var="begin" value="1" />
+                        </c:if>
 
                         <c:forEach items="${cancel_list}" var="item">
                             <tr class="tbody-2_tr">
@@ -168,43 +167,43 @@
                         </tbody>
                     </table>
                     <div class="nav">
-                  <div>
-                     <ol class="paging">
-                        <c:if test="${page.startPage < page.pagePerBlock}">
-                           <li class="disable">&lt;</li>
-                        </c:if>
-                        <c:if test="${page.startPage >= page.pagePerBlock}">
-                           <li class=""><a
-                              href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
-                        </c:if>
-                        <!-- <div class="nav"> -->
-                        <c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
-                           <c:if test="${i == page.nowPage}">
-                              <li class="now">${i}</li>
-                           </c:if>
-                           <c:if test="${i != page.nowPage}">
-                              <li class=" "><a
-                                 href="Controller?type=myReservation&cPage=${i}">${i}</a></li>
-                           </c:if>
-                        </c:forEach>
+                        <div>
+                            <ol class="paging">
+                                <c:if test="${page.startPage < page.pagePerBlock}">
+                                    <li class="disable">&lt;</li>
+                                </c:if>
+                                <c:if test="${page.startPage >= page.pagePerBlock}">
+                                    <li class=""><a
+                                            href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
+                                </c:if>
+                                <!-- <div class="nav"> -->
+                                <c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
+                                    <c:if test="${i == page.nowPage}">
+                                        <li class="now">${i}</li>
+                                    </c:if>
+                                    <c:if test="${i != page.nowPage}">
+                                        <li class=" "><a
+                                                href="Controller?type=myReservation&cPage=${i}">${i}</a></li>
+                                    </c:if>
+                                </c:forEach>
 
 
-                        <c:if test="${page.endPage < page.totalPage}">
-                           <li class=""><a
-                              href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
-                        </c:if>
-                        <c:if test="${page.endPage >= page.totalPage}">
-                           <li class=" disable">&gt;</li>
-                        </c:if>
+                                <c:if test="${page.endPage < page.totalPage}">
+                                    <li class=""><a
+                                            href="Controller?type=myReservation&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+                                </c:if>
+                                <c:if test="${page.endPage >= page.totalPage}">
+                                    <li class=" disable">&gt;</li>
+                                </c:if>
 
-                     </ol>
-                  </div>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
             <jsp:include page="/jsp/footer/footer.jsp"/>
+        </div>
     </div>
-</div>
 </div>
 <%@ include file="/jsp/reservation/noReservationCheckModal.jsp" %> <!-- 모달창 -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -250,28 +249,28 @@
             modal.css("display", "block");
         });
 
-        
+
         //예매취소버튼
         $(".div-wrapper").click(function () {
-           var confirmCancel = confirm("예매를 취소하시겠습니까?");
-           
-           if (confirmCancel) {
-              var rs_num = $(this).find("input[name=rs_num]").val();
-              
-              var form = document.createElement('form');
-              var objs;
-              
-              objs = document.createElement('input');
-               objs.setAttribute('type', 'hidden');
-               objs.setAttribute('name', 'rs_num');
-               objs.setAttribute('value', rs_num);
-               form.appendChild(objs);
-               
-              form.setAttribute('method', 'post');
-               form.setAttribute('action', 'Controller?type=payCancelNonMem');
-               document.body.appendChild(form);
-               form.submit();
-           }
+            var confirmCancel = confirm("예매를 취소하시겠습니까?");
+
+            if (confirmCancel) {
+                var rs_num = $(this).find("input[name=rs_num]").val();
+
+                var form = document.createElement('form');
+                var objs;
+
+                objs = document.createElement('input');
+                objs.setAttribute('type', 'hidden');
+                objs.setAttribute('name', 'rs_num');
+                objs.setAttribute('value', rs_num);
+                form.appendChild(objs);
+
+                form.setAttribute('method', 'post');
+                form.setAttribute('action', 'Controller?type=payCancelNonMem');
+                document.body.appendChild(form);
+                form.submit();
+            }
 
         });
     });
@@ -304,6 +303,37 @@
             $(".nav").remove();
         }
     });
+
+    $(function () {
+        $(".label-2").click(function () {
+            $(".label-3").find("input").prop("checked", false);
+        });
+        $(".label-3").click(function () {
+            $(".label-2").find("input").prop("checked", false);
+        });
+    });
+
+    //아이디가 before인 라디오 버튼을 클릭했을 때 상영시간 전 나의 예매내역을 보여준다
+    //아이디가 after인 라디오 버튼을 클릭했을 때 상영시간 후 나의 예매내역을 보여준다
+
+    $(function () {
+        $(".button").click(function () {
+            if ($("#before").prop("checked")) {
+                location.href = "Controller?type=myReservation";
+            } else if ($("#after").prop("checked")) {
+                location.href = "Controller?type=myReservation&after=after";
+            }
+        });
+    });
+
+    // before, 가 선택된 상태에서 조회버튼을 누르면 리퀘스트에서 pastScreenings을 가져와서 list에 저장한다
+    // after, 가 선택된 상태에서 조회버튼을 누르면 리퀘스트에서 futureScreenings을 가져와서 list에 저장한다
+
+
+
+
+
+
 
 
 

@@ -5,8 +5,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminMovieStyle.css" />
+    <link rel="stylesheet" href="css/admin/adminMovieGlobals.css" />
+    <link rel="stylesheet" href="css/admin/adminMovieStyle.css" />
   </head>
   <body>
     <div class="DB">

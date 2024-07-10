@@ -719,6 +719,7 @@
   border-radius: 5px;
   overflow: hidden;
   border: 1px solid;
+  cursor: pointer;
 }
 
 .div-wrapper .text-wrapper-12 {
@@ -746,6 +747,7 @@
   overflow: hidden;
   border: 1px solid;
   border-color: #595959;
+  cursor: pointer;
 }
 
 .div-wrapper .text-wrapper-13 {

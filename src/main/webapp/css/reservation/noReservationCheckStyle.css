@@ -492,19 +492,18 @@
 }
 
 .screen .label-2 {
-  left: 93px;
-  position: absolute;
+  position: relative;
   width: 91px;
   height: 27px;
-  top: 0;
+  top: 8px;
+  left: 118px;
 }
 
 .screen .text-wrapper-5 {
   width: 60px;
   height: 15px;
-  top: 5px;
-  left: 31px;
-  font-family: "Inter", Helvetica;
+  top: -2px;
+  left: -58px;
   font-weight: 600;
   color: #000000;
   font-size: 15px;
@@ -515,39 +514,29 @@
 }
 
 .screen .label-3 {
-  left: 233px;
-  position: absolute;
+  position: relative;
   width: 91px;
   height: 27px;
-  top: 0;
+  top: 8px;
+  left: -27px;
 }
 
 .screen .button {
   position: relative;
   width: 61px;
   height: 28px;
-  top: 8px;
-  left: 400px;
+  left: 357px;
+  top: 3px;
   background-color: #ffffff;
   border-radius: 5px;
   overflow: hidden;
   border: 1px solid;
   border-color: #c8c8c8;
-}
-
-.screen .text-wrapper-6 {
-  width: 53px;
-  height: 23px;
-  top: 0;
-  left: -2px;
-  font-family: "Inter", Helvetica;
   font-weight: 400;
   color: #000000;
   font-size: 15px;
   text-align: center;
-  line-height: 34px;
-  white-space: nowrap;
-  position: absolute;
+  line-height: 28px;
   letter-spacing: 0;
 }
 

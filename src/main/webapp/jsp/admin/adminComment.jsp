@@ -9,8 +9,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminCommentstyle.css" />
+    <link rel="stylesheet" href="css/admin/adminCommentglobals.css" />
+    <link rel="stylesheet" href="css/admin/adminCommentstyle.css" />
   </head>
   <body>
     <div class="element">

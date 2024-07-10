@@ -1647,4 +1647,6 @@
   font-weight: bold;
   margin-bottom: 10px;
   text-align: center; /* 텍스트를 가운데 정렬합니다. */
+  position: relative;
+  left: 20px;
 }

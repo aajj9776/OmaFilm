@@ -44,6 +44,6 @@ public class HomeAction implements Action {
 		request.setAttribute("far", far);
 		request.setAttribute("page", page);
 		
-		return "/jsp/serviceCenter/home.jsp";
+		return "jsp/serviceCenter/home.jsp";
 	}
 }

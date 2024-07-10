@@ -7,8 +7,8 @@
 <html> 
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/adminCoupon/add_style.css" />
+    <link rel="stylesheet" href="css/adminCoupon/add_globals.css" />
+    <link rel="stylesheet" href="css/adminCoupon/add_style.css" />
   </head>
   <body>
     <div class="screen">

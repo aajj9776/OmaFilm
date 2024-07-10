@@ -69,7 +69,6 @@
           <button class="button-12"><div class="text-wrapper-18">전체</div></button>
           <button class="button-13"><div class="text-wrapper-19">특별관</div></button>
         </div>
-
         <button class="button-14"><div class="text-wrapper-22" id="sb">등록</div></button>
       </div>
     </div>

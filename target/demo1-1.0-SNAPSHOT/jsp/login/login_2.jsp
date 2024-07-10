@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +15,12 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css" />
 </head>
 <body>
+<c:if test="${not empty sessionScope.nloginMessage}">
+    <script>
+      alert("${sessionScope.nloginMessage}");
+      <% session.removeAttribute("nloginMessage"); %>
+    </script>
+  </c:if>
 <div class="login_2">
     <div class="div">로그인</div>
     <jsp:include page="../header/header.jsp"/>
