@@ -25,11 +25,10 @@ public class CheckPwAction implements Action {
 	                return "/jsp/myPage/personInfor.jsp";
 	            } else {
 	                // 비밀번호 불일치 또는 입력되지 않음: 오류 메시지 설정 후 본인확인 페이지로 이동
-	                request.setAttribute("errorMessage", "비밀번호가 일치하지 않습니다.");
+	                request.setAttribute("check", 1);
 	                return "/jsp/myPage/checkPw.jsp";
 	            }
 	        } else {
-	            request.getSession().setAttribute("loginErrorMessage", "로그인이 필요한 서비스입니다.");
 	            return "/jsp/login/login_1.jsp";
 	        }
 	    }

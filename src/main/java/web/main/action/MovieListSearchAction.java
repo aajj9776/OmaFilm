@@ -20,10 +20,6 @@ public class MovieListSearchAction implements Action {
 		String movieNm = request.getParameter("movieNm");
 		String type = request.getParameter("type");
 
-		 if (movieNm != null) {
-			 movieNm = movieNm.replaceAll("\\s+", "");
-		    }
-
 		//전체페이지 수를 구하기
 		page.setTotalRecode(MovieListDAO.getsearchCount(movieNm));
 

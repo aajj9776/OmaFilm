@@ -83,6 +83,7 @@
         <img class="line" src="img/line-2.svg" />
         <div class="text-wrapper-9">영화 추가</div>
         <jsp:include page="/jsp/admin/menu/menu.jsp"></jsp:include>
+        
       </div>
     </div>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -294,7 +295,7 @@ $(function() {
        let file = $(".input").val()
        $("#fileData").val(file)
        console.log(file)
-       
+
        $("#add").submit(); // form을 submit하는 코드입니다.
    });
 
@@ -302,7 +303,7 @@ $(function() {
         location.href = "Controller?type=adminMovieApi";
     });
 });
-   
+
 
 // 모달창 열기
 function showDialog() {
@@ -318,7 +319,7 @@ function closeDialog() {
 const settings = {
      async: true,
      crossDomain: true,
-     
+
      url: 'https://api.themoviedb.org/3/search/movie?query=${movie.movieNm}&include_adult=false&language=ko-KR&page=1&year=${movie.openDt.substring(0,4)}',
      method: 'GET',
      headers: {
@@ -341,7 +342,7 @@ const settings = {
      $(".input").val(posterPath);
      $("#area").val(overview);
    });
-   
+
    //아이디가 로그아웃을 클릭했을때 로그아웃할거냐고 경고창
     document.querySelector('#logout').addEventListener('click', function(event) {
         var confirmLogout = confirm("로그아웃하시겠습니까?");

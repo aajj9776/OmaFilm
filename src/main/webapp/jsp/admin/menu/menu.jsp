@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/globals.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/adminMovieStyle.css" />
 <div class="div-sidebar">
-  <img class="element" src="img/adminMovie/1.png"/>
+  <img class="element" src="img/adminMovieImg/1.png"/>
   <div class="item-link-wrapper">
   <div class="text-wrapper-22">관리자</div>
   	<div class="item-link"><div class="text-wrapper-24"><a href="Controller?type=adminMovieDb">영화관리</a></div></div>

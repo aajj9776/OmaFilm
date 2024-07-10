@@ -72,6 +72,15 @@
   background-size: 100% 100%;
 }
 
+.screen .navbar {
+  position: relative;
+  height: 98px;
+  background-color: #00000080;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: #ffffff33;
+}
+
 .screen .link {
   position: absolute;
   width: 46px;
@@ -322,8 +331,8 @@
 }
 
 .screen .text-wrapper-9 {
-  width: 252px;
-  height: 39px;
+  width: 88px;
+  height: 21px;
   top: 8px;
   left: 12px;
   font-family: "Inter", Helvetica;

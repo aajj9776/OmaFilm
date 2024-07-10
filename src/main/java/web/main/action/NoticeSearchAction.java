@@ -22,10 +22,6 @@ public class NoticeSearchAction implements Action {
 		request.getSession().setAttribute("pretype", type);
 		request.getSession().setAttribute("sn_title", n_title);
 		
-		if (n_title != null) {
-			n_title = n_title.replaceAll("\\s+", ""); // 공백 제거
-	    }
-		
 		//전체페이지 수를 구하기
 		page.setTotalRecode(NoticeDAO.getsearchCount(n_title));
 		

@@ -91,7 +91,6 @@
         $(".button-2").attr("disabled", true);
         $(".button-3").attr("disabled", true);
         $(".input-2").attr("disabled", true);
-        $('.button').attr("disabled", true);
         $(".input-2").css("background-color", "#f2f2f2");
         $(".background-border").css("background-color", "#f2f2f2");
     }

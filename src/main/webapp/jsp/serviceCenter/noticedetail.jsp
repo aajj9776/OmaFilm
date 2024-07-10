@@ -14,7 +14,11 @@
     <div class="div-wrapper">
       <div class="container-wrapper">
         <div class="container">
+          <jsp:include page="/jsp/footer/footer.jsp"/>
+          <div class="overlap-group">
+              <img class="overlay" src="${pageContext.request.contextPath}/img/serviceCenter/noticedetail/overlay.svg" />
              <jsp:include page="/jsp/header/header.jsp"/>
+            </div>
           <div class="heading">공지사항 상세보기</div>
           <div class="background">
             <div class="overlap">
@@ -25,7 +29,7 @@
                   <div class="item-link-2"><div class="text-wrapper-10"><a href="Controller?type=faq">자주 묻는 질문</a></div></div>
                   <div class="link-9"><div class="text-wrapper-11"><a href="Controller?type=directions">오시는 길</a></div></div>
                   <div class="item-link-3"><div class="text-wrapper-12"><a href="Controller?type=notice"><%--공지사항 --%></a></div></div>
-                  <div class="link-10"><div class="text-wrapper-13"><a href="Controller?type=sinquiry" id="my_12">1:1문의</a></div></div>
+                  <div class="link-10"><div class="text-wrapper-13"><a href="Controller?type=sinquiry">1:1문의</a></div></div>
                 </div>
               </div>
             </div>
@@ -44,8 +48,8 @@
                 </div>
                 <div class="data">
                 <div class="input-2">
-                   <fmt:parseDate value="${nvo.n_time}" pattern="yyyy-MM-dd HH:mm:ss" var="parsedDate"/>
-                <fmt:formatDate value="${parsedDate}" pattern="yyyy.MM.dd" />
+	                <fmt:parseDate value="${nvo.n_time}" pattern="yyyy-MM-dd HH:mm:ss" var="parsedDate"/>
+	    			<fmt:formatDate value="${parsedDate}" pattern="yyyy.MM.dd" />
                 </div>
                 </div>
               </div>
@@ -67,5 +71,4 @@
       </div>
     </div>
   </body>
-  <jsp:include page="/jsp/footer/footer.jsp"/>
 </html>
