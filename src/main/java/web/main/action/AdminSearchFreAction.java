@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import web.main.util.Paging;
 import web.mybatis.dao.AdminDAO;
 import web.mybatis.vo.NoticeVO;
 
@@ -22,6 +23,19 @@ public class AdminSearchFreAction implements Action {
 
         request.setAttribute("noticeFreList", noticeFreList);
 
+        
+      //rvo 페이징 처리
+  		Paging page = new Paging(10,5);
+  		
+  		String cPage = request.getParameter("cPage");
+  		if(noticeFreList !=null)
+  			page.setTotalRecode(noticeFreList.size());
+  		if(cPage !=null)
+  			page.setNowPage(Integer.parseInt(cPage));
+  		else
+  			page.setNowPage(1);
+  		request.setAttribute("page", page);
+        
         return "jsp/admin/adminFrequently.jsp";
         
 	}

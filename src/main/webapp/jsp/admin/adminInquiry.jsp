@@ -30,7 +30,7 @@
               <div class="list">
                 <div class="item">
                   <div class="link">
-                    <div class="div" id="logout"><a href="${pageContext.request.contextPath}/Controller?type=logout">로그아웃</a></div>
+                    <div class="div">로그아웃</div>
                     <div class="pseudo"></div>
                   </div>
                 </div>
@@ -38,46 +38,46 @@
             </div>
            
            <div class="frame-2">   <!-- 페이징 시작 -->
-				<div>
-					<ol class="paging">
-						<c:if test="${page.startPage < page.pagePerBlock}">
-							<li class="disable">&lt;</li>
-						</c:if>
-						<c:if test="${page.startPage >= page.pagePerBlock}">
-							<li class=""><a
-								href="Controller?type=adminInquiry&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
-						</c:if>
-						<!-- <div class="nav"> -->
-						<c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
-							<c:if test="${i == page.nowPage}">
-								<li class="now">${i}</li>
-							</c:if>
-							<c:if test="${i != page.nowPage}">
-								<li class=" "><a
-									href="Controller?type=adminInquiry&cPage=${i}">${i}</a></li>
-							</c:if>
-						</c:forEach>
+            <div>
+               <ol class="paging">
+                  <c:if test="${page.startPage < page.pagePerBlock}">
+                     <li class="disable">&lt;</li>
+                  </c:if>
+                  <c:if test="${page.startPage >= page.pagePerBlock}">
+                     <li class=""><a
+                        href="Controller?type=adminInquiry&cPage=${page.nowPage - page.pagePerBlock}">&lt;</a></li>
+                  </c:if>
+                  <!-- <div class="nav"> -->
+                  <c:forEach begin="${page.startPage }" end="${page.endPage}" var="i">
+                     <c:if test="${i == page.nowPage}">
+                        <li class="now">${i}</li>
+                     </c:if>
+                     <c:if test="${i != page.nowPage}">
+                        <li class=" "><a
+                           href="Controller?type=adminInquiry&cPage=${i}">${i}</a></li>
+                     </c:if>
+                  </c:forEach>
 
 
-						<c:if test="${page.endPage < page.totalPage}">
-							<li class=""><a
-								href="Controller?type=adminInquiry&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
-						</c:if>
-						<c:if test="${page.endPage >= page.totalPage}">
-							<li class=" disable">&gt;</li>
-						</c:if>
+                  <c:if test="${page.endPage < page.totalPage}">
+                     <li class=""><a
+                        href="Controller?type=adminInquiry&cPage=${page.nowPage - page.pagePerBlock}">&gt;</a></li>
+                  </c:if>
+                  <c:if test="${page.endPage >= page.totalPage}">
+                     <li class=" disable">&gt;</li>
+                  </c:if>
 
-					</ol>
-				</div>
-			</div>   <!-- 페이징 끝 -->
+               </ol>
+            </div>
+         </div>   <!-- 페이징 끝 -->
            
             <form id="searchForm" method="post" action="Controller?type=adminSearchInquiry">
-           		<div class="button">
-						<select id="searchCategory" name="searchCategory" class="text-wrapper-5">
-							<option value="iq_title">제목</option>
-							<option value="iq_content">내용</option>
-						</select>
-				</div>
+                 <div class="button">
+                  <select id="searchCategory" name="searchCategory" class="text-wrapper-5">
+                     <option value="iq_title">제목</option>
+                     <option value="iq_content">내용</option>
+                  </select>
+            </div>
             <div class="border">
               <div class="input">
                 <div class="container-2">
@@ -96,7 +96,7 @@
             <div class="view-3"><div class="text-wrapper-11">1:1 문의</div></div>
             <a href="Controller?type=adminFrequently" class="view"><div class="text-wrapper-9">자주 묻는 질문</a></div>
             <a href="Controller?type=adminNotice" class="element"><div class="text-wrapper-10">공지사항</a></div>
-			</div>
+         </div>
 
             <div class="heading">고객센터 관리</div>
             <div class="table">
@@ -114,41 +114,41 @@
               <!-- row 뒤 숫자에 신경쓸 필요 없음 -->
               <c:if test="${not empty inquiryList}">
               <c:set var="len" value="${fn:length(inquiryList)}" />
-	                <c:if test="${page.end<=len}">
-	                	<c:set var="end" value="${page.end}"/>
-	                </c:if>
-					<c:if test="${page.end>len}">
-						<c:set var="end" value="${len}" />
-					</c:if>
-						
-					<c:forEach var="i" begin="${page.begin}" end="${ end}" varStatus="status">
+                   <c:if test="${page.end<=len}">
+                      <c:set var="end" value="${page.end}"/>
+                   </c:if>
+               <c:if test="${page.end>len}">
+                  <c:set var="end" value="${len}" />
+               </c:if>
+                  
+               <c:forEach var="i" begin="${page.begin}" end="${ end}" varStatus="status">
               
-    				
-            		<div class="row-${status.count}">
-    				<div class="overlap-group-3">
+                
+                  <div class="row-${status.count}">
+                <div class="overlap-group-3">
                       <div class="data"><div class="text-wrapper-17" name="iq_idx">${inquiryList[i-1].iq_idx}</div></div>
                        <div class="data-2"><a href="Controller?type=adminComment&iq_idx=${inquiryList[i-1].iq_idx}" class="p" name="title">${inquiryList[i-1].iq_title}</a></div>
                       <div class="data-4"><div class="text-wrapper-19">${inquiryList[i-1].u_code } </div></div>
                       
                       <c:if test="${inquiryList[i-1].icvo == null}">
-						    <div class="data-5"><div class="text-wrapper-19">답변 미완료</div></div>
-						</c:if>
-						<c:if test="${inquiryList[i-1].icvo != null}">
-						    <div class="data-5"><div class="text-wrapper-19">답변 완료</div></div>
-						</c:if>
-						
-						
-						
+                      <div class="data-5"><div class="text-wrapper-19">답변 미완료</div></div>
+                  </c:if>
+                  <c:if test="${inquiryList[i-1].icvo != null}">
+                      <div class="data-5"><div class="text-wrapper-19">답변 완료</div></div>
+                  </c:if>
+                  
+                  
+                  
                     <div class="data-3"><div class="text-wrapper-8">${inquiryList[i-1].iq_time}</div></div>
                     </div>
                     <div class="rectangle-wrapper">
                     
-                    	<c:if test="${inquiryList[i-1].icvo == null}">
-						    <input type="radio" class="rectangle" name="deleteiqIds" value="${inquiryList[i-1].iq_idx}"/></div>
-						</c:if>
-						<c:if test="${inquiryList[i-1].icvo != null}">
-						    <input type="radio" class="rectangle" name="deleteiqIds" value="${inquiryList[i-1].iq_idx}" disabled/></div>
-						</c:if>
+                       <c:if test="${inquiryList[i-1].icvo == null}">
+                      <input type="radio" class="rectangle" name="deleteiqIds" value="${inquiryList[i-1].iq_idx}"/></div>
+                  </c:if>
+                  <c:if test="${inquiryList[i-1].icvo != null}">
+                      <input type="radio" class="rectangle" name="deleteiqIds" value="${inquiryList[i-1].iq_idx}" disabled/></div>
+                  </c:if>
                     
                     
                     </div>
@@ -161,13 +161,10 @@
           </div>
         </div>
       </div>
-      <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-        crossorigin="anonymous"></script>
       <script>
       function executeSearch() {
-    	    document.getElementById("searchForm").submit();
-    	}
+           document.getElementById("searchForm").submit();
+       }
       function checkAnswer() {
           var checkboxes = document.querySelectorAll('input[name="deleteiqIds"]:checked');
           if (checkboxes.length == 1) {
@@ -179,26 +176,6 @@
             alert("항목을 선택해주세요.");
           }
       }
-      $(function() {
-          let audiAcc = ${count};
-
-          $('.movie-link').each(function() {
-              let path = $(this).attr('href');
-              if (path) { // href 값이 존재하는 경우에만 처리
-                  path += "&audiAcc=" + audiAcc; // audiAcc 값을 추가
-                  $(this).attr('href', path); // 수정된 URL을 href 속성에 설정
-              }
-          });
-      });
-      
-    //아이디가 로그아웃을 클릭했을때 로그아웃할거냐고 경고창
-      document.querySelector('#logout').addEventListener('click', function(event) {
-          var confirmLogout = confirm("로그아웃하시겠습니까?");
-          if (!confirmLogout) {
-              // 사용자가 취소를 클릭하면 이벤트를 중단합니다.
-              event.preventDefault();
-          }
-      });
       </script>
   </body>
 </html>
