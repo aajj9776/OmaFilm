@@ -10,7 +10,7 @@ public class SInquiryAction implements Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
-		return "/jsp/serviceCenter/inquiry.jsp";
+		return "jsp/serviceCenter/inquiry.jsp";
 	}
 
 }

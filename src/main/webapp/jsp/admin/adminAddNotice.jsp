@@ -25,53 +25,39 @@
               </div>
             </div>
             <div class="heading">공지사항 등록</div>
-					<form action="Controller?type=adminAddNotice" method="post">
-
-						<div class="frame-2">
-							<button type="submit" class="text-wrapper-2"
-								onclick="handleSubmit()" value="adminAddNotice">등록</button>
-						</div>
-						<div class="frame-3" id="list-link">
-							<div class="text-wrapper-3">목록</div>
-						</div>
-						<div class="row">
-							<div class="cell">
-								<p class="label">
-									<span class="span">제목 </span> <span class="text-wrapper-4">*</span>
-								</p>
-							</div>
-							<div class="overlap-group">
-								<input type="text" class="input" name="title" required />
-							</div>
-						</div>
-						<div class="row-2">
-							<div class="label-wrapper">
-								<p class="p">
-									<span class="span">등록일 </span> <span class="text-wrapper-4">*</span>
-								</p>
-							</div>
-							<div class="data">
-								<div class="input-2" id="current-date"></div>
-							</div>
-						</div>
-						<div class="row-3">
-							<div class="cell-2">
-								<p class="label-2">
-									<span class="span">내용 </span> <span class="text-wrapper-4">*</span>
-								</p>
-							</div>
-							<div class="border-wrapper">
-								<div class="border">
-									<textarea class="textarea" id="content" name="content"
-										maxlength="2000" oninput="updateCharCount()" required></textarea>
-									<div class="container">
-										<div class="text-wrapper-5" id="char-count">0 / 2000</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</form>
-				</div>
+            <form action="Controller?type=adminAddNotice" method="post">
+            
+            <div class="frame-2">
+            <button type="submit" class="text-wrapper-2"
+             onclick="return handleSubmit()" value="adminAddNotice">등록</button></div>
+            <div class="frame-3" id="list-link"><div class="text-wrapper-3">목록</div></div>
+            <div class="row">
+              <div class="cell">
+                <p class="label"><span class="span">제목 </span> <span class="text-wrapper-4">*</span></p>
+              </div>
+              <div class="overlap-group">
+              <input type="text" class="input" name="title" required />
+              </div>
+            </div>
+            <div class="row-2">
+              <div class="label-wrapper">
+                <p class="p"><span class="span">등록일 </span> <span class="text-wrapper-4">*</span></p>
+              </div>
+              <div class="data"><div class="input-2" id="current-date"></div></div>
+            </div>
+            <div class="row-3">
+              <div class="cell-2">
+                <p class="label-2"><span class="span">내용 </span> <span class="text-wrapper-4">*</span></p>
+              </div>
+              <div class="border-wrapper">
+                <div class="border">
+                  <textarea class="textarea" id="content" name="content" maxlength="2000" oninput="updateCharCount()" required></textarea>
+                  <div class="container"><div class="text-wrapper-5" id="char-count"> 0 / 2000</div></div>
+                </div>
+              </div>
+            </div>
+            </form>
+          </div>
           <div class="div-sidebar">
             <img class="element" src="img/adminNotice/1.png" />
             <div class="text-wrapper-6">관리자</div>

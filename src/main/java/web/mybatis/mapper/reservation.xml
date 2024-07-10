@@ -85,13 +85,15 @@
 	
 	<resultMap type="web.mybatis.vo.ScreeningScheduleVO" id="map2">
 		<association property="mvo" column="web.mybatis.vo.MovieListVO">
-			<result property="movieNm" column="movieNm" />
-			<result property="watchGradeNm" column="watchGradeNm" />
+			<result property="movieNm" column="movieNm"/>
+			<result property="watchGradeNm" column="watchGradeNm"/>
+			<result property="movieCd" column="movieCd"/>
 		</association>
 	</resultMap>
 	
 	<select id="selectByText" resultMap="map2">
-		SELECT DISTINCT movieNm,watchGradeNm FROM screening_schedule sc
+		SELECT DISTINCT movieNm,watchGradeNm, m.movieCd  
+		FROM screening_schedule sc
         INNER JOIN movie_list m 
         ON sc.movieCd = m.movieCd
 		

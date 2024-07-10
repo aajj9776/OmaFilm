@@ -49,7 +49,7 @@ public class MovieListSearchAction implements Action {
 		request.setAttribute("cnt", cnt);
 		request.setAttribute("type", type);
 
-		return "/jsp/movie/movieList.jsp";
+		return "jsp/movie/movieList.jsp";
 	}
 
 }

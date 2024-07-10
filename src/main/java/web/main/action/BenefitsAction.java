@@ -22,7 +22,7 @@ public class BenefitsAction implements Action {
 		request.setAttribute("bar", bar);
 		request.setAttribute("cnt", cnt);
 
-		return "/jsp/event/benefits.jsp";
+		return "jsp/event/benefits.jsp";
 
 	}
 
