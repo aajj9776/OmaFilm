@@ -153,8 +153,12 @@
              let selectMovie = $(`[data-movieCd='${param.movieCd}']`);
                  movieName = selectMovie.text();
                  selectMovie.css('background-color', '#C0C0C0');
-                 
          }
+         $(".name").click(function(){
+	            movieName = $(this).text()
+	            console.log(movieName)
+	             check(this, '.movie', '#C0C0C0',2); // 영화 선택 시 배경색 변경
+        })
 
          },    error: function(err) {        
             
@@ -198,9 +202,7 @@
             }
         });
      }
-     
-     
-     
+	     
    //선택확인
    function check(element, selector, color, type){
        if (checkClick) {

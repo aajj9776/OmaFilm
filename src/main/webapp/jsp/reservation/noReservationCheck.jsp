@@ -19,7 +19,6 @@
                 <div class="content">
                     <div class="tit">예매/취소내역</div>
                     <div class="bokdlist">
-                        <div class="p-2">총 ${cnt }건</div>
                         <c:forEach var="vo" items="${list }">
                             <div class="li">
                                 <div class="round">
