@@ -19,10 +19,8 @@ public class ReservationDAO {
 	
 	public static ScreeningScheduleVO selectScreen(ScreeningScheduleVO sc) {
 		SqlSession ss = FactoryService.getFactory().openSession();
-		
 		ScreeningScheduleVO ar = ss.selectOne("screeningSchedule.selectReservationInfo", sc);
 		
-		ss.close();
 		return ar;
 	}
 	
