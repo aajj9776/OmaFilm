@@ -18,6 +18,11 @@ public class MovieListSearchAction implements Action {
 		Paging page = new Paging(20, 5);
 		String cPage = request.getParameter("cPage");
 		String movieNm = request.getParameter("movieNm");
+		String type = request.getParameter("type");
+
+		 if (movieNm != null) {
+			 movieNm = movieNm.replaceAll("\\s+", "");
+		    }
 
 		//전체페이지 수를 구하기
 		page.setTotalRecode(MovieListDAO.getsearchCount(movieNm));
@@ -42,8 +47,9 @@ public class MovieListSearchAction implements Action {
 		request.setAttribute("mar", mar);
 		request.setAttribute("page", page);
 		request.setAttribute("cnt", cnt);
+		request.setAttribute("type", type);
 
-		return "/jsp/movie/movieList.jsp";
+		return "jsp/movie/movieList.jsp";
 	}
 
 }

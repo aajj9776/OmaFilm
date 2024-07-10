@@ -34,19 +34,20 @@
               <div class="row-5">
                 <div class="label-wrapper"><div class="label-5">이름</div></div>
                 <div class="data-2">
-                  <input type="text" id="name" name="name" class="input-5" placeholder="이름을 입력해주세요">
+                  <input type="text" id="nonName" name="nonName" class="input-5" placeholder="이름을 입력해주세요">
                 </div>
               </div>
               <div class="row-6">
                 <div class="label-wrapper"><div class="label-4">비밀번호</div></div>
                 <div class="data-2">
-                  <input type="password" id="pw" name="pw" placeholder="비밀번호를 입력해주세요" class="input-5">
+                  <input type="password" id="nonPw" name="nonPw" placeholder="비밀번호를 입력해주세요" class="input-5">
                 </div>
               </div>
               <div class="row-7">
-                <div class="label-wrapper"><div class="label-4">비밀번호 확인</div></div>
-                <div class="data-2">
-                  <input type="password" id="pw2" name="pw2" placeholder="비밀번호를 다시 입력해주세요" class="input-5">
+                <div class="data1"><div class="dd">비밀번호 확인</div></div>
+                <div class="data22">
+                  <input type="password" id="pw1" name="pw1" placeholder="비밀번호를 다시 입력해주세요" class="input-5"><br>
+                  <span class="checkPw"></span>
                 </div>
               </div>
               
@@ -62,8 +63,6 @@
 				<input type="hidden" id="non_email" name="non_email" value="">
 				<input type="hidden" id="non_pw" name="non_pw" value="">
 			</form>
-        
-              
             </div>
           </div>
       </div>

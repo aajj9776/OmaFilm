@@ -18,7 +18,7 @@ public class ReservationAction implements Action{
 		String time = request.getParameter("time");
 		String date = request.getParameter("date");
 		System.out.println("영화제목"+text);
-
+		
 		ScreeningScheduleVO sc = new ScreeningScheduleVO();
 		sc.setT_name(text);
 		StringBuffer sb = new StringBuffer();
@@ -27,7 +27,7 @@ public class ReservationAction implements Action{
 		sb.append(time);
 		sc.setSs_time(sb.toString());
 		System.out.println(sb.toString());
-
+		
 		ScreeningScheduleVO ssvo = ReservationDAO.selectScreen(sc);
 		System.out.println("ssvo" + ssvo);
 

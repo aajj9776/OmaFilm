@@ -23,7 +23,7 @@
   width: 1920px;
   height: 220px;
   top: 1500px;
-  left: 0;
+  left: 950px;
   object-fit: cover;
 }
 
@@ -550,6 +550,9 @@
   background-color: #ffffff;
   border: 1px solid;
   border-color: #d8d9db;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
 }
 
 .screen .label-wrapper {
@@ -595,10 +598,13 @@
   width: 919px;
   height: 32px;
   top: 8px;
-  left: 14px;
+  left: 15px;
   background-color: #ffffff;
   border: 1px solid;
   border-color: #d8d9db;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
 }
 
 .screen .cell-2 {
@@ -651,11 +657,14 @@
 
 .screen .textarea {
   position: relative;
-  width: 919px;
-  height: 232px;
-  top: 2px;
-  left: 1px;
+  width: 908px;
+  height: 222px;
+  top: 8px;
+  left: 7px;
   background-color: #ffffff;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
 .screen .container-2 {

@@ -7,7 +7,7 @@
 <%@page import="web.mybatis.vo.IssuedCouponVO"%>
 <%@page import="web.mybatis.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html> 
@@ -53,6 +53,8 @@
 	  seatLength = seat.length;
 	  
   }
+  MovieListVO movieVO = (MovieListVO) request.getAttribute("movieVO");
+  request.setAttribute("movieVO", movieVO);
 %>
 <head>
   <meta charset="utf-8" />
@@ -60,6 +62,7 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/payment/style.css" />
 </head>
 <body>
+<jsp:include page="/jsp/header/header.jsp"/>
 <div class="payment">
   <div class="overlap-wrapper">
     <div class="overlap">
@@ -121,7 +124,7 @@
           	</c:if>
           </div>
         </div>
-        <div class="movie-image"></div>
+        <div class="movie-image"><img width="100px" src="${movieVO.m_file }" /></div>
         <c:if test="${requestScope.movieVO.watchGradeNm == '전체관람가' }">
           <img class="age-image" src="img/payment/age_all_img.png" />
         </c:if>
@@ -248,6 +251,7 @@
       <div class="pay-button"><div class="pay-text">결제하기</div></div>
     </div>
   </div>
+<jsp:include page="/jsp/footer/footer.jsp"/>
 </div>
 
 <form action="" method="post">
@@ -260,7 +264,6 @@
   <!-- 최종 금액 -->
   <input type="hidden" id="FinalPrice" name="hiddenFinalPrice" value="<%=finalPrice%>">
 </form>
-
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -269,11 +272,12 @@
 <script>
   let selectedPay;
   let login = <%= login %>;
+  
+  let originalPrice = <%= originalPrice %>;
+  let saleAmount = <%= saleAmount %>;
+  let finalPrice = <%= finalPrice %>;
   $(function(){
-    let originalPrice = <%= originalPrice %>;
-    let saleAmount = <%= saleAmount %>;
-    let finalPrice = <%= finalPrice %>;
-    
+ 
     $('#OriginalPrice').val(originalPrice);
     $('#Discount').val(saleAmount);
     $('#FinalPrice').val(finalPrice);
@@ -371,10 +375,13 @@
 
       input_info('date', '${param.nDate }');
       input_info('time', ' ${param.nTime }');
-
+      input_info('poster', ' ${movieVO.m_file }');
+      
       var saleprice = $('#Discount').val()
       input_info('saleprice', saleprice);
-
+      
+      input_info('payContent', '${payContent}');
+      
       form.setAttribute('method', 'post');
       form.setAttribute('action', 'Controller?type=paycomplete');
       document.body.appendChild(form);
@@ -386,8 +393,8 @@
         var coupon_no = $('#coupon_id').val()
         input_info('cp_no', coupon_no); //쿠폰 발급 번호
         input_info('p_method', rsp.pay_method);
-        input_info('np_content', "안녕"); //DB 저장 내용
-        input_info('np_ex_price', 1); //할인 전 금액
+        input_info('p_content', '${dbContent}'); //DB 저장 내용
+        input_info('p_ex_price', '${param.totalPrice}'); //할인 전 금액
         input_info('p_tt_price', rsp.paid_amount);
         input_info('merchant_uid', rsp.merchant_uid);
 
@@ -405,6 +412,7 @@
 
         input_info('date', '${param.date }');
         input_info('time', ' ${param.time }');
+        input_info('poster', ' ${movieVO.m_file }');
 
         var saleprice = $('#Discount').val()
         input_info('saleprice', saleprice);

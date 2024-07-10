@@ -12,29 +12,7 @@
     <div class="screen">
       <div class="container-wrapper">
         <div class="container">
-          <img class="footer" src="${pageContext.request.contextPath}/img/myPage/personInfor/footer.png" />
-          <div class="frame">
-            <div class="navbar">
-              <div class="link"><div class="text-wrapper">회원가입</div></div>
-              <div class="div-wrapper"><div class="text-wrapper">고객센터</div></div>
-              <div class="div"><div class="text-wrapper-2">관리자</div></div>
-              <div class="text-wrapper-3">로그인</div>
-              <div class="link-2"><div class="text-wrapper">빠른예매</div></div>
-              <img class="img" src="${pageContext.request.contextPath}/img/myPage/personInfor/link.png" />
-              <img class="link-3" src="${pageContext.request.contextPath}/img/myPage/personInfor/link-1.png" />
-              <img class="link-4" src="${pageContext.request.contextPath}/img/myPage/personInfor/link-2.png" />
-              <div class="text-wrapper-4">예매</div>
-              <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                ><div class="text-wrapper-5">영화</div></a
-              >
-              <div class="text-wrapper-6">이벤트</div>
-              <a href="www.naver.com" target="_blank" rel="noopener noreferrer"
-                ><div class="text-wrapper-7">혜택</div></a
-              >
-              <img class="heading-link" src="${pageContext.request.contextPath}/img/myPage/personInfor/heading-1-link.png" />
-              <div class="link-5"></div>
-            </div>
-          </div>
+          <jsp:include page="/jsp/header/header.jsp"/>
           <div class="background">
             <div class="overlap">
               <div class="link-6"><div class="text-wrapper-8">마이페이지</div></div>
@@ -42,9 +20,10 @@
                 <div class="overlap-group">
                   <div class="item-link"><div class="text-wrapper-9"><a href="Controller?type=myHome">마이페이지 홈</a></div></div>
                   <div class="item-link-2"><div class="text-wrapper-10"><a href="Controller?type=myReservation">나의 예매 내역 조회</a></div></div>
+                  <div class="link-cancel"><div class="text-wrapper-cancel"><a href="Controller?type=myCancelReservation">나의 예매 취소 내역조회</a></div></div>
                   <div class="link-7"><div class="text-wrapper-11"><a href="Controller?type=inquiry">나의 문의 내역</a></div></div>
                   <div class="link-8"><div class="text-wrapper-12"><a href="Controller?type=myCoupon">나의 쿠폰 조회</a></div></div>
-                  <div class="item-link-3"><div class="text-wrapper-13"><a href="Controller?type=personInfor">개인 정보 수정</a></div></div>
+                  <div class="item-link-3"><div class="text-wrapper-13"><a href="Controller?type=checkPw"">개인 정보 수정</a></div></div>
                 </div>
               </div>
             </div>
@@ -191,43 +170,38 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
+let checkEmail;
     // 서브밋 함수를 통해 이메일을 합쳐서 SendAction으로 보내준다.
     function submit() {
         var email_1 = $('#email_1').val();
         var email_2 = $('#email_2').val();
         var email_3 = $('#email_3').val();
         var email = email_1 + '@' + email_2;
+	        
+	        $.ajax({
+	                type: "POST",
+	                url: "${pageContext.request.contextPath}/Controller?type=send_2",
+	                data: { email: email },
+	                success: function(data) {
+	                      alert("이메일이 성공적으로 전송되었습니다.");
+	                      setTimeout(function () {
+	                          alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
+	                      }, 3 * 60 * 1000);
+	                 }
+	             });
+	            	 
+            if(check_num == "") {
+                alert("인증번호를 입력해주세요.");
+                return;
+            }
+        
+        
         if(email_2 == '직접입력') {
             email = email_1 + '@' + email_3;
         }
             console.log(email_1)
             console.log(email)
 
-        //유효성 검사
-        if(email_1 == "" || email_2 == "") {
-            alert("이메일을 입력해주세요.");
-            return;
-        }
-
-        // jQuery AJAX를 사용하여 서버에 이메일을 보냅니다.
-        $.ajax({
-            type: "POST",
-            url: "${pageContext.request.contextPath}/Controller?type=send",
-            data: { email: email },
-            success: function(data) {
-            	 data = data.trim();
-                 if (data === "0") {
-                     alert("이메일이 성공적으로 전송되었습니다.");
-
-                     setTimeout(function () {
-                         alert("3분이 지났습니다. 인증번호를 다시 요청해주세요.");
-                     }, 3 * 60 * 1000);
-                 }else if (data === "1") {
-                     alert("가입된 이메일입니다.");
-                     location.href = "${pageContext.request.contextPath}/jsp/login/login_1.jsp";
-                 }
-             }
-         });
      }
     // 인증번호 확인 함수 전제 조건은 3분타이머 이내에 인증번호를 받아야한다
     // 인증번호가 일치하면 일치함을 띄움
@@ -235,12 +209,6 @@
     function check() {
         var code = $("#check_num").val();
         console.log(code);
-
-        //유효성 검사
-        if(check_num == "") {
-            alert("인증번호를 입력해주세요.");
-            return;
-        }
 
         $.ajax({
             type: "POST",
@@ -283,17 +251,19 @@
         });
     });
 
-    //비밀번호 확인
-    $('#pw_check').keyup(function() {
-        var pw = $('#pw').val();
-        var pw_check = $('#pw_check').val();
-        if(pw == pw_check) {
-            $('.text-wrapper-35').text('일치함').css('color', 'blue').show();
-        } else {
-            $('.text-wrapper-35').text('일치하지 않음').css('color', 'red').show();
+    $(document).ready(function() {
+        function checkPasswordMatch() {
+            var pw = $('#pw').val();
+            var pw_check = $('#pw_check').val();
+            if (pw === pw_check) {
+                $('.text-wrapper-35').text('일치함').css('color', 'blue').show();
+            } else {
+                $('.text-wrapper-35').text('일치하지 않음').css('color', 'red').show();
+            }
         }
+        $('#pw, #pw_check').keyup(checkPasswordMatch);
     });
-
+    
     function address(){
         new daum.Postcode({
             oncomplete: function(data) {
@@ -323,7 +293,6 @@
 
     //가입 버튼을 누르면 폼의 정보를 서버로 보내준다.
     function edit() {
-    	console.log("ㅋㅋㅋㅋ")
         var name = $('#name').val();
         var year = $('#year').val();
         var month = $('#month').val();
@@ -384,14 +353,17 @@
             alert("휴대폰 번호를 입력해주세요.");
             return;
         }
-
+	
         if(email_1 == "" || email_2 == "") {
-            alert("이메일을 입력해주세요.");
-            return;
-        }
-
+   	        alert("이메일을 입력해주세요.");
+       	    return;
+       	}
         if(sessionStorage.getItem("emailVerified") !== "true") {
             alert("이메일 인증을 완료해주세요.");
+            return;
+        }
+        if(addr_1 == "" || addr_2 == "" || addr_num == "") {
+            alert("주소를 입력해주세요.");
             return;
         }
 
@@ -399,12 +371,6 @@
             alert("이메일 수신 여부를 체크해주세요.");
             return;
         }
-
-        if(addr_1 == "" || addr_2 == "" || addr_num == "") {
-            alert("주소를 입력해주세요.");
-            return;
-        }
-
 
         $.ajax({
             type: "POST",
@@ -435,7 +401,7 @@
                 }
             }
         });
-    }
+ }
 		    function confirmCancel() {
 		        if (confirm("취소하시면 변경사항은 수정되지 않습니다.\n계속 진행하시겠습니까?")) {
 		            location.href = "Controller?type=myHome"; // 확인 시 마이페이지 홈으로 이동
@@ -514,9 +480,6 @@
 		    
 	   	});
 		
-		  
-	 	 
-   
 	 	 
     	//이메일 가져오기
 	   	$(document).ready(function() {
@@ -568,5 +531,6 @@
 		    });
 		  });
 	</script>
+	<jsp:include page="/jsp/footer/footer.jsp"/>
   </body>
 </html>

@@ -23,7 +23,7 @@
   width: 1920px;
   height: 220px;
   top: 2295px;
-  left: 0;
+  left: 975px;
   object-fit: cover;
 }
 
@@ -303,7 +303,7 @@
 .screen .item-link {
   width: 252px;
   height: 39px;
-  top: 151px;
+  top: 189px;
   background-color: #3d4d55;
   border: 1px solid;
   border-color: #d8d9db;
@@ -357,7 +357,7 @@
   position: absolute;
   width: 252px;
   height: 39px;
-  top: 113px;
+  top: 151px;
   left: 0;
   background-color: #3d4d55;
   border: 1px solid;
@@ -384,7 +384,7 @@
   position: absolute;
   width: 252px;
   height: 39px;
-  top: 75px;
+  top: 113px;
   left: 0;
   background-color: #3d4d55;
   border: 1px solid;
@@ -497,11 +497,17 @@
   color: #444444;
   font-family: "Inter", Helvetica;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: bold;
   cursor: pointer;
   display: flex; /* flexbox 사용 */
   align-items: center; /* 세로 중앙 정렬 */
   gap: 5px; /* 텍스트와 아이콘 사이 간격 */
+  position: relative;
+  left: 18px;
+}
+.more-btn:hover{
+	color: rgb(0, 128, 192);
+	background-color: transparent;
 }
 
 .screen .text-wrapper-15 {
@@ -558,6 +564,7 @@
   font-family: "Inter", Helvetica;
   font-weight: 400;
   color: #000000;
+  /* width: 177px; */
 }
 
 .horizontal-border th {
@@ -575,7 +582,7 @@
 .horizontal-border .text-wrapper-21, 
 .horizontal-border .text-wrapper-24 {
   /* 날짜 셀 스타일 */
-  width: 657px;
+  width: -2745px;
   height: 21px;
   font-family: "Inter", Helvetica;
   font-weight: 400;
@@ -590,17 +597,27 @@
   font-family: "Roboto", Helvetica;
   font-weight: 300;
   font-style: italic;
-  color: #01738b;
+  color: #000000;
   padding-right: 5px; /* 번호와 영화명 사이 간격 */
+  font-weight: bold;
 }
 
 .horizontal-border .text-wrapper-18 {
   color: #444444;
+  text-align: center;
+  /* width: 10px; */
 }
 
 
 .horizontal-border td {
-  width: 305.2px; /* 영화명 셀 너비 */
+   /* 영화명 셀 너비 */
+   height: 51px;
+   /* margin-top: 48px; */
+   /* width: 100px; */
+   padding: 17px;
+   text-align: center;
+   /* margin-left: 7px; */
+   font-weight: bold;
 }
 
 .screen .horizontal-border-3 {
@@ -646,6 +663,9 @@
   font-family: "Inter", Helvetica;
   font-weight: 400;
   color: #000000;
+  text-align: center;
+  /* margin: 29px; */
+  margin-top: 15px;
 }
 
 .horizontal-border-3 th {
@@ -655,8 +675,10 @@
 }
 
 .horizontal-border-3 td {
-  height: 45px; /* 셀 높이 */
+  height: 51px; /* 셀 높이 */
+  /* margin-top: 48px; */
   width: auto; /* 영화명 셀 너비 자동 조절 */
+  padding: 17px;
 }
 
 .horizontal-border-3 .text-wrapper-25, 
@@ -664,15 +686,16 @@
 .horizontal-border-3 .text-wrapper-27, 
 .horizontal-border-3 .text-wrapper-28 {
   /* 날짜 셀 스타일 */
-  width: 840px;
+  width: -219px;
   height: 21px;
   font-family: "Inter", Helvetica;
-  font-weight: 400;
+  /* font-weight: bold; */
   color: #000000;
   font-size: 15px;
   text-align: right;
   letter-spacing: 0;
   line-height: 19.5px;
+  margin-left: -70px;
 }
 
 .horizontal-border-3 .span {
@@ -685,6 +708,8 @@
 
 .horizontal-border-3 .text-wrapper-18 {
   color: #444444;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .screen .overlap-2 {
@@ -753,6 +778,11 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+.overlap-3 .modify-btn:hover {
+	color: rgb(0, 128, 192);
+	background-color: transparent;
+	text-decoration: underline;
 }
 
 .screen .image-2 {
@@ -876,5 +906,30 @@
 .more-btn a{
   color: #444444;
   text-decoration: none;
+}
+
+.screen .link-add {
+  position: absolute;
+  width: 252px;
+  height: 39px;
+  top: 75px;
+  left: -1px;
+  background-color: #3d4d55;
+  border: 1px solid;
+  border-color: #d8d9db;
+}
+.screen .text-wrapper-add {
+  width: 106px;
+  height: 20px;
+  top: 9px;
+  left: 12px;
+  color: #b58863;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 19.5px;
+  position: absolute;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  white-space: nowrap;
 }
  

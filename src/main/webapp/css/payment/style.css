@@ -4,6 +4,9 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  height: auto;
+  position: relative;
+  top: 150px;
 }
 
 .payment .overlap-wrapper {
@@ -419,8 +422,7 @@
   width: 135px;
   height: 154px;
   top: 43px;
-  left: 98px;
-  background-image: url(./img/movieimage.png);
+  left: 110px;
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -438,8 +440,7 @@
   width: 145px;
   height: 16px;
   top: 214px;
-  left: 75px;
-  font-family: "Noto Sans KR", Helvetica;
+  left: 84px;
   font-weight: 500;
   color: #1e1d1d;
   font-size: 20px;
@@ -1309,4 +1310,8 @@
 <!---->
 .selected {
   background-color: #007bff;
+}
+
+.payment .footer{
+ bottom: -250px;
 }
