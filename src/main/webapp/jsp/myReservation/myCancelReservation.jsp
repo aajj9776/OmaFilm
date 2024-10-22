@@ -96,8 +96,8 @@
 										<c:set var="end" value="${len}" />
 									</c:if>
 
-									<c:forEach var="i" begin="${page.begin}" end="${ end}"
-										varStatus="status">
+									<c:set var="beginValue" value="${page.begin != null && page.begin >= 0 ? page.begin : 0}" />
+									<c:forEach var="i" begin="${beginValue}" end="${end}" varStatus="status">
 										<div class="tr-${status.count}">
 											<div class="data-7">
 												<div class="text-wrapper-27">${rvo_cancel[i-1].rs_time.split(" ")[0]}</div>
