@@ -8,10 +8,10 @@
 
 ## 개발 환경
 
-- **운영체제**: Windows 10/11
-- **데이터베이스**: MySQL
-- **서비스 시스템**: Servlet & JSP, MyBatis
-- **사용 언어**: Java 17
+- **OS**: Windows 10/11
+- **Database**: MySQL
+- **Service System**: Servlet & JSP, MyBatis
+- **언어**: Java 17
 
 ## 프로젝트 소개
 
